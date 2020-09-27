@@ -1,5 +1,15 @@
-import React from "react"
+import * as React from "react"
 
-export default function Home() {
-  return <div>Hello world!</div>
+// import PokemonList from "../components/PokemonList"
+// import Pokemon from "../templates/pokemon"
+
+const Home = () => {
+  return (
+    <>
+      <h1>Welcome to Pokédex!</h1>
+      {/* <PokemonList pokemonList={allPokemon} /> */}
+    </>
+  )
 }
+
+export default Home

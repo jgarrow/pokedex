@@ -6,5 +6,14 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  plugins: [
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `Pokeapi`,
+        fieldName: `pokeapi`,
+        url: `http://localhost:4000/`,
+      },
+    },
+  ],
 }
