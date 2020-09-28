@@ -5,6 +5,9 @@ import { graphql, Link } from "gatsby"
 import { motion } from "framer-motion"
 
 import Header from "../components/Header"
+import About from "../components/About"
+
+import pokeball from "../images/pokeball-bg.svg"
 
 import styles from "../styles.css"
 
@@ -45,7 +48,14 @@ const Pokemon = ({
         initial={{ height: "50px", width: "50px" }}
         animate={{ height: "250px", width: "250px" }}
         transition={{ duration: 0.4 }}
-        sx={{ position: "relative", margin: "0 auto" }}
+        sx={{
+          position: "relative",
+          margin: "0 auto",
+          backgroundImage: `url(${pokeball})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "90%",
+          backgroundPosition: "center",
+        }}
       >
         <motion.img
           src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/img/official-artwork/${id}.png`}
@@ -53,6 +63,21 @@ const Pokemon = ({
           sx={{ height: "100%", width: "100%", position: "relative" }}
         />
       </motion.div>
+
+      <section
+        sx={{
+          borderTopLeftRadius: "12px",
+          borderTopRightRadius: "12px",
+          display: "grid",
+          gridGap: "15px",
+          gridTemplateColumns: "1fr",
+          padding: "1rem",
+          overflowY: "scroll",
+          bg: "background",
+        }}
+      >
+        <About pokemon={pokemon} />
+      </section>
     </motion.div>
   )
 }

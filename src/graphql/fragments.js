@@ -44,6 +44,7 @@ export const pokemonFragment = graphql`
 
     capture_rate
     base_experience
+    growth_rate
     base_happiness
 
     locations {
