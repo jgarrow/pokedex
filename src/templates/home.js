@@ -3,6 +3,8 @@ import { AnimatePresence } from "framer-motion"
 
 import PokemonList from "../components/PokemonList"
 
+import styles from "../styles.css"
+
 const Home = ({ pageContext: { allPokemon } }) => {
   console.log("allPokemon: ", allPokemon)
   return (

@@ -1,5 +1,7 @@
 import * as React from "react"
 
+import styles from "../styles.css"
+
 // import PokemonList from "../components/PokemonList"
 // import Pokemon from "../templates/pokemon"
 

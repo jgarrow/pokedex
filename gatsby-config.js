@@ -15,5 +15,6 @@ module.exports = {
         url: `http://localhost:4000/`,
       },
     },
+    "gatsby-plugin-theme-ui",
   ],
 }
