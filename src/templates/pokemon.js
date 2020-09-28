@@ -1,7 +1,12 @@
+/** @jsx jsx */
+import { jsx } from "theme-ui"
 import * as React from "react"
 import { graphql, Link } from "gatsby"
 import { motion } from "framer-motion"
-import styled from "styled-components"
+
+import Header from "../components/Header"
+
+import styles from "../styles.css"
 
 const Pokemon = ({
   data,
@@ -28,24 +33,24 @@ const Pokemon = ({
   return (
     <motion.div
       layoutId={`pokemon-${pokemon.name}`}
-      style={{
+      sx={{
         backgroundColor: dominant_color,
         position: "relative",
         height: "100vh",
         zIndex: 1000,
       }}
     >
-      <Link to="/pokemon">Back</Link>
+      <Header />
       <motion.div
         initial={{ height: "50px", width: "50px" }}
-        animate={{ height: "200px", width: "200px" }}
+        animate={{ height: "250px", width: "250px" }}
         transition={{ duration: 0.4 }}
-        style={{ position: "relative", margin: "0 auto" }}
+        sx={{ position: "relative", margin: "0 auto" }}
       >
         <motion.img
           src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/img/official-artwork/${id}.png`}
           alt={`${pokemon.name}`}
-          style={{ height: "100%", width: "100%", position: "relative" }}
+          sx={{ height: "100%", width: "100%", position: "relative" }}
         />
       </motion.div>
     </motion.div>
