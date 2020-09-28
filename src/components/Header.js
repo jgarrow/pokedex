@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 
 import { RiArrowGoBackFill } from "react-icons/ri"
 
-const Header = () => {
+const Header = ({ name }) => {
   return (
     <header
       sx={{
@@ -17,7 +17,7 @@ const Header = () => {
         alignItems: "center",
       }}
     >
-      <Link to="/pokemon" sx={{ color: "text" }}>
+      <Link to={`/pokemon#${name}`} sx={{ color: "text" }}>
         <RiArrowGoBackFill sx={{ fontSize: "1.5rem" }} />
       </Link>
     </header>

@@ -5,6 +5,7 @@ import { graphql, Link } from "gatsby"
 import { motion } from "framer-motion"
 
 import Header from "../components/Header"
+import Nav from "../components/PokemonNav"
 import About from "../components/About"
 
 import pokeball from "../images/pokeball-bg.svg"
@@ -43,7 +44,7 @@ const Pokemon = ({
         zIndex: 1000,
       }}
     >
-      <Header />
+      <Header name={name} />
       <motion.div
         initial={{ height: "50px", width: "50px" }}
         animate={{ height: "250px", width: "250px" }}
@@ -64,6 +65,7 @@ const Pokemon = ({
         />
       </motion.div>
 
+      <Nav name={name} />
       <section
         sx={{
           borderTopLeftRadius: "12px",
