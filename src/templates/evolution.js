@@ -1,21 +1,75 @@
-import * as React from "react"
-import { graphql, Link } from "gatsby"
+/** @jsx jsx */
+import { jsx } from "theme-ui"
+import { graphql } from "gatsby"
 
 import { getTiers } from "../utils/getEvolutionTiers"
 
-const Pokemon = ({ data, pageContext: { id } }) => {
-  const pokemon = data.pokeapi.pokemon
+import Header from "../components/Header"
+import Nav from "../components/PokemonNav"
+import Evolution from "../components/Evolution"
+
+import pokeball from "../images/pokeball-bg-sm.svg"
+
+import styles from "../styles.css"
+
+const Pokemon = ({ data, pageContext: { id, name, dominant_color } }) => {
+  const pokemon = { ...data.pokeapi.pokemon, name, id }
   console.log(pokemon)
   const tiers = getTiers(pokemon)
 
   console.log("tiers: ", tiers)
 
   return (
-    <>
-      <h1>{pokemon.name}</h1>
-      <Link to={`/pokemon/${pokemon.name}`}>{pokemon.name}</Link>
-      <Link to={`/pokemon/${pokemon.name}/moves`}>Moves</Link>
-    </>
+    <div
+      sx={{
+        backgroundColor: dominant_color,
+        position: "relative",
+        width: "100%",
+        height: "100vh",
+        zIndex: 1000,
+      }}
+    >
+      <Header name={name} />
+      <div
+        sx={{
+          height: "75%",
+          width: "75%",
+          maxWidth: "250px",
+          maxHeight: "250px",
+          position: "relative",
+          margin: "0 auto",
+        }}
+      >
+        <img
+          src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/img/official-artwork/${id}.png`}
+          alt={`${pokemon.name}`}
+          sx={{
+            width: "100%",
+            position: "relative",
+            backgroundImage: `url(${pokeball})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "80%",
+            backgroundPosition: "center",
+          }}
+        />
+      </div>
+
+      <Nav name={name} />
+      <section
+        sx={{
+          borderTopLeftRadius: "12px",
+          borderTopRightRadius: "12px",
+          display: "grid",
+          gridGap: "15px",
+          gridTemplateColumns: "1fr",
+          padding: "1rem",
+          overflowY: "scroll",
+          bg: "background",
+        }}
+      >
+        <Evolution pokemon={pokemon} evolutionTiers={tiers} />
+      </section>
+    </div>
   )
 }
 

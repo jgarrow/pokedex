@@ -1,5 +1,4 @@
 export const getTiers = (currentPokemon, newSelected) => {
-  console.log("currentPokemon : ", currentPokemon)
   const tiers = []
 
   // get to lowest evolution tier pokemon, regardless of whose page we're on
@@ -10,7 +9,6 @@ export const getTiers = (currentPokemon, newSelected) => {
     tiers.push({
       pokemon: [mon],
       selected: 0,
-      // pos: 0
     })
   }
 
@@ -29,13 +27,11 @@ export const getTiers = (currentPokemon, newSelected) => {
         tiers.push({
           pokemon: [...mon.evolves_to],
           selected: newSelected,
-          // pos: newSelected >= 0 ? newSelected * 100 : 0,
         })
       } else {
         tiers.push({
           pokemon: [...mon.evolves_to],
           selected: selected >= 0 ? selected : 0,
-          // pos: selected >= 0 ? newSelected * 100 : 0,
         })
       }
 
