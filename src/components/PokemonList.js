@@ -6,8 +6,6 @@ import { Link, navigate } from "gatsby"
 
 import pokeball from "../images/pokeball-bg-sm.svg"
 
-import styles from "../styles.css"
-
 const container = {
   hidden: { opacity: 1 },
   visible: {
@@ -95,6 +93,7 @@ const PokemonList = ({ pokemonList }) => {
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "80%",
                       backgroundPosition: "center",
+                      filter: "drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.5))",
                     }}
                   />
                 </motion.div>

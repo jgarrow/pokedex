@@ -1,13 +1,11 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 import Header from "../components/Header"
 import Nav from "../components/PokemonNav"
 
 import pokeball from "../images/pokeball-bg-sm.svg"
-
-import styles from "../styles.css"
 
 const TypeIcon = ({ pokemonName, type }) => {
   console.log("type: ", type)
@@ -63,6 +61,7 @@ const PokemonLayout = ({ pokemon, children }) => {
               backgroundRepeat: "no-repeat",
               backgroundSize: "80%",
               backgroundPosition: "center",
+              filter: "drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.5))",
             }}
           />
         </motion.div>
@@ -77,7 +76,8 @@ const PokemonLayout = ({ pokemon, children }) => {
             padding: "0",
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent:
+              pokemon.types.length > 1 ? "space-between" : "center",
             width: "80px",
             margin: "0",
           }}
@@ -106,17 +106,17 @@ const PokemonLayout = ({ pokemon, children }) => {
           overflowY: "scroll",
           bg: "background",
         }}
-        initial={{
-          opacity: 0,
-          y: 40,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          transition: { delay: 0.5 },
-        }}
+        // initial={{
+        //   opacity: 0,
+        //   y: 40,
+        // }}
+        // animate={{
+        //   opacity: 1,
+        //   y: 0,
+        //   transition: { delay: 0.5 },
+        // }}
       >
-        {children}
+        <AnimatePresence>{children}</AnimatePresence>
       </motion.section>
     </motion.div>
   )

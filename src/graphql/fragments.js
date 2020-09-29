@@ -190,560 +190,584 @@ export const pokemonEvolutionDataFragment = graphql`
   }
 `
 
+// export const pokemonMovesFragment = graphql`
+//   fragment PokemonMovesFragment on Pokeapi_Pokemon {
+//     yellow: moves(game: "yellow") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     red: moves(game: "red") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     blue: moves(game: "blue") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     gold: moves(game: "gold") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     silver: moves(game: "silver") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     crystal: moves(game: "crystal") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     ruby: moves(game: "ruby") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     sapphire: moves(game: "sapphire") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     emerald: moves(game: "emerald") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     firered: moves(game: "firered") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     leafgreen: moves(game: "leafgreen") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     diamond: moves(game: "diamond") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     pearl: moves(game: "pearl") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     platinum: moves(game: "platinum") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     heartgold: moves(game: "heartgold") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     soulsilver: moves(game: "soulsilver") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     black: moves(game: "black") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     white: moves(game: "white") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     colosseum: moves(game: "colosseum") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     xd: moves(game: "xd") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     black2: moves(game: "black-2") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     white2: moves(game: "white-2") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     x: moves(game: "x") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     y: moves(game: "y") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     omegaRuby: moves(game: "omega-ruby") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     alphaSapphire: moves(game: "alpha-sapphire") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     sun: moves(game: "sun") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     moon: moves(game: "moon") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     ultraSun: moves(game: "ultra-sun") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//     ultraMoon: moves(game: "ultra-moon") {
+//       name
+//       power
+//       accuracy
+//       pp
+//       priority
+//       ailment
+//       type {
+//         name
+//       }
+//       damage_class
+//       effect_chance
+//       effect
+//       description
+//       learn_methods {
+//         method
+//         level_learned_at
+//       }
+//     }
+//   }
+// `
+
 export const pokemonMovesFragment = graphql`
   fragment PokemonMovesFragment on Pokeapi_Pokemon {
-    yellow: moves(game: "yellow") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    red: moves(game: "red") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    blue: moves(game: "blue") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    gold: moves(game: "gold") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    silver: moves(game: "silver") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    crystal: moves(game: "crystal") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    ruby: moves(game: "ruby") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    sapphire: moves(game: "sapphire") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    emerald: moves(game: "emerald") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    firered: moves(game: "firered") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    leafgreen: moves(game: "leafgreen") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    diamond: moves(game: "diamond") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    pearl: moves(game: "pearl") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    platinum: moves(game: "platinum") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    heartgold: moves(game: "heartgold") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    soulsilver: moves(game: "soulsilver") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    black: moves(game: "black") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    white: moves(game: "white") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    colosseum: moves(game: "colosseum") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    xd: moves(game: "xd") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    black2: moves(game: "black-2") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    white2: moves(game: "white-2") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    x: moves(game: "x") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    y: moves(game: "y") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    omegaRuby: moves(game: "omega-ruby") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    alphaSapphire: moves(game: "alpha-sapphire") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    sun: moves(game: "sun") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    moon: moves(game: "moon") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    ultraSun: moves(game: "ultra-sun") {
-      name
-      power
-      accuracy
-      pp
-      priority
-      ailment
-      type {
-        name
-      }
-      damage_class
-      effect_chance
-      effect
-      description
-      learn_methods {
-        method
-        level_learned_at
-      }
-    }
-    ultraMoon: moves(game: "ultra-moon") {
+    yellow: moves(game: "diamond") {
       name
       power
       accuracy
