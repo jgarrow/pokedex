@@ -55,7 +55,9 @@ const MoveCardFront = ({ move }) => {
         Level
       </label>
       <p sx={gridContent} id="level">
-        {move.learn_methods[0].level_learned_at}
+        {move.learn_methods[0].level_learned_at < 2
+          ? "--"
+          : move.learn_methods[0].level_learned_at}
       </p>
 
       <span sx={rowUnderline} />
