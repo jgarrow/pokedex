@@ -8,7 +8,7 @@ import Header from "../components/Header"
 import Nav from "../components/PokemonNav"
 import About from "../components/About"
 
-import pokeball from "../images/pokeball-bg.svg"
+import pokeball from "../images/pokeball-bg-sm.svg"
 
 import styles from "../styles.css"
 
@@ -40,28 +40,43 @@ const Pokemon = ({
       sx={{
         backgroundColor: dominant_color,
         position: "relative",
+        width: "100%",
         height: "100vh",
         zIndex: 1000,
       }}
     >
       <Header name={name} />
       <motion.div
-        initial={{ height: "50px", width: "50px" }}
-        animate={{ height: "250px", width: "250px" }}
+        // initial={{ height: "50px", width: "50px" }}
+        // animate={{ height: "250px", width: "250px" }}
         transition={{ duration: 0.4 }}
         sx={{
+          height: "75%",
+          width: "75%",
+          maxWidth: "250px",
+          maxHeight: "250px",
           position: "relative",
           margin: "0 auto",
-          backgroundImage: `url(${pokeball})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "90%",
-          backgroundPosition: "center",
+          // backgroundImage: `url(${pokeball})`,
+          // backgroundRepeat: "no-repeat",
+          // // backgroundSize: "90%",
+          // backgroundSize: "125px",
+          // backgroundPosition: "center",
         }}
       >
         <motion.img
           src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/img/official-artwork/${id}.png`}
           alt={`${pokemon.name}`}
-          sx={{ height: "100%", width: "100%", position: "relative" }}
+          layoutId={`${pokemon.name}-image`}
+          sx={{
+            width: "100%",
+            position: "relative",
+            backgroundImage: `url(${pokeball})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "80%",
+            // backgroundSize: "125px",
+            backgroundPosition: "center",
+          }}
         />
       </motion.div>
 

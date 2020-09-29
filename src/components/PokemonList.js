@@ -4,7 +4,7 @@ import * as React from "react"
 import { motion } from "framer-motion"
 import { Link, navigate } from "gatsby"
 
-import pokeball from "../images/pokeball-bg.svg"
+import pokeball from "../images/pokeball-bg-sm.svg"
 
 import styles from "../styles.css"
 
@@ -84,17 +84,24 @@ const PokemonList = ({ pokemonList }) => {
                     maxWidth: "200px",
                     maxHeight: "200px",
                     margin: "0 auto",
-                    backgroundImage: `url(${pokeball})`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "90%",
-                    backgroundPosition: "center",
+                    // backgroundImage: `url(${pokeball})`,
+                    // backgroundRepeat: "no-repeat",
+                    // // backgroundSize: "90%",
+                    // backgroundSize: "95px",
+                    // backgroundPosition: "center",
                   }}
                 >
                   <motion.img
                     src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/img/official-artwork/${pokemon.id}.png`}
                     alt={`${pokemon.name}`}
+                    layoutId={`${pokemon.name}-image`}
                     sx={{
                       width: "100%",
+                      backgroundImage: `url(${pokeball})`,
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "80%",
+                      // backgroundSize: "95px",
+                      backgroundPosition: "center",
                     }}
                   />
                 </motion.div>
