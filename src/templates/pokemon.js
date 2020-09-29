@@ -3,13 +3,14 @@ import { jsx } from "theme-ui"
 import { graphql } from "gatsby"
 import { motion } from "framer-motion"
 
-import Header from "../components/Header"
-import Nav from "../components/PokemonNav"
+// import Header from "../components/Header"
+// import Nav from "../components/PokemonNav"
 import About from "../components/About"
+import PokemonLayout from "../components/PokemonLayout"
 
-import pokeball from "../images/pokeball-bg-sm.svg"
+// import pokeball from "../images/pokeball-bg-sm.svg"
 
-import styles from "../styles.css"
+// import styles from "../styles.css"
 
 const Pokemon = ({
   data,
@@ -33,68 +34,71 @@ const Pokemon = ({
   // const nextPokemon = data.pokeapi.nextPokemon
 
   return (
-    <motion.div
-      layoutId={`pokemon-${pokemon.name}`}
-      sx={{
-        backgroundColor: dominant_color,
-        position: "relative",
-        width: "100%",
-        height: "100vh",
-        zIndex: 1000,
-      }}
-    >
-      <Header name={name} />
-      <motion.div
-        transition={{ duration: 0.4 }}
-        sx={{
-          height: "75%",
-          width: "75%",
-          maxWidth: "250px",
-          maxHeight: "250px",
-          position: "relative",
-          margin: "0 auto",
-        }}
-      >
-        <motion.img
-          src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/img/official-artwork/${id}.png`}
-          alt={`${pokemon.name}`}
-          layoutId={`${pokemon.name}-image`}
-          sx={{
-            width: "100%",
-            position: "relative",
-            backgroundImage: `url(${pokeball})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "80%",
-            backgroundPosition: "center",
-          }}
-        />
-      </motion.div>
+    <PokemonLayout pokemon={pokemon}>
+      <About pokemon={pokemon} />
+    </PokemonLayout>
+    // <motion.div
+    //   layoutId={`pokemon-${pokemon.name}`}
+    //   sx={{
+    //     backgroundColor: dominant_color,
+    //     position: "relative",
+    //     width: "100%",
+    //     height: "100vh",
+    //     zIndex: 1000,
+    //   }}
+    // >
+    //   <Header name={name} />
+    //   <motion.div
+    //     transition={{ duration: 0.4 }}
+    //     sx={{
+    //       height: "75%",
+    //       width: "75%",
+    //       maxWidth: "250px",
+    //       maxHeight: "250px",
+    //       position: "relative",
+    //       margin: "0 auto",
+    //     }}
+    //   >
+    //     <motion.img
+    //       src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/img/official-artwork/${id}.png`}
+    //       alt={`${pokemon.name}`}
+    //       layoutId={`${pokemon.name}-image`}
+    //       sx={{
+    //         width: "100%",
+    //         position: "relative",
+    //         backgroundImage: `url(${pokeball})`,
+    //         backgroundRepeat: "no-repeat",
+    //         backgroundSize: "80%",
+    //         backgroundPosition: "center",
+    //       }}
+    //     />
+    //   </motion.div>
 
-      <Nav name={name} />
-      <motion.section
-        sx={{
-          borderTopLeftRadius: "12px",
-          borderTopRightRadius: "12px",
-          display: "grid",
-          gridGap: "15px",
-          gridTemplateColumns: "1fr",
-          padding: "1rem",
-          overflowY: "scroll",
-          bg: "background",
-        }}
-        initial={{
-          opacity: 0,
-          y: 40,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          transition: { delay: 0.5 },
-        }}
-      >
-        <About pokemon={pokemon} />
-      </motion.section>
-    </motion.div>
+    //   <Nav name={name} />
+    //   <motion.section
+    //     sx={{
+    //       borderTopLeftRadius: "12px",
+    //       borderTopRightRadius: "12px",
+    //       display: "grid",
+    //       gridGap: "15px",
+    //       gridTemplateColumns: "1fr",
+    //       padding: "1rem",
+    //       overflowY: "scroll",
+    //       bg: "background",
+    //     }}
+    //     initial={{
+    //       opacity: 0,
+    //       y: 40,
+    //     }}
+    //     animate={{
+    //       opacity: 1,
+    //       y: 0,
+    //       transition: { delay: 0.5 },
+    //     }}
+    //   >
+    //     <About pokemon={pokemon} />
+    //   </motion.section>
+    // </motion.div>
   )
 }
 
