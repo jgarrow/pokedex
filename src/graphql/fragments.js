@@ -1,19 +1,5 @@
 import { graphql } from "gatsby"
 
-//    shape
-//growth_rate
-// genus
-// nat_dex_num
-// color
-// base_stats {
-//     hp
-//     attack
-//     defense
-//     special_attack
-//     special_defense
-//     speed
-//   }
-
 export const pokemonFragment = graphql`
   fragment PokemonFragment on Pokeapi_Pokemon {
     nat_dex_num

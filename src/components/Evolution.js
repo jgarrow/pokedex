@@ -11,17 +11,6 @@ const title = {
   textAlign: "start",
 }
 
-const labelStyles = {
-  color: "#737373",
-  justifySelf: "flex-start",
-  textAlign: "initial",
-}
-
-const gridContent = {
-  justifySelf: "flex-start",
-  textAlign: "initial",
-}
-
 const rowUnderline = {
   gridColumn: "1 / span 2",
   height: "0",
@@ -31,10 +20,8 @@ const rowUnderline = {
 
 const Evolution = ({ pokemon, evolutionTiers }) => {
   const [newTiers, setNewTiers] = useState(evolutionTiers)
-  console.log("evolutionTiers: ", evolutionTiers)
 
   const handleTap = (direction, tierIndex) => {
-    console.log("in handletap")
     const mon = { ...newTiers[tierIndex] }
     const numOfPokemon = mon.pokemon.length
 

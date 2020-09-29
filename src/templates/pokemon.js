@@ -1,8 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import * as React from "react"
-import { graphql, Link } from "gatsby"
-import { motion, AnimatePresence } from "framer-motion"
+import { graphql } from "gatsby"
+import { motion } from "framer-motion"
 
 import Header from "../components/Header"
 import Nav from "../components/PokemonNav"
@@ -30,9 +29,8 @@ const Pokemon = ({
     name,
   }
 
-  const prevPokemon = data.pokeapi.prevPokemon
-  const nextPokemon = data.pokeapi.nextPokemon
-  console.log(pokemon)
+  // const prevPokemon = data.pokeapi.prevPokemon
+  // const nextPokemon = data.pokeapi.nextPokemon
 
   return (
     <motion.div
@@ -73,35 +71,29 @@ const Pokemon = ({
       </motion.div>
 
       <Nav name={name} />
-      <AnimatePresence>
-        <motion.section
-          sx={{
-            borderTopLeftRadius: "12px",
-            borderTopRightRadius: "12px",
-            display: "grid",
-            gridGap: "15px",
-            gridTemplateColumns: "1fr",
-            padding: "1rem",
-            overflowY: "scroll",
-            bg: "background",
-          }}
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-            // transition: { delay: 0.5 },
-          }}
-          exit={{
-            opacity: 0,
-            y: 40,
-          }}
-        >
-          <About pokemon={pokemon} />
-        </motion.section>
-      </AnimatePresence>
+      <motion.section
+        sx={{
+          borderTopLeftRadius: "12px",
+          borderTopRightRadius: "12px",
+          display: "grid",
+          gridGap: "15px",
+          gridTemplateColumns: "1fr",
+          padding: "1rem",
+          overflowY: "scroll",
+          bg: "background",
+        }}
+        initial={{
+          opacity: 0,
+          y: 40,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          transition: { delay: 0.5 },
+        }}
+      >
+        <About pokemon={pokemon} />
+      </motion.section>
     </motion.div>
   )
 }
