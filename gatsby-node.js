@@ -45,6 +45,16 @@ exports.createPages = async ({ actions, graphql }) => {
     })
 
     createPage({
+      path: `${slug}/stats`,
+      component: path.resolve(`./src/templates/stats.js`),
+      context: {
+        id: pokemon.id,
+        name: pokemon.name,
+        dominant_color: pokemon.dominant_color,
+      },
+    })
+
+    createPage({
       path: `${slug}/evolution`,
       component: path.resolve(`./src/templates/evolution.js`),
       context: {

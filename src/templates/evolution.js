@@ -13,7 +13,10 @@ import PokemonLayout from "../components/PokemonLayout"
 
 // import styles from "../styles.css"
 
-const Pokemon = ({ data, pageContext: { id, name, dominant_color } }) => {
+const PokemonEvolution = ({
+  data,
+  pageContext: { id, name, dominant_color },
+}) => {
   const pokemon = { ...data.pokeapi.pokemon, name, id, dominant_color }
   console.log(pokemon)
   const tiers = getTiers(pokemon)
@@ -86,4 +89,4 @@ export const query = graphql`
   }
 `
 
-export default Pokemon
+export default PokemonEvolution
