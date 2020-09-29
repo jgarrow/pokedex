@@ -43,7 +43,7 @@ const Nav = ({ name }) => {
       sx={{
         width: "100%",
         position: "relative",
-        top: "30px",
+        // top: "30px",
       }}
       variants={navContainer}
       initial="hidden"
@@ -54,9 +54,11 @@ const Nav = ({ name }) => {
           width: "100%",
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
+          gridTemplateRows: "30px",
           gridGap: "8px",
           justifyContent: "center",
           padding: "0",
+          marginTop: "0",
         }}
         variants={navContainer}
         initial="hidden"

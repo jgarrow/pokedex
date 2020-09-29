@@ -107,6 +107,7 @@ export const query = graphql`
     pokeapi {
       pokemon(id: $id) {
         ...PokemonFragment
+        ...PokemonBannerFragment
       }
       prevPokemon: pokemon(id: $prevPokemonId) {
         id

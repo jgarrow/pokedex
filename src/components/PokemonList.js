@@ -98,8 +98,8 @@ const PokemonList = ({ pokemonList }) => {
                     }}
                   />
                 </motion.div>
-                <p sx={{ textDecoration: "none", color: "text" }}>
-                  {pokemon.name}
+                <p sx={{ textDecoration: "none", color: "text", margin: "0" }}>
+                  {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
                 </p>
               </motion.li>
             </Link>

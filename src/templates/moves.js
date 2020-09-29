@@ -19,6 +19,7 @@ const Pokemon = ({ data, pageContext: { id } }) => {
 //     pokeapi {
 //       pokemon(id: $id) {
 //         ...PokemonMovesFragment
+//         ...PokemonBannerFragment
 //       }
 //     }
 //   }

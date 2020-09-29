@@ -160,6 +160,7 @@ export const query = graphql`
     pokeapi {
       pokemon(id: $id) {
         ...PokemonStatsFragment
+        ...PokemonBannerFragment
       }
     }
   }

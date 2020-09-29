@@ -55,7 +55,10 @@ const TypeEffectiveness = ({ name, types }) => {
   return (
     <div sx={{ marginBottmo: "1rem" }}>
       <h3 sx={{ textAlign: "start" }}>Type Effectiveness</h3>
-      <p sx={{ textAlign: "start" }}>Effectiveness of each type on {name}</p>
+      <p sx={{ textAlign: "start" }}>
+        Effectiveness of each type on{" "}
+        {name.charAt(0).toUpperCase() + name.slice(1)}
+      </p>
 
       <div
         sx={{

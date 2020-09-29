@@ -84,6 +84,7 @@ export const query = graphql`
       pokemon(id: $id) {
         ...PokemonEvolutionDataFragment
         ...PokemonEvolutionFragment
+        ...PokemonBannerFragment
       }
     }
   }

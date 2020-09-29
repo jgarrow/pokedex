@@ -1,12 +1,16 @@
 import { graphql } from "gatsby"
 
-export const pokemonFragment = graphql`
-  fragment PokemonFragment on Pokeapi_Pokemon {
+export const pokemonBannerFragment = graphql`
+  fragment PokemonBannerFragment on Pokeapi_Pokemon {
     nat_dex_num
     types {
       name
     }
+  }
+`
 
+export const pokemonFragment = graphql`
+  fragment PokemonFragment on Pokeapi_Pokemon {
     pokedex_entries {
       description
       game {

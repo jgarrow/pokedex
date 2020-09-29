@@ -5,7 +5,7 @@ import PokemonList from "../components/PokemonList"
 const Home = ({ pageContext: { allPokemon } }) => {
   return (
     <>
-      <h1>Welcome to Pokédex!</h1>
+      {/* <h1>Welcome to Pokédex!</h1> */}
       <PokemonList pokemonList={allPokemon} />
     </>
   )
