@@ -47,7 +47,7 @@ const PokemonList = ({ pokemonList }) => {
           initial="hidden"
           animate="visible"
         >
-          {pokemonList.map((pokemon, index) => (
+          {pokemonList.map(pokemon => (
             <Link
               to={`/pokemon/${pokemon.name}`}
               key={`${pokemon.name}-card`}
@@ -84,11 +84,6 @@ const PokemonList = ({ pokemonList }) => {
                     maxWidth: "200px",
                     maxHeight: "200px",
                     margin: "0 auto",
-                    // backgroundImage: `url(${pokeball})`,
-                    // backgroundRepeat: "no-repeat",
-                    // // backgroundSize: "90%",
-                    // backgroundSize: "95px",
-                    // backgroundPosition: "center",
                   }}
                 >
                   <motion.img
@@ -100,7 +95,6 @@ const PokemonList = ({ pokemonList }) => {
                       backgroundImage: `url(${pokeball})`,
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "80%",
-                      // backgroundSize: "95px",
                       backgroundPosition: "center",
                     }}
                   />

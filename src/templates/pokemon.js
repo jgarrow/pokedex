@@ -47,8 +47,6 @@ const Pokemon = ({
     >
       <Header name={name} />
       <motion.div
-        // initial={{ height: "50px", width: "50px" }}
-        // animate={{ height: "250px", width: "250px" }}
         transition={{ duration: 0.4 }}
         sx={{
           height: "75%",
@@ -57,11 +55,6 @@ const Pokemon = ({
           maxHeight: "250px",
           position: "relative",
           margin: "0 auto",
-          // backgroundImage: `url(${pokeball})`,
-          // backgroundRepeat: "no-repeat",
-          // // backgroundSize: "90%",
-          // backgroundSize: "125px",
-          // backgroundPosition: "center",
         }}
       >
         <motion.img
@@ -74,7 +67,6 @@ const Pokemon = ({
             backgroundImage: `url(${pokeball})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "80%",
-            // backgroundSize: "125px",
             backgroundPosition: "center",
           }}
         />
