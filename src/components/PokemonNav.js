@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { Link } from "gatsby"
+import { motion } from "framer-motion"
 
 const liStyles = {
   listStyle: "none",
-  display: "flex",
-  justifyContent: "center",
+  textAlign: "center",
 }
 
 const linkStyles = {
@@ -17,48 +17,73 @@ const linkStyles = {
   textShadow: "1px 1px 0px rgba(0, 0, 0, 0.25)",
 }
 
+const navContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.2,
+      delay: 0.5,
+    },
+  },
+}
+
+const link = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+}
+
 const Nav = ({ name }) => {
   return (
-    <nav
+    <motion.nav
       sx={{
         width: "100%",
         position: "relative",
         top: "30px",
       }}
+      variants={navContainer}
+      initial="hidden"
+      animate="visible"
     >
-      <ul
+      <motion.ul
         sx={{
           width: "100%",
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
           gridGap: "8px",
           justifyContent: "center",
-
           padding: "0",
         }}
+        variants={navContainer}
+        initial="hidden"
+        animate="visible"
       >
-        <li sx={liStyles}>
+        <motion.li sx={liStyles} variants={link}>
           <Link to={`/pokemon/${name}`} sx={linkStyles}>
             About
           </Link>
-        </li>
-        <li sx={liStyles}>
+        </motion.li>
+        <motion.li sx={liStyles} variants={link}>
           <Link to={`/pokemon/${name}/stats`} sx={linkStyles}>
             Stats
           </Link>
-        </li>
-        <li sx={liStyles}>
+        </motion.li>
+        <motion.li sx={liStyles} variants={link}>
           <Link to={`/pokemon/${name}/evolution`} sx={linkStyles}>
             Evolution
           </Link>
-        </li>
-        <li sx={liStyles}>
+        </motion.li>
+        <motion.li sx={liStyles} variants={link}>
           <Link to={`/pokemon/${name}/moves`} sx={linkStyles}>
             Moves
           </Link>
-        </li>
-      </ul>
-    </nav>
+        </motion.li>
+      </motion.ul>
+    </motion.nav>
   )
 }
 

@@ -71,7 +71,6 @@ const PokemonList = ({ pokemonList }) => {
                   listStyle: "none",
                 }}
                 onClick={() => navigate(`/pokemon/${pokemon.name}`)}
-                // key={index}
                 layoutId={`pokemon-${pokemon.name}`}
                 variants={card}
                 aria-label={`Link to ${pokemon.name}'s page`}
