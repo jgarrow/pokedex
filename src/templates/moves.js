@@ -62,7 +62,7 @@ const Pokemon = ({ data, pageContext: { id, name, dominant_color } }) => {
     }
 
     setMoves(sortedMoves)
-  }, [filterValue])
+  }, [filterValue, pokemon.yellow])
 
   return (
     <PokemonLayout pokemon={pokemon}>
@@ -80,7 +80,7 @@ const Pokemon = ({ data, pageContext: { id, name, dominant_color } }) => {
         <div>
           <select
             name="movesFilter"
-            onChange={handleFilterChange}
+            onBlur={handleFilterChange}
             sx={{
               padding: "5px",
               width: "90px",
@@ -98,7 +98,10 @@ const Pokemon = ({ data, pageContext: { id, name, dominant_color } }) => {
         </div>
       </div>
 
-      <ul sx={{ padding: "0", width: "100%", margin: "0" }}>
+      <ul
+        sx={{ padding: "0", width: "100%", margin: "0" }}
+        key={`${pokemon.name}-moves`}
+      >
         {moves.map((move, index) => (
           <MoveCard key={`${move.name}-${pokemon.name}-${index}-yellow`}>
             <MoveCardFront move={move} />

@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-import styles from "../styles.css"
+// import styles from "../styles.css"
 
 const Home = () => {
   return (

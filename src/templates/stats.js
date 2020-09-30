@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { graphql } from "gatsby"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 
 import PokemonLayout from "../components/PokemonLayout"
 import TypeEffectiveness from "../components/TypeEffectiveness"

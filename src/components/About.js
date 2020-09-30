@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import * as React from "react"
-import { motion, AnimatePresence } from "framer-motion"
+// import * as React from "react"
+import { motion } from "framer-motion"
 
 import { GiMale, GiFemale } from "react-icons/gi"
 
@@ -74,7 +74,9 @@ const About = ({ pokemon }) => {
           </label>
           <div id={`${pokemon.name}-abilities`} sx={gridContent}>
             {pokemon.abilities.map((ability, index) => (
-              <p key={`${ability.name}-${index}`}>{ability.name}</p>
+              <p key={`${pokemon.name}-${ability.name}-${index}`}>
+                {ability.name}
+              </p>
             ))}
           </div>
 

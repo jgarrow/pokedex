@@ -16,7 +16,7 @@ const MoveCard = ({ children }) => {
     <motion.li
       sx={{
         boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
-        borderRadius: "8px",
+        // borderRadius: "8px",
         padding: "0.5rem 1rem",
         width: "100%",
         height: "190px",
