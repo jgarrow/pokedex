@@ -2,12 +2,15 @@
 import { jsx } from "theme-ui"
 import { Link } from "gatsby"
 import { motion } from "framer-motion"
-import { lightenDarkenColor } from "../utils/colors"
+import { lightenDarkenColor, getRGB } from "../utils/colors"
+import { getContrast } from "../utils/getColorContrast"
 
 import pokeball from "../images/pokeball-bg-sm.svg"
 
 const PokemonListCard = ({ pokemon, variant }) => {
+  const rgb = getRGB(pokemon.dominant_color)
   const newColor = lightenDarkenColor(pokemon.dominant_color, -60)
+  const textColor = getContrast(rgb.r, rgb.g, rgb.b)
 
   return (
     <Link to={`/pokemon/${pokemon.name}`} sx={{ textDecoration: "none" }}>
@@ -59,7 +62,7 @@ const PokemonListCard = ({ pokemon, variant }) => {
             }}
           />
         </motion.div>
-        <p sx={{ textDecoration: "none", color: "text", margin: "0" }}>
+        <p sx={{ textDecoration: "none", color: textColor, margin: "0" }}>
           {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
         </p>
       </motion.li>

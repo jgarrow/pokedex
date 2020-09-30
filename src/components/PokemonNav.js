@@ -13,7 +13,6 @@ const linkStyles = {
   width: "60px",
   height: "60px",
   lineHeight: "3.5",
-  color: "#fefefe",
   textShadow: "1px 1px 0px rgba(0, 0, 0, 0.25)",
 }
 
@@ -37,7 +36,7 @@ const link = {
   },
 }
 
-const Nav = ({ name }) => {
+const Nav = ({ name, textColor }) => {
   return (
     <motion.nav
       sx={{
@@ -65,22 +64,34 @@ const Nav = ({ name }) => {
         animate="visible"
       >
         <motion.li sx={liStyles} variants={link}>
-          <Link to={`/pokemon/${name}`} sx={linkStyles}>
+          <Link
+            to={`/pokemon/${name}`}
+            sx={{ ...linkStyles, color: textColor }}
+          >
             About
           </Link>
         </motion.li>
         <motion.li sx={liStyles} variants={link}>
-          <Link to={`/pokemon/${name}/stats`} sx={linkStyles}>
+          <Link
+            to={`/pokemon/${name}/stats`}
+            sx={{ ...linkStyles, color: textColor }}
+          >
             Stats
           </Link>
         </motion.li>
         <motion.li sx={liStyles} variants={link}>
-          <Link to={`/pokemon/${name}/evolution`} sx={linkStyles}>
+          <Link
+            to={`/pokemon/${name}/evolution`}
+            sx={{ ...linkStyles, color: textColor }}
+          >
             Evolution
           </Link>
         </motion.li>
         <motion.li sx={liStyles} variants={link}>
-          <Link to={`/pokemon/${name}/moves`} sx={linkStyles}>
+          <Link
+            to={`/pokemon/${name}/moves`}
+            sx={{ ...linkStyles, color: textColor }}
+          >
             Moves
           </Link>
         </motion.li>

@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { motion, AnimatePresence } from "framer-motion"
-import { lightenDarkenColor } from "../utils/colors"
+import { lightenDarkenColor, getRGB } from "../utils/colors"
+import { getContrast } from "../utils/getColorContrast"
 
 import Header from "../components/Header"
 import Nav from "../components/PokemonNav"
@@ -21,7 +22,9 @@ const TypeIcon = ({ pokemonName, type }) => {
 }
 
 const PokemonLayout = ({ pokemon, children }) => {
+  const rgb = getRGB(pokemon.dominant_color)
   const newColor = lightenDarkenColor(pokemon.dominant_color, -60)
+  const textColor = getContrast(rgb.r, rgb.g, rgb.b)
 
   return (
     <motion.div
@@ -72,10 +75,12 @@ const PokemonLayout = ({ pokemon, children }) => {
           />
         </motion.div>
 
-        <h2 sx={{ margin: "0" }}>
+        <h2 sx={{ margin: "0", color: textColor }}>
           {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
         </h2>
-        <p sx={{ margin: "0.5rem 0" }}>#{pokemon.nat_dex_num}</p>
+        <p sx={{ margin: "0.5rem 0", color: textColor }}>
+          #{pokemon.nat_dex_num}
+        </p>
 
         <ul
           key={`${pokemon.name}-types`}
@@ -101,7 +106,7 @@ const PokemonLayout = ({ pokemon, children }) => {
         </ul>
       </div>
 
-      <Nav name={pokemon.name} />
+      <Nav name={pokemon.name} textColor={textColor} />
       <motion.section
         sx={{
           borderTopLeftRadius: "12px",
