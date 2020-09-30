@@ -34,7 +34,27 @@ const TypeIcon = ({ type }) => {
 }
 
 const MoveCardFront = ({ move }) => {
-  console.log("move: ", move)
+  // capitalize first letter of move learn method
+  let learnMethod =
+    move.learn_methods[0].method.charAt(0).toUpperCase() +
+    move.learn_methods[0].method.slice(1)
+
+  // if learn method is not level-up, we just need an empty string
+  let level = ""
+
+  if (learnMethod === "Level-up") {
+    level = move.learn_methods[0].level_learned_at
+    learnMethod = "Lvl"
+
+    // if the level is 1 or 0, it's an inherited move
+    // we're not interested in the actual level since a pokemon can only be at level 1 if they're from an egg
+    // in which case, the learn method would be egg, if it applies to the pokemon
+    if (level < 2) {
+      level = "--"
+      learnMethod = ""
+    }
+  }
+
   return (
     <div
       sx={{
@@ -51,13 +71,14 @@ const MoveCardFront = ({ move }) => {
         borderRadius: "8px",
       }}
     >
-      <label htmlFor="level" sx={labelStyles}>
-        Level
+      <label htmlFor="learnMethod" sx={labelStyles}>
+        Learn
       </label>
-      <p sx={gridContent} id="level">
-        {move.learn_methods[0].level_learned_at < 2
+      <p sx={gridContent} id="learnMethod">
+        {`${learnMethod} ${level}`}
+        {/* {move.learn_methods[0].level_learned_at < 2
           ? "--"
-          : move.learn_methods[0].level_learned_at}
+          : `Lvl ${move.learn_methods[0].level_learned_at}`} */}
       </p>
 
       <span sx={rowUnderline} />
