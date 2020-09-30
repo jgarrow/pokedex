@@ -2,6 +2,7 @@
 import { jsx } from "theme-ui"
 import { useState, useEffect } from "react"
 import { graphql } from "gatsby"
+import { motion } from "framer-motion"
 
 import PokemonLayout from "../components/PokemonLayout"
 import MoveCard from "../components/MoveCard"
@@ -66,49 +67,61 @@ const Pokemon = ({ data, pageContext: { id, name, dominant_color } }) => {
 
   return (
     <PokemonLayout pokemon={pokemon}>
-      <div
-        sx={{
-          display: "flex",
-          width: "100%",
-          justifyContent: "space-between",
-          alignItems: "flex-start",
+      <motion.section
+        initial={{
+          x: 40,
+          opacity: 0,
+        }}
+        animate={{
+          x: 0,
+          opacity: 1,
+          transition: { delay: 0.4 },
         }}
       >
-        <h3 sx={{ textAlign: "start", margin: "0" }}>Moves</h3>
-        {/* <BiSliderAlt sx={{ fontSize: "1.5rem" }} /> */}
+        <div
+          sx={{
+            display: "flex",
+            width: "100%",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+          }}
+        >
+          <h3 sx={{ textAlign: "start", margin: "0" }}>Moves</h3>
+          {/* <BiSliderAlt sx={{ fontSize: "1.5rem" }} /> */}
 
-        <div>
-          <select
-            name="movesFilter"
-            onBlur={handleFilterChange}
-            sx={{
-              padding: "5px",
-              width: "90px",
-              borderRadius: "5px",
-              fontSize: "1rem",
-            }}
-          >
-            Filter by:
-            <option value="all">All</option>
-            <option value="level-up">Level</option>
-            <option value="machine">HM/TM</option>
-            <option value="egg">Egg</option>
-            <option value="tutor">Tutor</option>
-          </select>
+          <div>
+            <select
+              name="movesFilter"
+              onBlur={handleFilterChange}
+              sx={{
+                padding: "5px",
+                width: "90px",
+                borderRadius: "5px",
+                fontSize: "1rem",
+              }}
+            >
+              Filter by:
+              <option value="all">All</option>
+              <option value="level-up">Level</option>
+              <option value="machine">HM/TM</option>
+              <option value="egg">Egg</option>
+              <option value="tutor">Tutor</option>
+            </select>
+          </div>
         </div>
-      </div>
 
-      <ul
-        sx={{ padding: "0", width: "100%", margin: "0" }}
-        key={`${pokemon.name}-moves`}
-      >
-        {moves.map((move, index) => (
-          <MoveCard key={`${move.name}-${pokemon.name}-${index}-yellow`}>
-            <MoveCardFront move={move} />
-            <MoveCardBack move={move} />
-          </MoveCard>
-        ))}
-      </ul>
+        <ul
+          sx={{ padding: "0", width: "100%", margin: "0" }}
+          key={`${pokemon.name}-moves`}
+        >
+          {moves.map((move, index) => (
+            <MoveCard key={`${move.name}-${pokemon.name}-${index}-yellow`}>
+              <MoveCardFront move={move} />
+              <MoveCardBack move={move} />
+            </MoveCard>
+          ))}
+        </ul>
+      </motion.section>
     </PokemonLayout>
   )
 }

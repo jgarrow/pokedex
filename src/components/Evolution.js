@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { Fragment, useState } from "react"
+import { motion } from "framer-motion"
 
 import { BsArrowRight } from "react-icons/bs"
 import EvolutionTier from "./IndividualEvolutionTier"
@@ -55,7 +56,17 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
   }
 
   return (
-    <section>
+    <motion.section
+      initial={{
+        x: 40,
+        opacity: 0,
+      }}
+      animate={{
+        x: 0,
+        opacity: 1,
+        transition: { delay: 0.4 },
+      }}
+    >
       <h3 sx={title}>Evolution Chain</h3>
 
       <div
@@ -63,7 +74,7 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
           display: "grid",
           gridRowGap: "20px",
           gridTemplateRows: `repeat(${
-            newTiers.length - 1
+            newTiers.length - 2
           }, minmax(100px, 150px) auto)`,
         }}
       >
@@ -105,7 +116,7 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
             ) : null
           )}
       </div>
-    </section>
+    </motion.section>
   )
 }
 
