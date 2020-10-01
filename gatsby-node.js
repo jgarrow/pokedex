@@ -6,10 +6,11 @@ exports.createPages = async ({ actions, graphql }) => {
   const result = await graphql(`
     query {
       pokeapi {
-        allPokemon(limit: 10) {
+        allPokemon(limit: 40) {
           id
           name
           dominant_color
+          nat_dex_num
         }
       }
     }

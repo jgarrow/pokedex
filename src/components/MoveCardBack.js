@@ -75,11 +75,10 @@ const MoveCardBack = ({ move }) => {
         <span sx={rowUnderline} />
       </div>
 
-      {move.description && (
-        <p sx={{ textAlign: "center", marginTop: "0.5rem", marginBottom: "0" }}>
-          {move.description}
-        </p>
-      )}
+      {/* get game name from Context to use here */}
+      <p sx={{ textAlign: "center", marginTop: "0.5rem", marginBottom: "0" }}>
+        {move.description ? move.description : `No description for yellow`}
+      </p>
     </div>
   )
 }

@@ -68,7 +68,7 @@ const PokemonLayout = ({ pokemon, children }) => {
               position: "relative",
               backgroundImage: `url(${pokeball})`,
               backgroundRepeat: "no-repeat",
-              backgroundSize: "80%",
+              backgroundSize: "90%",
               backgroundPosition: "center",
               filter: "drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.5))",
             }}

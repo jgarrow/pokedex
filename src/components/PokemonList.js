@@ -26,7 +26,7 @@ const card = {
 
 const PokemonList = ({ pokemonList }) => {
   const numRows = pokemonList.length / 2
-  console.log("pokemonList: ", pokemonList)
+  // console.log("pokemonList: ", pokemonList)
 
   return (
     <Fragment>
@@ -37,7 +37,7 @@ const PokemonList = ({ pokemonList }) => {
             height: "100%",
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
-            gridTemplateRows: `repeat(${numRows}, 200px)`,
+            gridTemplateRows: `repeat(${numRows}, 60px)`,
             gridGap: "1rem",
             padding: "0.5rem",
           }}

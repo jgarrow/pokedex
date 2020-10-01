@@ -13,7 +13,7 @@ const title = {
 }
 
 const rowUnderline = {
-  gridColumn: "1 / span 2",
+  gridColumn: "1 / span 3",
   height: "0",
   width: "100%",
   borderBottom: "1px solid #f0f0f0",

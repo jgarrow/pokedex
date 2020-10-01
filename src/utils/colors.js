@@ -12,24 +12,45 @@ export const lightenDarkenColor = (color, amt) => {
     usePound = true
   }
 
-  let num = parseInt(col, 16)
+  var num = parseInt(col, 16)
 
-  let r = (num >> 16) + amt
+  var r = (num >> 16) + amt
 
   if (r > 255) r = 255
   else if (r < 0) r = 0
 
-  let b = ((num >> 8) & 0x00ff) + amt
+  var b = ((num >> 8) & 0x00ff) + amt
 
   if (b > 255) b = 255
   else if (b < 0) b = 0
 
-  let g = (num & 0x0000ff) + amt
+  var g = (num & 0x0000ff) + amt
 
   if (g > 255) g = 255
   else if (g < 0) g = 0
+  ;[r, g, b] = [r, g, b].map(color =>
+    color <= 15 ? `0${color.toString(16)}` : color.toString(16)
+  )
 
-  return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16)
+  return (usePound ? "#" : "") + r + b + g
+  //   let num = parseInt(col, 16)
+
+  //   let r = (num >> 16) + amt
+
+  //   if (r > 255) r = 255
+  //   else if (r < 0) r = 0
+
+  //   let b = ((num >> 8) & 0x00ff) + amt
+
+  //   if (b > 255) b = 255
+  //   else if (b < 0) b = 0
+
+  //   let g = (num & 0x0000ff) + amt
+
+  //   if (g > 255) g = 255
+  //   else if (g < 0) g = 0
+
+  //   return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16)
 }
 
 // From https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb#answer-39077686
