@@ -60,7 +60,6 @@ const PokemonStats = ({ data, pageContext: { id, name, dominant_color } }) => {
     pokemon.base_stats.special_attack +
     pokemon.base_stats.special_defense +
     pokemon.base_stats.speed
-  console.log("pokemon in stats: ", pokemon)
 
   return (
     <PokemonLayout pokemon={pokemon}>

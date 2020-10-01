@@ -5,7 +5,6 @@ import { motion } from "framer-motion"
 import { FiChevronUp, FiChevronDown } from "react-icons/fi"
 
 const EvolutionTier = ({ tier, tierIndex, handleTap }) => {
-  console.log("tier: ", tier)
   const tierArray = tier.pokemon
 
   return (

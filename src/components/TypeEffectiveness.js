@@ -34,9 +34,6 @@ const TypeEffectiveness = ({ name, types }) => {
     return acc
   }, 0)
 
-  console.log("typeEffects: ", typeEffects)
-  console.log("numOfRows: ", numOfRows)
-
   for (let i = 0; i < numOfRows - 1; i++) {
     underlines.push(
       <span

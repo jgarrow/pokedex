@@ -3,8 +3,6 @@ import { jsx } from "theme-ui"
 
 const columnGrid = {
   display: "grid",
-  // gridTemplateRows: `repeat(${numRows}, 45px)`,
-  // gridColumnStart: column,
   gridRowStart: "2",
   gridGap: "5px",
   marginTop: "5px",
@@ -12,7 +10,6 @@ const columnGrid = {
 }
 
 const TypeIcon = ({ type, column, row }) => {
-  console.log("type: ", type)
   const imgSrc = require(`../images/type-icons/${type}_icon_SwSh.png`)
 
   return (

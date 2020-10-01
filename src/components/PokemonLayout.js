@@ -10,7 +10,6 @@ import Nav from "../components/PokemonNav"
 import pokeball from "../images/pokeball-bg-sm.svg"
 
 const TypeIcon = ({ pokemonName, type }) => {
-  console.log("type: ", type)
   const imgSrc = require(`../images/type-icons/${type}_icon_SwSh.png`)
   return (
     <img

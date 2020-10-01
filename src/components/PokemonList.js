@@ -26,7 +26,6 @@ const card = {
 
 const PokemonList = ({ pokemonList }) => {
   const numRows = pokemonList.length / 2
-  // console.log("pokemonList: ", pokemonList)
 
   return (
     <Fragment>
