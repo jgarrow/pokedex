@@ -24,5 +24,23 @@ module.exports = {
       },
     },
     "gatsby-plugin-theme-ui",
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Pokédex`,
+        short_name: `Pokédex`,
+        icon: `src/images/favicon.png`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/`, `/pokemon/*`],
+      },
+    },
   ],
 }
