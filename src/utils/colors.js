@@ -1,10 +1,10 @@
 // From https://css-tricks.com/snippets/javascript/lighten-darken-color/
 export const lightenDarkenColor = (color, amt) => {
-  let col = color
-  if (col.includes("rgb")) {
-    const { r, g, b } = getRGB(col)
-    col = rgbToHex(r, g, b)
-  }
+  let col = rgbToHex(color.r, color.g, color.b)
+  //   if (col.includes("rgb")) {
+  //     const { r, g, b } = getRGB(col)
+  //     col = rgbToHex(r, g, b)
+  //   }
   let usePound = true
 
   if (col[0] === "#") {
@@ -54,14 +54,17 @@ export const lightenDarkenColor = (color, amt) => {
 }
 
 // From https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb#answer-39077686
-export const rgbToHex = (r, g, b) =>
-  "#" +
-  [r, g, b]
-    .map(x => {
-      const hex = x.toString(16)
-      return hex.length === 1 ? "0" + hex : hex
-    })
-    .join("")
+export const rgbToHex = (r, g, b) => {
+  return (
+    "#" +
+    [r, g, b]
+      .map(x => {
+        const hex = x.toString(16)
+        return hex.length === 1 ? "0" + hex : hex
+      })
+      .join("")
+  )
+}
 
 export const getRGB = rgb => {
   // remove rgb

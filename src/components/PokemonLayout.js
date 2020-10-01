@@ -21,9 +21,9 @@ const TypeIcon = ({ pokemonName, type }) => {
 }
 
 const PokemonLayout = ({ pokemon, children }) => {
-  const rgb = getRGB(pokemon.dominant_color)
+  //   const rgb = getRGB(pokemon.dominant_color)
   const newColor = lightenDarkenColor(pokemon.dominant_color, -60)
-  const textColor = getContrast(rgb.r, rgb.g, rgb.b)
+  //   const textColor = getContrast(rgb.r, rgb.g, rgb.b)
 
   return (
     <motion.div
@@ -74,10 +74,10 @@ const PokemonLayout = ({ pokemon, children }) => {
           />
         </motion.div>
 
-        <h2 sx={{ margin: "0", color: textColor }}>
+        <h2 sx={{ margin: "0", color: "black" }}>
           {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
         </h2>
-        <p sx={{ margin: "0.5rem 0", color: textColor }}>
+        <p sx={{ margin: "0.5rem 0", color: "black" }}>
           #{pokemon.nat_dex_num}
         </p>
 
@@ -105,7 +105,7 @@ const PokemonLayout = ({ pokemon, children }) => {
         </ul>
       </div>
 
-      <Nav name={pokemon.name} textColor={textColor} />
+      <Nav name={pokemon.name} textColor={"black"} />
       <motion.section
         sx={{
           borderTopLeftRadius: "12px",
