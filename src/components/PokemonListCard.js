@@ -29,6 +29,7 @@ const PokemonListCard = ({ pokemon, variant }) => {
           paddingLeft: "4px",
           borderRadius: "8px",
           listStyle: "none",
+          boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
         }}
         layoutId={`pokemon-${pokemon.name}`}
         variants={variant}
