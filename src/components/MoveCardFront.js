@@ -1,6 +1,8 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 
+import { BsInfoCircle } from "react-icons/bs"
+
 const labelStyles = {
   color: "#737373",
   justifySelf: "flex-start",
@@ -86,9 +88,17 @@ const MoveCardFront = ({ move }) => {
       <label htmlFor="name" sx={labelStyles}>
         Name
       </label>
-      <p sx={gridContent} id="name">
-        {move.name}
-      </p>
+      <div
+        sx={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <p sx={gridContent} id="name">
+          {move.name}
+        </p>
+        <BsInfoCircle sx={{ marginLeft: "4px" }} />
+      </div>
 
       <span sx={rowUnderline} />
 

@@ -17,7 +17,7 @@ const container = {
 }
 
 const card = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { y: 30, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,

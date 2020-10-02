@@ -111,7 +111,7 @@ const Pokemon = ({ data, pageContext: { id, name, dominant_color } }) => {
         </div>
 
         <ul
-          sx={{ padding: "0", width: "100%", margin: "0" }}
+          sx={{ padding: "0", width: "100%", marginBottom: "0" }}
           key={`${pokemon.name}-moves`}
         >
           {moves.map((move, index) => (
