@@ -21,6 +21,7 @@ const rowUnderline = {
 
 const Evolution = ({ pokemon, evolutionTiers }) => {
   const [newTiers, setNewTiers] = useState(evolutionTiers)
+  console.log("newTiers: ", newTiers)
 
   const handleTap = (direction, tierIndex) => {
     const mon = { ...newTiers[tierIndex] }
@@ -115,6 +116,17 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
               </div>
             ) : null
           )}
+
+        {/* handle pokemon who don't evolve */}
+        {newTiers && newTiers.length === 1 ? (
+          <div sx={{ width: "100px", height: "100px", justifySelf: "center" }}>
+            <img
+              src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/img/official-artwork/${newTiers[0].pokemon[0].id}.png`}
+              alt={`${newTiers[0].pokemon[0].name}`}
+              sx={{ width: `100%` }}
+            />
+          </div>
+        ) : null}
       </div>
     </motion.section>
   )
