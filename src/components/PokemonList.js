@@ -11,7 +11,7 @@ const container = {
     opacity: 1,
     transition: {
       when: "beforeChildren",
-      staggerChildren: 0.1,
+      // staggerChildren: 0.1, // takes too long to do it for every card
     },
   },
 }
