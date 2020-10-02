@@ -35,7 +35,8 @@ const PokemonLayout = ({ pokemon, children }) => {
         )}, ${newColor})`,
         position: "relative",
         width: "100%",
-        height: "100vh",
+        // height: "100vh",
+        height: "100%",
         zIndex: 1000,
       }}
     >
@@ -45,6 +46,24 @@ const PokemonLayout = ({ pokemon, children }) => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          position: "relative",
+          overflow: "hidden",
+
+          "::after": {
+            position: "absolute",
+            top: "0px",
+            content: `"${
+              pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+            }"`,
+            background:
+              "linear-gradient(180deg, rgba(254, 254, 254, 0.4) 0%, rgba(254, 254, 254, 0.0104167) 85%, rgba(254, 254, 254, 0) 100%)",
+            // color: "transparent",
+            fontSize: "9rem",
+            lineHeight: "1",
+            "-webkit-background-clip": "text",
+            "-webkit-text-fill-color": "transparent",
+            zIndex: "-1",
+          },
         }}
       >
         <motion.div
