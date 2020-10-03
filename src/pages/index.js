@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 
 import Layout from "../components/Layout"
 import { Timeline } from "react-twitter-widgets"
+import Header from "../components/MainHeader"
 
 import pokeball from "../images/header-pokeball.svg"
 
@@ -45,38 +46,7 @@ const linkStyles = {
 const Home = () => {
   return (
     <Layout>
-      <header
-        sx={{
-          width: "100%",
-          height: "120px",
-          display: "flex",
-          alignItems: "center",
-          padding: "1rem 0.5rem 0",
-          marginBottom: "1.5rem",
-        }}
-      >
-        <h1
-          sx={{
-            margin: "0",
-            marginTop: "25px", // puts it at the same spot as the h1 in the pokemon header
-            fontSize: "2.5rem",
-
-            "::before": {
-              content: '""',
-              position: "absolute",
-              top: "0",
-              right: "0",
-              backgroundImage: `url(${pokeball})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "175px",
-              height: "175px",
-              width: "175px",
-            },
-          }}
-        >
-          Poké Data
-        </h1>
-      </header>
+      <Header showArrow={false} heading="Poké Data" />
 
       <ul
         sx={{
