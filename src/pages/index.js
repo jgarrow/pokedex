@@ -1,13 +1,11 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { Fragment } from "react"
 import { Link } from "gatsby"
 
+import Layout from "../components/Layout"
 import { Timeline } from "react-twitter-widgets"
 
 import pokeball from "../images/header-pokeball.svg"
-
-import "../styles.css"
 
 const cardStyles = {
   borderRadius: "8px",
@@ -46,7 +44,7 @@ const linkStyles = {
 
 const Home = () => {
   return (
-    <Fragment>
+    <Layout>
       <header
         sx={{
           width: "100%",
@@ -120,24 +118,11 @@ const Home = () => {
         <Timeline
           dataSource={{
             sourceType: "list",
-            // ownerScreenName: "legendofnessa",
             id: "1312148331984904192",
           }}
         />
       </section>
-      {/* <a
-        class="twitter-timeline"
-        data-lang="en"
-        href="https://twitter.com/legendofnessa/lists/pokemon?ref_src=twsrc%5Etfw"
-      >
-        Pokémon News on Twitter
-      </a>{" "}
-      <script
-        async
-        src="https://platform.twitter.com/widgets.js"
-        charset="utf-8"
-      ></script> */}
-    </Fragment>
+    </Layout>
   )
 }
 

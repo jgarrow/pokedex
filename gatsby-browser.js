@@ -1,4 +1,5 @@
 const React = require("react")
+require("typeface-ubuntu")
 const { AnimateSharedLayout } = require("framer-motion")
 
 exports.wrapRootElement = ({ element }) => {

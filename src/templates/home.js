@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { Fragment } from "react"
 import { Link } from "gatsby"
 
+import Layout from "../components/Layout"
 import PokemonList from "../components/PokemonList"
 import { RiArrowGoBackFill } from "react-icons/ri"
 
@@ -10,7 +10,7 @@ import pokeball from "../images/header-pokeball.svg"
 
 const Home = ({ pageContext: { allPokemon } }) => {
   return (
-    <Fragment>
+    <Layout>
       <header
         sx={{
           width: "100%",
@@ -68,7 +68,7 @@ const Home = ({ pageContext: { allPokemon } }) => {
         </svg> */}
       </header>
       <PokemonList pokemonList={allPokemon} />
-    </Fragment>
+    </Layout>
   )
 }
 
