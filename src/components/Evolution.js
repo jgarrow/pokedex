@@ -3,7 +3,7 @@ import { jsx } from "theme-ui"
 import { Fragment, useState } from "react"
 import { motion } from "framer-motion"
 
-import { BsArrowRight } from "react-icons/bs"
+import EvolutionCriteria from "./EvolutionCriteria"
 import EvolutionTier from "./IndividualEvolutionTier"
 
 import { getTiers } from "../utils/getEvolutionTiers"
@@ -19,9 +19,24 @@ const rowUnderline = {
   borderBottom: "1px solid #f0f0f0",
 }
 
+const evolutionTriggerPhrases = {
+  min_happiness: happiness => `happiness of ${happiness}`,
+  min_affection: affection => `affection of ${affection}`,
+  min_beauty: beauty => `beauty of ${beauty}`,
+  held_item: holdItem => `while holding ${holdItem}`,
+  item: item => `use ${item}`,
+  known_move: moveName => `while knowing ${moveName}`,
+  known_move_type: moveType => `while knowing a ${moveType} type move`,
+  location: location => `at ${location}`,
+  needs_overworld_rain: "while raining",
+  time_of_day: time => `at ${time}`,
+  turn_upside_down: "while upside down",
+}
+
 const Evolution = ({ pokemon, evolutionTiers }) => {
   const [newTiers, setNewTiers] = useState(evolutionTiers)
   console.log("newTiers: ", newTiers)
+  const [evolutionPhrase, setEvolutionPhrase] = useState()
 
   const handleTap = (direction, tierIndex) => {
     const mon = { ...newTiers[tierIndex] }
@@ -98,10 +113,20 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
                   handleTap={handleTap}
                 />
 
-                {newTiers[index + 1] && (
+                {newTiers[index + 1] ? (
                   <Fragment>
-                    <BsArrowRight
-                      sx={{ fontSize: "2rem", justifySelf: "center" }}
+                    <EvolutionCriteria
+                      trigger={
+                        newTiers[index + 1].pokemon[
+                          newTiers[index + 1].selected
+                        ].evolution_trigger
+                      }
+                      criteria={
+                        newTiers[index + 1].pokemon[
+                          newTiers[index + 1].selected
+                        ].evolution_criteria
+                      }
+                      tier={newTiers[index + 1]}
                     />
 
                     <EvolutionTier
@@ -112,7 +137,7 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
 
                     {newTiers[index + 2] ? <span sx={rowUnderline} /> : null}
                   </Fragment>
-                )}
+                ) : null}
               </div>
             ) : null
           )}
