@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { Fragment } from "react"
+import { Link } from "gatsby"
 
 import PokemonList from "../components/PokemonList"
 import { RiArrowGoBackFill } from "react-icons/ri"
@@ -17,7 +18,9 @@ const Home = ({ pageContext: { allPokemon } }) => {
           marginBottom: "1.5rem",
         }}
       >
-        <RiArrowGoBackFill sx={{ fontSize: "1.5rem" }} />
+        <Link to="/" sx={{ color: "text" }}>
+          <RiArrowGoBackFill sx={{ fontSize: "1.5rem" }} />
+        </Link>
         <h1
           sx={{
             margin: "0",

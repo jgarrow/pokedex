@@ -1,8 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { motion, AnimatePresence } from "framer-motion"
-import { lightenDarkenColor, getRGB } from "../utils/colors"
-import { getContrast } from "../utils/getColorContrast"
+import { lightenDarkenColor } from "../utils/colors"
 
 import Header from "../components/Header"
 import Nav from "../components/PokemonNav"
@@ -21,9 +20,7 @@ const TypeIcon = ({ pokemonName, type }) => {
 }
 
 const PokemonLayout = ({ pokemon, children }) => {
-  //   const rgb = getRGB(pokemon.dominant_color)
   const newColor = lightenDarkenColor(pokemon.dominant_color, -60)
-  //   const textColor = getContrast(rgb.r, rgb.g, rgb.b)
 
   return (
     <motion.div
@@ -60,8 +57,10 @@ const PokemonLayout = ({ pokemon, children }) => {
             // color: "transparent",
             fontSize: "9rem",
             lineHeight: "1",
-            "-webkit-background-clip": "text",
-            "-webkit-text-fill-color": "transparent",
+            // "-webkit-background-clip": "text",
+            // "-webkit-text-fill-color": "transparent",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
             zIndex: "-1",
           },
         }}
