@@ -34,7 +34,7 @@ const PokemonLayout = ({ pokemon, children }) => {
           )}, ${newColor})`,
           position: "relative",
           width: "100%",
-          // height: "100vh",
+          minHeight: "100vh",
           height: "100%",
           zIndex: 1000,
         }}
@@ -56,11 +56,8 @@ const PokemonLayout = ({ pokemon, children }) => {
               }"`,
               background:
                 "linear-gradient(180deg, rgba(254, 254, 254, 0.4) 0%, rgba(254, 254, 254, 0.0104167) 85%, rgba(254, 254, 254, 0) 100%)",
-              // color: "transparent",
               fontSize: "9rem",
               lineHeight: "1",
-              // "-webkit-background-clip": "text",
-              // "-webkit-text-fill-color": "transparent",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               zIndex: "-1",
@@ -118,7 +115,6 @@ const PokemonLayout = ({ pokemon, children }) => {
                 key={`type-${pokemon.name}-${index}`}
                 sx={{ listStyle: "none", width: "30px", height: "30px" }}
               >
-                {/* <p>{type.name}</p> */}
                 <TypeIcon pokemonName={pokemon.name} type={type.name} />
               </li>
             ))}
