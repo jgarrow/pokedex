@@ -7,26 +7,26 @@ import { replaceHyphenWithSpace } from "../utils/stringParsing"
 import { BsArrowRight } from "react-icons/bs"
 
 const evolutionTriggerPhrases = {
-  min_happiness: happiness => `happiness of ${happiness}`,
-  min_affection: affection => `affection of ${affection}`,
-  min_beauty: beauty => `beauty of ${beauty}`,
+  min_happiness: happiness => `with ${happiness} happiness`,
+  min_affection: affection => `with ${affection} affection`,
+  min_beauty: beauty => `with ${beauty} beauty`,
   held_item: holdItem => `while holding ${holdItem}`,
   item: item => `use ${item}`,
   known_move: moveName => `while knowing ${moveName}`,
   known_move_type: moveType => `while knowing a ${moveType} type move`,
   location: location => `at ${location}`,
   needs_overworld_rain: "while raining",
-  time_of_day: time => `at ${time}`,
+  time_of_day: time => `during ${time}time`,
   turn_upside_down: "while upside down",
 }
 
 const locationEvolutions = {
-  glaceon: "Lvl up near an Icy Rock",
-  leafeon: "Lvl up near a Mossy Rock",
-  vikavolt: "Lvl up in a Magnetic Field Area",
-  crabrawler: "Lvl up at Mount Lanakila",
-  magnezone: "Lvl up in a Magnetic Field Area",
-  probopass: "Lvl up in a Magnetic Field Area",
+  glaceon: "Level up near an Icy Rock",
+  leafeon: "Level up near a Mossy Rock",
+  vikavolt: "Level up in a Magnetic Field Area",
+  crabrawler: "eLvel up at Mount Lanakila",
+  magnezone: "Level up in a Magnetic Field Area",
+  probopass: "Level up in a Magnetic Field Area",
 }
 
 const EvolutionCriteria = ({ trigger, criteria, tier }) => {
@@ -49,7 +49,7 @@ const EvolutionCriteria = ({ trigger, criteria, tier }) => {
           return evolutionTriggerPhrases[criterium.evolution_criteria_name](val)
         })
 
-        criteriaString = `Lvl up ` + criteriaArrayStrings.join(", ")
+        criteriaString = `Level up ` + criteriaArrayStrings.join(", ")
       } else if (
         criteria.length === 1 &&
         criteria[0].evolution_criteria_name !== "min_level"
@@ -57,11 +57,11 @@ const EvolutionCriteria = ({ trigger, criteria, tier }) => {
         //   if the trigger is level up, but there is also one other criteria that must be met
         const val = criteria[0].name ? criteria[0].name : criteria[0].value
 
-        criteriaString = `Lvl up ${evolutionTriggerPhrases[
+        criteriaString = `Level up ${evolutionTriggerPhrases[
           criteria[0].evolution_criteria_name
         ](val)}`
       } else {
-        criteriaString = `Lvl ${criteria[0].value}`
+        criteriaString = `Level ${criteria[0].value}`
       }
     } else if (trigger === "use-item") {
       if (criteria.length > 1) {
