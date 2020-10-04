@@ -46,7 +46,7 @@ import Header from "../components/MainHeader"
 const Home = () => {
   return (
     <Layout>
-      <Header showArrow={false} heading="Poké News" />
+      <Header showArrow={true} heading="Poké News" />
 
       {/* <ul
         sx={{

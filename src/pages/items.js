@@ -8,6 +8,7 @@ const Home = () => {
   return (
     <Layout>
       <Header showArrow={true} heading="Poké Items" />
+      <p sx={{ textAlign: "center" }}>Page under construction</p>
     </Layout>
   )
 }

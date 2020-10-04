@@ -38,7 +38,7 @@ const Header = ({ showArrow, heading }) => {
             backgroundImage: `url(${pokeball})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "175px",
-            height: "175px",
+            height: "190px",
             width: "175px",
           },
         }}
