@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 
 import news from "../images/bx-news.svg"
 import backpack from "../images/bxs-backpack.svg"
-import pokeball from "../images/pokeball-bg-sm.svg"
 import chart from "../images/bxs-bar-chart-alt-2.svg"
 import search from "../images/bx-search.svg"
 
@@ -51,11 +50,11 @@ const Footer = () => {
     <footer
       sx={{
         width: "100%",
-        height: "60px",
+        height: "75px",
         position: "fixed",
         bottom: "0",
         bg: "background",
-        boxShadow: "0px -2px 4px rgba(0, 0, 0, 0.25)",
+        boxShadow: "0px -3px 8px -5px rgba(0, 0, 0, 0.25)",
       }}
     >
       <nav sx={{ width: "100%", height: "100%", margin: "0" }}>
@@ -82,9 +81,8 @@ const Footer = () => {
             </Link>
           </li>
           <li sx={listStyles}>
-            <Link to="/pokemon" sx={linkStyles}>
+            <Link to="/" sx={linkStyles}>
               <Pokeball />
-              {/* <img src={pokeball} alt="Pokeball icon" /> */}
             </Link>
           </li>
           <li sx={listStyles}>

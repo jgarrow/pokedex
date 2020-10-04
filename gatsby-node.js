@@ -21,6 +21,14 @@ exports.createPages = async ({ actions, graphql }) => {
   `)
 
   createPage({
+    path: "/",
+    component: path.resolve(`./src/templates/home.js`),
+    context: {
+      allPokemon: result.data.pokeapi.allPokemon,
+    },
+  })
+
+  createPage({
     path: "/pokemon",
     component: path.resolve(`./src/templates/home.js`),
     context: {
