@@ -3,6 +3,8 @@ import { jsx } from "theme-ui"
 import { Link } from "gatsby"
 import { motion } from "framer-motion"
 
+import { locationIsFromIndPokemon } from "../utils/stringParsing"
+
 const liStyles = {
   listStyle: "none",
   textAlign: "center",
@@ -16,37 +18,39 @@ const linkStyles = {
   textShadow: "1px 1px 0px rgba(0, 0, 0, 0.25)",
 }
 
-const navContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      when: "beforeChildren",
-      staggerChildren: 0.2,
-      delay: 0.5,
+const Nav = ({ name, textColor, location: { pathname, state } }) => {
+  const fromIndPokemonPage = locationIsFromIndPokemon(state)
+
+  const navContainer = {
+    hidden: { opacity: !fromIndPokemonPage ? 0 : 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+        delay: 0.5,
+      },
     },
-  },
-}
+  }
 
-const link = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-}
+  const link = {
+    hidden: {
+      y: !fromIndPokemonPage ? 20 : 0,
+      opacity: !fromIndPokemonPage ? 0 : 1,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  }
 
-const Nav = ({ name, textColor }) => {
   return (
-    <motion.nav
+    <nav
       sx={{
         width: "100%",
         position: "relative",
         // top: "30px",
       }}
-      variants={navContainer}
-      initial="hidden"
-      animate="visible"
     >
       <motion.ul
         sx={{
@@ -67,7 +71,7 @@ const Nav = ({ name, textColor }) => {
           <Link
             to={`/pokemon/${name}`}
             sx={{ ...linkStyles, color: textColor }}
-            // state={{ prevPath: pathname }}
+            state={{ prevPath: pathname }}
           >
             About
           </Link>
@@ -76,7 +80,7 @@ const Nav = ({ name, textColor }) => {
           <Link
             to={`/pokemon/${name}/stats`}
             sx={{ ...linkStyles, color: textColor }}
-            // state={{ prevPath: pathname }}
+            state={{ prevPath: pathname }}
           >
             Stats
           </Link>
@@ -85,7 +89,7 @@ const Nav = ({ name, textColor }) => {
           <Link
             to={`/pokemon/${name}/evolution`}
             sx={{ ...linkStyles, color: textColor }}
-            // state={{ prevPath: pathname }}
+            state={{ prevPath: pathname }}
           >
             Evolution
           </Link>
@@ -94,13 +98,13 @@ const Nav = ({ name, textColor }) => {
           <Link
             to={`/pokemon/${name}/moves`}
             sx={{ ...linkStyles, color: textColor }}
-            // state={{ prevPath: pathname }}
+            state={{ prevPath: pathname }}
           >
             Moves
           </Link>
         </motion.li>
       </motion.ul>
-    </motion.nav>
+    </nav>
   )
 }
 

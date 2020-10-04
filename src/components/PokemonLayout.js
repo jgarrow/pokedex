@@ -21,7 +21,7 @@ const TypeIcon = ({ pokemonName, type }) => {
   )
 }
 
-const PokemonLayout = ({ pokemon, children }) => {
+const PokemonLayout = ({ pokemon, children, location }) => {
   const newColor = lightenDarkenColor(pokemon.dominant_color, -60)
 
   return (
@@ -123,7 +123,7 @@ const PokemonLayout = ({ pokemon, children }) => {
             </ul>
           </div>
 
-          <Nav name={pokemon.name} textColor={"black"} />
+          <Nav name={pokemon.name} textColor={"black"} location={location} />
           <motion.section
             sx={{
               borderTopLeftRadius: "12px",

@@ -51,7 +51,11 @@ const Bar = ({ stat }) => {
   )
 }
 
-const PokemonStats = ({ data, pageContext: { id, name, dominant_color } }) => {
+const PokemonStats = ({
+  data,
+  pageContext: { id, name, dominant_color },
+  location,
+}) => {
   const pokemon = { ...data.pokeapi.pokemon, name, id, dominant_color }
   const total =
     pokemon.base_stats.hp +
@@ -62,7 +66,7 @@ const PokemonStats = ({ data, pageContext: { id, name, dominant_color } }) => {
     pokemon.base_stats.speed
 
   return (
-    <PokemonLayout pokemon={pokemon}>
+    <PokemonLayout pokemon={pokemon} location={location}>
       {/* <AnimatePresence> */}
       <motion.div
         // layoutId={`${pokemon.name}-info`}

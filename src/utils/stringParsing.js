@@ -13,3 +13,18 @@ export const replaceHyphenWithSpace = string => {
 
   return allWordsCapitalized
 }
+
+export const locationIsFromIndPokemon = locationState => {
+  if (locationState && locationState.prevPath) {
+    let pathArr = locationState.prevPath.split("/")
+    pathArr = pathArr.filter(str => str !== "") // removes empty strings where the `/` were in the original string
+
+    if (pathArr[0] === "pokemon" && pathArr.length > 1) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  return false
+}

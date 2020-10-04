@@ -10,12 +10,13 @@ import PokemonLayout from "../components/PokemonLayout"
 const PokemonEvolution = ({
   data,
   pageContext: { id, name, dominant_color },
+  location,
 }) => {
   const pokemon = { ...data.pokeapi.pokemon, name, id, dominant_color }
   const tiers = getTiers(pokemon)
 
   return (
-    <PokemonLayout pokemon={pokemon}>
+    <PokemonLayout pokemon={pokemon} location={location}>
       <Evolution pokemon={pokemon} evolutionTiers={tiers} />
     </PokemonLayout>
   )

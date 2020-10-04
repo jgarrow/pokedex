@@ -15,6 +15,7 @@ const Pokemon = ({
     prevPokemonId, // getting used in the graphql query below
     nextPokemonId, // getting used in the graphql query below
   },
+  location,
 }) => {
   const pokemon = {
     ...data.pokeapi.pokemon,
@@ -27,7 +28,7 @@ const Pokemon = ({
   // const nextPokemon = data.pokeapi.nextPokemon
 
   return (
-    <PokemonLayout pokemon={pokemon}>
+    <PokemonLayout pokemon={pokemon} location={location}>
       <About pokemon={pokemon} />
     </PokemonLayout>
   )

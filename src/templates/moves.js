@@ -8,11 +8,15 @@ import PokemonMoves from "../components/Moves"
 // TODO -- sorting functionality
 // sort alphabetically by name (A-Z, Z-A), by category, by type, by learn method
 
-const Moves = ({ data, pageContext: { id, name, dominant_color } }) => {
+const Moves = ({
+  data,
+  pageContext: { id, name, dominant_color },
+  location,
+}) => {
   const pokemon = { ...data.pokeapi.pokemon, id, name, dominant_color }
 
   return (
-    <PokemonLayout pokemon={pokemon}>
+    <PokemonLayout pokemon={pokemon} location={location}>
       <PokemonMoves pokemon={pokemon} />
     </PokemonLayout>
   )
