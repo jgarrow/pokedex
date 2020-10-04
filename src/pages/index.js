@@ -46,9 +46,9 @@ const linkStyles = {
 const Home = () => {
   return (
     <Layout>
-      <Header showArrow={false} heading="Poké Data" />
+      <Header showArrow={false} heading="Poké News" />
 
-      <ul
+      {/* <ul
         sx={{
           width: "100%",
           height: "100%",
@@ -81,17 +81,19 @@ const Home = () => {
             Type Charts
           </Link>
         </li>
-      </ul>
+      </ul> */}
 
-      <section sx={{ padding: "0 0.5rem" }}>
-        <h2 sx={{ marginBottom: "0" }}>Poké News</h2>
+      <div sx={{ position: "relative" }}>
         <Timeline
           dataSource={{
             sourceType: "list",
             id: "1312148331984904192",
           }}
+          options={{
+            chrome: ["noheader", "nofooter"],
+          }}
         />
-      </section>
+      </div>
     </Layout>
   )
 }
