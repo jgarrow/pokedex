@@ -767,7 +767,26 @@ export const pokemonEvolutionDataFragment = graphql`
 
 export const pokemonMovesFragment = graphql`
   fragment PokemonMovesFragment on Pokeapi_Pokemon {
-    yellow: moves(game: "diamond") {
+    yellow: moves(game: "yellow") {
+      name
+      power
+      accuracy
+      pp
+      priority
+      ailment
+      type {
+        name
+      }
+      damage_class
+      effect_chance
+      effect
+      description
+      learn_methods {
+        method
+        level_learned_at
+      }
+    }
+    diamond: moves(game: "diamond") {
       name
       power
       accuracy

@@ -80,7 +80,7 @@ const EvolutionCriteria = ({ trigger, criteria, tier }) => {
     }
 
     setPhrase(criteriaString)
-  }, [trigger, criteria])
+  }, [trigger, criteria, tier])
 
   return (
     <div

@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-// import * as React from "react"
 import { motion } from "framer-motion"
 
 import { GiMale, GiFemale } from "react-icons/gi"
@@ -49,10 +48,10 @@ const About = ({ pokemon }) => {
         opacity: 1,
         transition: { delay: 0.4 },
       }}
-      exit={{
-        x: -40,
-        opacity: 0,
-      }}
+      // exit={{
+      //   x: -40,
+      //   opacity: 0,
+      // }}
     >
       <p sx={{ marginBottom: `0`, textAlign: `center` }}>
         {pokemon.pokedex_entries[0].description}

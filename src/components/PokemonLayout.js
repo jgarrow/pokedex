@@ -3,6 +3,7 @@ import { jsx } from "theme-ui"
 import { motion, AnimatePresence } from "framer-motion"
 import { lightenDarkenColor } from "../utils/colors"
 
+import GameProvider from "../context/GameProvider"
 import Layout from "../components/Layout"
 import Header from "../components/Header"
 import Nav from "../components/PokemonNav"
@@ -24,129 +25,131 @@ const PokemonLayout = ({ pokemon, children }) => {
   const newColor = lightenDarkenColor(pokemon.dominant_color, -60)
 
   return (
-    <Layout>
-      <motion.div
-        layoutId={`pokemon-${pokemon.name}`}
-        sx={{
-          background: `linear-gradient(135deg, ${lightenDarkenColor(
-            pokemon.dominant_color,
-            60
-          )}, ${newColor})`,
-          position: "relative",
-          width: "100%",
-          minHeight: "100vh",
-          height: "100%",
-          zIndex: 1000,
-        }}
-      >
-        <Header name={pokemon.name} />
-        <div
+    <GameProvider>
+      <Layout>
+        <motion.div
+          layoutId={`pokemon-${pokemon.name}`}
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
+            background: `linear-gradient(135deg, ${lightenDarkenColor(
+              pokemon.dominant_color,
+              60
+            )}, ${newColor} 70vh)`,
             position: "relative",
-            overflow: "hidden",
-
-            "::after": {
-              position: "absolute",
-              top: "0px",
-              content: `"${
-                pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
-              }"`,
-              background:
-                "linear-gradient(180deg, rgba(254, 254, 254, 0.4) 0%, rgba(254, 254, 254, 0.0104167) 85%, rgba(254, 254, 254, 0) 100%)",
-              fontSize: "9rem",
-              lineHeight: "1",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              zIndex: "-1",
-            },
+            width: "100%",
+            minHeight: "100vh",
+            height: "100%",
+            zIndex: 1000,
           }}
         >
-          <motion.div
-            transition={{ duration: 0.4 }}
+          <Header name={pokemon.name} />
+          <div
             sx={{
-              height: "75%",
-              width: "75%",
-              maxWidth: "250px",
-              maxHeight: "250px",
-              position: "relative",
-              margin: "0 auto",
-            }}
-          >
-            <motion.img
-              src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/img/official-artwork/${pokemon.id}.png`}
-              alt={`${pokemon.name}`}
-              layoutId={`${pokemon.name}-image`}
-              sx={{
-                width: "100%",
-                position: "relative",
-                backgroundImage: `url(${pokeball})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "90%",
-                backgroundPosition: "center",
-                filter: "drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.5))",
-              }}
-            />
-          </motion.div>
-
-          <h2 sx={{ margin: "0", color: "black" }}>
-            {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
-          </h2>
-          <p sx={{ margin: "0.5rem 0", color: "black" }}>
-            #{pokemon.nat_dex_num}
-          </p>
-
-          <ul
-            key={`${pokemon.name}-types`}
-            sx={{
-              padding: "0",
               display: "flex",
+              flexDirection: "column",
               alignItems: "center",
-              justifyContent:
-                pokemon.types.length > 1 ? "space-between" : "center",
-              width: "80px",
-              margin: "0",
+              position: "relative",
+              overflow: "hidden",
+
+              "::after": {
+                position: "absolute",
+                top: "0px",
+                content: `"${
+                  pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+                }"`,
+                background:
+                  "linear-gradient(180deg, rgba(254, 254, 254, 0.4) 0%, rgba(254, 254, 254, 0.0104167) 85%, rgba(254, 254, 254, 0) 100%)",
+                fontSize: "9rem",
+                lineHeight: "1",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                zIndex: "-1",
+              },
             }}
           >
-            {pokemon.types.map((type, index) => (
-              <li
-                key={`type-${pokemon.name}-${index}`}
-                sx={{ listStyle: "none", width: "30px", height: "30px" }}
-              >
-                <TypeIcon pokemonName={pokemon.name} type={type.name} />
-              </li>
-            ))}
-          </ul>
-        </div>
+            <div
+              // transition={{ duration: 0.4 }}
+              sx={{
+                height: "75%",
+                width: "75%",
+                maxWidth: "250px",
+                maxHeight: "250px",
+                position: "relative",
+                margin: "0 auto",
+              }}
+            >
+              <motion.img
+                src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/img/official-artwork/${pokemon.id}.png`}
+                alt={`${pokemon.name}`}
+                layoutId={`${pokemon.name}-image`}
+                sx={{
+                  width: "100%",
+                  position: "relative",
+                  backgroundImage: `url(${pokeball})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "90%",
+                  backgroundPosition: "center",
+                  filter: "drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.5))",
+                }}
+              />
+            </div>
 
-        <Nav name={pokemon.name} textColor={"black"} />
-        <motion.section
-          sx={{
-            borderTopLeftRadius: "12px",
-            borderTopRightRadius: "12px",
-            display: "grid",
-            gridGap: "15px",
-            gridTemplateColumns: "1fr",
-            padding: "1rem",
-            overflowY: "scroll",
-            bg: "background",
-          }}
-          // initial={{
-          //   opacity: 0,
-          //   y: 40,
-          // }}
-          // animate={{
-          //   opacity: 1,
-          //   y: 0,
-          //   transition: { delay: 0.5 },
-          // }}
-        >
-          <AnimatePresence>{children}</AnimatePresence>
-        </motion.section>
-      </motion.div>
-    </Layout>
+            <h2 sx={{ margin: "0", color: "black" }}>
+              {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+            </h2>
+            <p sx={{ margin: "0.5rem 0", color: "black" }}>
+              #{pokemon.nat_dex_num}
+            </p>
+
+            <ul
+              key={`${pokemon.name}-types`}
+              sx={{
+                padding: "0",
+                display: "flex",
+                alignItems: "center",
+                justifyContent:
+                  pokemon.types.length > 1 ? "space-between" : "center",
+                width: "80px",
+                margin: "0",
+              }}
+            >
+              {pokemon.types.map((type, index) => (
+                <li
+                  key={`type-${pokemon.name}-${index}`}
+                  sx={{ listStyle: "none", width: "30px", height: "30px" }}
+                >
+                  <TypeIcon pokemonName={pokemon.name} type={type.name} />
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <Nav name={pokemon.name} textColor={"black"} />
+          <motion.section
+            sx={{
+              borderTopLeftRadius: "12px",
+              borderTopRightRadius: "12px",
+              display: "grid",
+              gridGap: "15px",
+              gridTemplateColumns: "1fr",
+              padding: "1rem",
+              overflowY: "scroll",
+              bg: "background",
+            }}
+            // initial={{
+            //   opacity: 0,
+            //   y: 40,
+            // }}
+            // animate={{
+            //   opacity: 1,
+            //   y: 0,
+            //   transition: { delay: 0.5 },
+            // }}
+          >
+            <AnimatePresence>{children}</AnimatePresence>
+          </motion.section>
+        </motion.div>
+      </Layout>
+    </GameProvider>
   )
 }
 
