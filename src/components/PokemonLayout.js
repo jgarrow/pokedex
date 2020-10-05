@@ -3,7 +3,6 @@ import { jsx } from "theme-ui"
 import { motion, AnimatePresence } from "framer-motion"
 import { lightenDarkenColor } from "../utils/colors"
 
-// import GameProvider from "../context/GameProvider"
 import Layout from "../components/Layout"
 import Header from "../components/Header"
 import Nav from "../components/PokemonNav"
