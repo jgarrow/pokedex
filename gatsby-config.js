@@ -24,6 +24,7 @@ module.exports = {
       },
     },
     "gatsby-plugin-theme-ui",
+    "gatsby-plugin-game-picker",
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
