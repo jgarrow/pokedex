@@ -28,3 +28,15 @@ export const locationIsFromIndPokemon = locationState => {
 
   return false
 }
+
+export const replaceUnderscoreWithSpace = string => {
+  const replacedWithSpaces = string.replace(/_/g, " ")
+
+  const allWordsCapitalized = replacedWithSpaces
+    .toLowerCase()
+    .split(" ")
+    .map(s => capitalizeFirstLetter(s))
+    .join(" ")
+
+  return allWordsCapitalized
+}

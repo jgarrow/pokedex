@@ -30,53 +30,61 @@ const locationEvolutions = {
 }
 
 const EvolutionCriteria = ({ trigger, criteria, tier }) => {
+  console.log("trigger: ", trigger)
+  console.log("criteria: ", criteria)
   const [phrase, setPhrase] = useState("")
 
   useEffect(() => {
-    let criteriaString = replaceHyphenWithSpace(trigger)
+    let criteriaString = trigger ? replaceHyphenWithSpace(trigger) : ""
 
-    // handle 6 pokemon who evolve based on leveling up at a certain location
-    if (
-      Object.keys(locationEvolutions).includes(tier.pokemon[tier.selected].name)
-    ) {
-      criteriaString = locationEvolutions[tier.pokemon[tier.selected].name]
-    } else if (trigger === "level-up") {
-      if (criteria.length > 1) {
-        //   if the trigger is level up and there are multiple other criteria that need to be met
-        const criteriaArrayStrings = criteria.map(criterium => {
-          const val = criterium.value ? criterium.value : criterium.name
+    if (trigger && criteria) {
+      // handle 6 pokemon who evolve based on leveling up at a certain location
+      if (
+        Object.keys(locationEvolutions).includes(
+          tier.pokemon[tier.selected].name
+        )
+      ) {
+        criteriaString = locationEvolutions[tier.pokemon[tier.selected].name]
+      } else if (trigger === "level-up") {
+        if (criteria.length > 1) {
+          //   if the trigger is level up and there are multiple other criteria that need to be met
+          const criteriaArrayStrings = criteria.map(criterium => {
+            const val = criterium.value ? criterium.value : criterium.name
 
-          return evolutionTriggerPhrases[criterium.evolution_criteria_name](val)
-        })
+            return evolutionTriggerPhrases[criterium.evolution_criteria_name](
+              val
+            )
+          })
 
-        criteriaString = `Level up ` + criteriaArrayStrings.join(", ")
+          criteriaString = `Level up ` + criteriaArrayStrings.join(", ")
+        } else if (
+          criteria.length === 1 &&
+          criteria[0].evolution_criteria_name !== "min_level"
+        ) {
+          //   if the trigger is level up, but there is also one other criteria that must be met
+          const val = criteria[0].name ? criteria[0].name : criteria[0].value
+
+          criteriaString = `Level up ${evolutionTriggerPhrases[
+            criteria[0].evolution_criteria_name
+          ](val)}`
+        } else {
+          criteriaString = `Level ${criteria[0].value}`
+        }
+      } else if (trigger === "use-item") {
+        if (criteria.length > 1) {
+        } else {
+          criteriaString = `Use ${criteria[0].name}`
+        }
       } else if (
         criteria.length === 1 &&
         criteria[0].evolution_criteria_name !== "min_level"
       ) {
-        //   if the trigger is level up, but there is also one other criteria that must be met
         const val = criteria[0].name ? criteria[0].name : criteria[0].value
 
-        criteriaString = `Level up ${evolutionTriggerPhrases[
-          criteria[0].evolution_criteria_name
-        ](val)}`
-      } else {
-        criteriaString = `Level ${criteria[0].value}`
+        criteriaString = `${replaceHyphenWithSpace(
+          trigger
+        )} ${evolutionTriggerPhrases[criteria[0].evolution_criteria_name](val)}`
       }
-    } else if (trigger === "use-item") {
-      if (criteria.length > 1) {
-      } else {
-        criteriaString = `Use ${criteria[0].name}`
-      }
-    } else if (
-      criteria.length === 1 &&
-      criteria[0].evolution_criteria_name !== "min_level"
-    ) {
-      const val = criteria[0].name ? criteria[0].name : criteria[0].value
-
-      criteriaString = `${replaceHyphenWithSpace(
-        trigger
-      )} ${evolutionTriggerPhrases[criteria[0].evolution_criteria_name](val)}`
     }
 
     setPhrase(criteriaString)

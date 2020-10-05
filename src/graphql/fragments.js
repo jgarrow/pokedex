@@ -572,7 +572,7 @@ export const pokemonEvolutionDataFragment = graphql`
 //         level_learned_at
 //       }
 //     }
-//     black2: moves(game: "black-2") {
+//     black-2: moves(game: "black-2") {
 //       name
 //       power
 //       accuracy
@@ -591,7 +591,7 @@ export const pokemonEvolutionDataFragment = graphql`
 //         level_learned_at
 //       }
 //     }
-//     white2: moves(game: "white-2") {
+//     white-2: moves(game: "white-2") {
 //       name
 //       power
 //       accuracy
@@ -648,7 +648,7 @@ export const pokemonEvolutionDataFragment = graphql`
 //         level_learned_at
 //       }
 //     }
-//     omegaRuby: moves(game: "omega-ruby") {
+//     omega-ruby: moves(game: "omega-ruby") {
 //       name
 //       power
 //       accuracy
@@ -667,7 +667,7 @@ export const pokemonEvolutionDataFragment = graphql`
 //         level_learned_at
 //       }
 //     }
-//     alphaSapphire: moves(game: "alpha-sapphire") {
+//     alpha-sapphire: moves(game: "alpha-sapphire") {
 //       name
 //       power
 //       accuracy
@@ -724,7 +724,7 @@ export const pokemonEvolutionDataFragment = graphql`
 //         level_learned_at
 //       }
 //     }
-//     ultraSun: moves(game: "ultra-sun") {
+//     ultra-sun: moves(game: "ultra-sun") {
 //       name
 //       power
 //       accuracy
@@ -743,7 +743,7 @@ export const pokemonEvolutionDataFragment = graphql`
 //         level_learned_at
 //       }
 //     }
-//     ultraMoon: moves(game: "ultra-moon") {
+//     ultra-moon: moves(game: "ultra-moon") {
 //       name
 //       power
 //       accuracy
@@ -787,6 +787,82 @@ export const pokemonMovesFragment = graphql`
       }
     }
     diamond: moves(game: "diamond") {
+      name
+      power
+      accuracy
+      pp
+      priority
+      ailment
+      type {
+        name
+      }
+      damage_class
+      effect_chance
+      effect
+      description
+      learn_methods {
+        method
+        level_learned_at
+      }
+    }
+    letsGoPikachu: moves(game: "lets-go-pikachu") {
+      name
+      power
+      accuracy
+      pp
+      priority
+      ailment
+      type {
+        name
+      }
+      damage_class
+      effect_chance
+      effect
+      description
+      learn_methods {
+        method
+        level_learned_at
+      }
+    }
+    letsGoEevee: moves(game: "lets-go-eevee") {
+      name
+      power
+      accuracy
+      pp
+      priority
+      ailment
+      type {
+        name
+      }
+      damage_class
+      effect_chance
+      effect
+      description
+      learn_methods {
+        method
+        level_learned_at
+      }
+    }
+    sword: moves(game: "sword") {
+      name
+      power
+      accuracy
+      pp
+      priority
+      ailment
+      type {
+        name
+      }
+      damage_class
+      effect_chance
+      effect
+      description
+      learn_methods {
+        method
+        level_learned_at
+      }
+    }
+    shield: moves(game: "shield") {
       name
       power
       accuracy

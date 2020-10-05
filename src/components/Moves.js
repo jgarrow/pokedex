@@ -4,7 +4,9 @@ import { motion } from "framer-motion"
 import { useState, useEffect, useContext } from "react"
 import { GameContext } from "../context/GameContext"
 
-import GameSelect from "./GameSelect"
+import { replaceUnderscoreWithSpace } from "../utils/stringParsing"
+
+// import GameSelect from "./GameSelect"
 import MoveCard from "./MoveCard"
 import MoveCardFront from "./MoveCardFront"
 import MoveCardBack from "./MoveCardBack"
@@ -110,7 +112,7 @@ const Moves = ({ pokemon }) => {
             <option value="tutor">Tutor</option>
           </select>
 
-          <GameSelect />
+          {/* <GameSelect /> */}
         </div>
       </div>
 
@@ -126,7 +128,9 @@ const Moves = ({ pokemon }) => {
             </MoveCard>
           ))
         ) : (
-          <p sx={{ textAlign: "center" }}>No moves available for {game}</p>
+          <p sx={{ textAlign: "center" }}>
+            No moves available for {replaceUnderscoreWithSpace(game)}
+          </p>
         )}
       </ul>
     </motion.section>
