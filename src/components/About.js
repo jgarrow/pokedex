@@ -7,6 +7,12 @@ import { GameContext } from "../context/GameContext"
 import { GiMale, GiFemale } from "react-icons/gi"
 
 import { replaceHyphenWithSpace } from "../utils/stringParsing"
+import {
+  decimetersToMeters,
+  metersToFeet,
+  hectogramsToKg,
+  kgToPounds,
+} from "../utils/metricConversions"
 
 const title = {
   textAlign: "start",
@@ -100,7 +106,8 @@ const About = ({ pokemon }) => {
             Height
           </label>
           <p id={`${pokemon.name}-height`} sx={gridContent}>
-            {pokemon.height}
+            {decimetersToMeters(pokemon.height)}m (
+            {metersToFeet(pokemon.height * 0.1)})
           </p>
 
           <span sx={rowUnderline} />
@@ -109,7 +116,8 @@ const About = ({ pokemon }) => {
             Weight
           </label>
           <p id={`${pokemon.name}-weight`} sx={gridContent}>
-            {pokemon.weight}
+            {hectogramsToKg(pokemon.weight)}kg (
+            {kgToPounds(pokemon.weight * 0.1)}lbs)
           </p>
 
           <span sx={rowUnderline} />
