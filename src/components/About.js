@@ -179,7 +179,7 @@ const About = ({ pokemon }) => {
             Growth Rate
           </label>
           <p id={`${pokemon.name}-growth-rate`} sx={gridContent}>
-            {pokemon.growth_rate}
+            {replaceHyphenWithSpace(pokemon.growth_rate)}
           </p>
 
           <span sx={rowUnderline} />
