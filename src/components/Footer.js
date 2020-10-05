@@ -5,7 +5,8 @@ import { Link } from "gatsby"
 import news from "../images/bx-news.svg"
 import backpack from "../images/bxs-backpack.svg"
 import chart from "../images/bxs-bar-chart-alt-2.svg"
-import search from "../images/bx-search.svg"
+// import search from "../images/bx-search.svg"
+import Search from "./Search"
 
 const listStyles = {
   listStyle: "none",
@@ -45,7 +46,7 @@ const Pokeball = () => {
   )
 }
 
-const Footer = () => {
+const Footer = ({ setSearchResults, pokemonList }) => {
   return (
     // <footer
     //   sx={{
@@ -110,10 +111,14 @@ const Footer = () => {
             justifyContent: "center",
           }}
         >
-          <img
+          {/* <img
             src={search}
             alt="Search icon"
             sx={{ ...imgStyles, fill: "text" }}
+          /> */}
+          <Search
+            setSearchResults={setSearchResults}
+            pokemonList={pokemonList}
           />
         </li>
       </ul>

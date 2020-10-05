@@ -31,6 +31,8 @@ const ItemModal = ({ item }) => {
         borderRadius: "8px",
         boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
         width: "90%",
+        height: "auto",
+        maxHeight: "300px",
         position: "absolute",
         top: "0",
         left: "50%",
@@ -74,11 +76,21 @@ const ItemModal = ({ item }) => {
           Effect
         </label>
         <p id="effect" sx={pStyles}>
-          {item.effect}
+          {item.name}
         </p>
 
         <span sx={rowUnderline} />
       </div>
+      <p
+        sx={{
+          textAlign: "center",
+          marginTop: "0.5rem",
+          marginBottom: "0",
+          borderBottom: "1px solid #f0f0f0",
+        }}
+      >
+        {item.effect ? item.effect : `No effect for ${item.name}`}
+      </p>
       <p sx={{ textAlign: "center", marginTop: "0.5rem", marginBottom: "0" }}>
         {item.description
           ? item.description

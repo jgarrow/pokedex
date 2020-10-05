@@ -6,11 +6,11 @@ import Footer from "../components/Footer"
 
 import "../styles.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, setSearchResults, pokemonList }) => {
   return (
     <Fragment>
       <main sx={{ marginBottom: "calc(2rem + 60px)" }}>{children}</main>
-      <Footer />
+      <Footer setSearchResults={setSearchResults} pokemonList={pokemonList} />
     </Fragment>
   )
 }
