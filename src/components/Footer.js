@@ -47,66 +47,78 @@ const Pokeball = () => {
 
 const Footer = () => {
   return (
-    <footer
+    // <footer
+    //   sx={{
+    //     width: "100%",
+    //     height: "75px",
+    //     position: "fixed",
+    //     bottom: "0",
+    //     bg: "background",
+    //     boxShadow: "0px -3px 8px -5px rgba(0, 0, 0, 0.25)",
+    //   }}
+    // >
+    <nav
       sx={{
         width: "100%",
+        height: "100%",
+        margin: "0",
         height: "75px",
         position: "fixed",
         bottom: "0",
         bg: "background",
         boxShadow: "0px -3px 8px -5px rgba(0, 0, 0, 0.25)",
+        zIndex: "1000",
       }}
     >
-      <nav sx={{ width: "100%", height: "100%", margin: "0" }}>
-        <ul
+      <ul
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(5, 1fr)",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          height: "100%",
+          padding: "0",
+          margin: "0",
+        }}
+      >
+        <li sx={listStyles}>
+          <Link to="/news" sx={linkStyles}>
+            <img src={news} alt="News icon" sx={imgStyles} />
+          </Link>
+        </li>
+        <li sx={listStyles}>
+          <Link to="/items" sx={linkStyles}>
+            <img src={backpack} alt="Backpack icon" sx={imgStyles} />
+          </Link>
+        </li>
+        <li sx={listStyles}>
+          <Link to="/" sx={linkStyles}>
+            <Pokeball />
+          </Link>
+        </li>
+        <li sx={listStyles}>
+          <Link to="/type-charts" sx={linkStyles}>
+            <img src={chart} alt="Bar chart icon" sx={imgStyles} />
+          </Link>
+        </li>
+        <li
           sx={{
-            display: "grid",
-            gridTemplateColumns: "repeat(5, 1fr)",
+            ...listStyles,
+            display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "100%",
-            height: "100%",
-            padding: "0",
-            margin: "0",
           }}
         >
-          <li sx={listStyles}>
-            <Link to="/news" sx={linkStyles}>
-              <img src={news} alt="News icon" sx={imgStyles} />
-            </Link>
-          </li>
-          <li sx={listStyles}>
-            <Link to="/items" sx={linkStyles}>
-              <img src={backpack} alt="Backpack icon" sx={imgStyles} />
-            </Link>
-          </li>
-          <li sx={listStyles}>
-            <Link to="/" sx={linkStyles}>
-              <Pokeball />
-            </Link>
-          </li>
-          <li sx={listStyles}>
-            <Link to="/type-charts" sx={linkStyles}>
-              <img src={chart} alt="Bar chart icon" sx={imgStyles} />
-            </Link>
-          </li>
-          <li
-            sx={{
-              ...listStyles,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <img
-              src={search}
-              alt="Search icon"
-              sx={{ ...imgStyles, fill: "text" }}
-            />
-          </li>
-        </ul>
-      </nav>
-    </footer>
+          <img
+            src={search}
+            alt="Search icon"
+            sx={{ ...imgStyles, fill: "text" }}
+          />
+        </li>
+      </ul>
+    </nav>
+    // </footer>
   )
 }
 
