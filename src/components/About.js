@@ -1,8 +1,12 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
+import { useContext, useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import { GameContext } from "../context/GameContext"
 
 import { GiMale, GiFemale } from "react-icons/gi"
+
+import { replaceHyphenWithSpace } from "../utils/stringParsing"
 
 const title = {
   textAlign: "start",
@@ -35,6 +39,19 @@ const rowUnderline = {
 }
 
 const About = ({ pokemon }) => {
+  const { game } = useContext(GameContext)
+  const [dexEntry, setDexEntry] = useState("")
+
+  useEffect(() => {
+    let entry = pokemon.pokedex_entries.filter(desc => desc.game.name === game)
+
+    entry =
+      entry[0] && entry[0].description
+        ? entry[0].description
+        : `No Pokédex entry for ${replaceHyphenWithSpace(game)}`
+    setDexEntry(entry)
+  }, [game])
+
   return (
     // <AnimatePresence>
     <motion.div
@@ -53,9 +70,7 @@ const About = ({ pokemon }) => {
       //   opacity: 0,
       // }}
     >
-      <p sx={{ marginBottom: `0`, textAlign: `center` }}>
-        {pokemon.pokedex_entries[0].description}
-      </p>
+      <p sx={{ marginBottom: `0`, textAlign: `center` }}>{dexEntry}</p>
       <section>
         <h3 sx={title}>Pokémon Data</h3>
         <div sx={dataGrid}>

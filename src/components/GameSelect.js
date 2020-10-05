@@ -5,7 +5,7 @@ import { GameContext } from "../context/GameContext"
 import { motion } from "framer-motion"
 
 import { FiChevronDown } from "react-icons/fi"
-import { replaceUnderscoreWithSpace } from "../utils/stringParsing"
+import { replaceHyphenWithSpace } from "../utils/stringParsing"
 
 const pStyles = {
   margin: "0",
@@ -50,7 +50,7 @@ const GameSelect = () => {
             borderBottom: "none",
           }}
         >
-          {replaceUnderscoreWithSpace(game)}
+          {replaceHyphenWithSpace(game)}
         </p>
 
         <motion.div
@@ -196,14 +196,14 @@ const GameSelect = () => {
         <p
           value="black2"
           sx={pStyles}
-          onClick={() => handleGameChange("black_2")}
+          onClick={() => handleGameChange("black-2")}
         >
           Black 2
         </p>
         <p
           value="white2"
           sx={pStyles}
-          onClick={() => handleGameChange("white_2")}
+          onClick={() => handleGameChange("white-2")}
         >
           White 2
         </p>
@@ -216,14 +216,14 @@ const GameSelect = () => {
         <p
           value="omegaRuby"
           sx={pStyles}
-          onClick={() => handleGameChange("omega_ruby")}
+          onClick={() => handleGameChange("omega-ruby")}
         >
           Omega Ruby
         </p>
         <p
           value="alphaSapphire"
           sx={pStyles}
-          onClick={() => handleGameChange("alpha_sapphire")}
+          onClick={() => handleGameChange("alpha-sapphire")}
         >
           Alpha Sapphire
         </p>
@@ -236,28 +236,28 @@ const GameSelect = () => {
         <p
           value="ultraSun"
           sx={pStyles}
-          onClick={() => handleGameChange("ultra_sun")}
+          onClick={() => handleGameChange("ultra-sun")}
         >
           Ultra Sun
         </p>
         <p
           value="ultraMoon"
           sx={pStyles}
-          onClick={() => handleGameChange("ultra_moon")}
+          onClick={() => handleGameChange("ultra-moon")}
         >
           Ultra Moon
         </p>
         <p
           value="letsGoPikachu"
           sx={pStyles}
-          onClick={() => handleGameChange("lets_go_pikachu")}
+          onClick={() => handleGameChange("lets-go-pikachu")}
         >
           Let's Go Pikachu
         </p>
         <p
           value="letsGoEevee"
           sx={pStyles}
-          onClick={() => handleGameChange("lets_go_eevee")}
+          onClick={() => handleGameChange("lets-go-eevee")}
         >
           Let's Go Eevee
         </p>
