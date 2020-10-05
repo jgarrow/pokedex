@@ -4,7 +4,7 @@ import { jsx } from "theme-ui"
 import Layout from "../components/Layout"
 import Header from "../components/MainHeader"
 
-const Home = () => {
+const TypeCharts = () => {
   return (
     <Layout>
       <Header showArrow={true} heading="Type Charts" />
@@ -13,4 +13,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default TypeCharts

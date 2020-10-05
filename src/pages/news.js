@@ -43,7 +43,7 @@ import Header from "../components/MainHeader"
 //   },
 // }
 
-const Home = () => {
+const News = () => {
   return (
     <Layout>
       <Header showArrow={true} heading="Poké News" />
@@ -98,4 +98,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default News

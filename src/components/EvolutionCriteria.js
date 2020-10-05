@@ -30,8 +30,6 @@ const locationEvolutions = {
 }
 
 const EvolutionCriteria = ({ trigger, criteria, tier }) => {
-  console.log("trigger: ", trigger)
-  console.log("criteria: ", criteria)
   const [phrase, setPhrase] = useState("")
 
   useEffect(() => {
