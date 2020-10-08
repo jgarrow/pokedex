@@ -22,7 +22,6 @@ const labelStyles = {
 }
 
 const ItemModal = ({ item }) => {
-  console.log("item in modal: ", item)
   return (
     <div
       sx={{

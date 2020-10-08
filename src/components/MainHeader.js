@@ -26,10 +26,7 @@ const Header = ({ showArrow, heading, pokemonList, setSearchResults }) => {
   const [inputValue, setInputValue] = useState("")
   const { results, updateResults } = useCachedResults()
 
-  console.log("results", results)
-
   const handleChange = e => {
-    console.log("inputValue", inputValue)
     let newResults = [...pokemonList]
     // let list = searchResults
     const newValue = e.target.value.toLowerCase()
@@ -40,10 +37,7 @@ const Header = ({ showArrow, heading, pokemonList, setSearchResults }) => {
     //   list = pokemonList
     // }
 
-    console.log("list", list)
-
     if (e.target.value !== "") {
-      console.log("i'm filtering")
       // newResults = newResults.filter(mon =>
       //   mon.name.includes(e.target.value.toLowerCase())
       // )
@@ -153,6 +147,7 @@ const Header = ({ showArrow, heading, pokemonList, setSearchResults }) => {
               borderRadius: "4px",
               border: "1px solid gray",
             }}
+            initial={{ width: 0, opacity: 0 }}
             animate={{ width: searchBar.width, opacity: searchBar.opacity }}
             transition={{
               duration: 0.15,

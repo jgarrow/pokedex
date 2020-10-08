@@ -25,7 +25,6 @@ const Search = ({ pokemonList, setSearchResults }) => {
       newSize = "100px"
       newOpacity = 1
     }
-    console.log("here")
     setSize(newSize)
     setOpaque(newOpacity)
     setIsOpen(!isOpen)

@@ -10,7 +10,6 @@ const ItemsList = ({ items }) => {
   const [modalItem, setModalItem] = useState(items[0])
 
   const toggleModal = item => {
-    console.log("item in toggleModal: ", item)
     setModalItem(item)
     setIsModalOpen(!isModalOpen)
   }
