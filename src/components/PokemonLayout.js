@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { motion, AnimatePresence } from "framer-motion"
-import { lightenDarkenColor } from "../utils/colors"
+// import { lightenDarkenColor } from "../utils/colors"
 
 import Layout from "../components/Layout"
 import Header from "../components/Header"
@@ -21,17 +21,14 @@ const TypeIcon = ({ pokemonName, type }) => {
 }
 
 const PokemonLayout = ({ pokemon, children, location }) => {
-  const newColor = lightenDarkenColor(pokemon.dominant_color, -60)
+  // const newColor = lightenDarkenColor(pokemon.dominant_color, -60)
 
   return (
     <Layout>
       <motion.div
         layoutId={`pokemon-${pokemon.name}`}
         sx={{
-          background: `linear-gradient(135deg, ${lightenDarkenColor(
-            pokemon.dominant_color,
-            60
-          )}, ${newColor} 70vh)`,
+          background: `linear-gradient(135deg, ${pokemon.dominant_color.light}, ${pokemon.dominant_color.dark} 70vh)`,
           position: "relative",
           width: "100%",
           minHeight: "100vh",
