@@ -74,8 +74,8 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
           display: "grid",
           gridRowGap: "20px",
           gridTemplateRows: `repeat(${
-            newTiers.length - 2
-          }, minmax(100px, 150px) auto)`,
+            newTiers.length - 1
+          }, minmax(100px, auto))`,
         }}
       >
         {newTiers &&
@@ -89,6 +89,9 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
                     "minmax(80px, 100px) minmax(50px, 1fr) minmax(80px, 100px)",
                   gridColumnGap: "10px",
                   alignItems: "center",
+                  borderBottom: newTiers[index + 2]
+                    ? "1px solid #f0f0f0"
+                    : "none",
                 }}
               >
                 <EvolutionTier
@@ -119,7 +122,7 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
                       handleTap={handleTap}
                     />
 
-                    {newTiers[index + 2] ? <span sx={rowUnderline} /> : null}
+                    {/* {newTiers[index + 2] ? <span sx={rowUnderline} /> : null} */}
                   </Fragment>
                 ) : null}
               </div>
