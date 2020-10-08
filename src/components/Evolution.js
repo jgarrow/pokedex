@@ -7,16 +7,10 @@ import EvolutionCriteria from "./EvolutionCriteria"
 import EvolutionTier from "./IndividualEvolutionTier"
 
 import { getTiers } from "../utils/getEvolutionTiers"
+import { replaceHyphenWithSpace } from "../utils/stringParsing"
 
 const title = {
   textAlign: "start",
-}
-
-const rowUnderline = {
-  gridColumn: "1 / span 3",
-  height: "0",
-  width: "100%",
-  borderBottom: "1px solid #f0f0f0",
 }
 
 const Evolution = ({ pokemon, evolutionTiers }) => {
@@ -78,65 +72,79 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
           }, minmax(100px, auto))`,
         }}
       >
-        {newTiers &&
-          newTiers.map((tier, index) =>
-            newTiers[index + 1] ? (
-              <div
-                key={`evolution-chain-${pokemon.name}-${index}`}
-                sx={{
-                  display: "grid",
-                  gridTemplateColumns:
-                    "minmax(80px, 100px) minmax(50px, 1fr) minmax(80px, 100px)",
-                  gridColumnGap: "10px",
-                  alignItems: "center",
-                  borderBottom: newTiers[index + 2]
-                    ? "1px solid #f0f0f0"
-                    : "none",
-                }}
-              >
-                <EvolutionTier
-                  tier={tier}
-                  tierIndex={index}
-                  handleTap={handleTap}
-                />
+        {newTiers
+          ? newTiers.map((tier, index) =>
+              newTiers[index + 1] ? (
+                <div
+                  key={`evolution-chain-${pokemon.name}-${index}`}
+                  sx={{
+                    display: "grid",
+                    gridTemplateColumns:
+                      "minmax(80px, 100px) minmax(50px, 1fr) minmax(80px, 100px)",
+                    gridColumnGap: "10px",
+                    alignItems: "center",
+                    borderBottom: newTiers[index + 2]
+                      ? "1px solid #f0f0f0"
+                      : "none",
+                  }}
+                >
+                  <EvolutionTier
+                    tier={tier}
+                    tierIndex={index}
+                    handleTap={handleTap}
+                  />
 
-                {newTiers[index + 1] ? (
-                  <Fragment>
-                    <EvolutionCriteria
-                      trigger={
-                        newTiers[index + 1].pokemon[
-                          newTiers[index + 1].selected
-                        ].evolution_trigger
-                      }
-                      criteria={
-                        newTiers[index + 1].pokemon[
-                          newTiers[index + 1].selected
-                        ].evolution_criteria
-                      }
-                      tier={newTiers[index + 1]}
-                    />
+                  {newTiers[index + 1] ? (
+                    <Fragment>
+                      <EvolutionCriteria
+                        trigger={
+                          newTiers[index + 1].pokemon[
+                            newTiers[index + 1].selected
+                          ].evolution_trigger
+                        }
+                        criteria={
+                          newTiers[index + 1].pokemon[
+                            newTiers[index + 1].selected
+                          ].evolution_criteria
+                        }
+                        tier={newTiers[index + 1]}
+                      />
 
-                    <EvolutionTier
-                      tier={newTiers[index + 1]}
-                      tierIndex={index + 1}
-                      handleTap={handleTap}
-                    />
+                      <EvolutionTier
+                        tier={newTiers[index + 1]}
+                        tierIndex={index + 1}
+                        handleTap={handleTap}
+                      />
 
-                    {/* {newTiers[index + 2] ? <span sx={rowUnderline} /> : null} */}
-                  </Fragment>
-                ) : null}
-              </div>
-            ) : null
-          )}
+                      {/* {newTiers[index + 2] ? <span sx={rowUnderline} /> : null} */}
+                    </Fragment>
+                  ) : null}
+                </div>
+              ) : null
+            )
+          : null}
 
         {/* handle pokemon who don't evolve */}
         {newTiers && newTiers.length === 1 ? (
-          <div sx={{ width: "100px", height: "100px", justifySelf: "center" }}>
-            <img
-              src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/src/img/${newTiers[0].pokemon[0].id}.png`}
-              alt={`${newTiers[0].pokemon[0].name}`}
-              sx={{ width: `100%` }}
-            />
+          <div
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <div
+              sx={{ width: "100px", height: "100px", justifySelf: "center" }}
+            >
+              <img
+                src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/src/img/${newTiers[0].pokemon[0].id}.png`}
+                alt={`${newTiers[0].pokemon[0].name}`}
+                sx={{ width: `100%` }}
+              />
+            </div>
+            <p sx={{ textAlign: "center", margin: "0" }}>
+              {replaceHyphenWithSpace(newTiers[0].pokemon[0].name)}
+            </p>
           </div>
         ) : null}
       </div>

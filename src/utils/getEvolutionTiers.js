@@ -51,7 +51,7 @@ export const getTiers = (currentPokemon, newSelected) => {
   getHigherTiers(tiers[0].pokemon[0])
 
   // ignore pikachu's cosplay forms
-  if (tiers[1].pokemon[0].name === "pikachu") {
+  if (tiers[1] && tiers[1].pokemon[0].name === "pikachu") {
     tiers[1].pokemon = [tiers[1].pokemon[0]]
   }
 
