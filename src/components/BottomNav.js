@@ -22,6 +22,7 @@ const linkStyles = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  flexDirection: "column",
 }
 
 const imgStyles = {
@@ -76,32 +77,32 @@ const BottomNav = () => {
         <li sx={listStyles}>
           <Link to="/news" sx={linkStyles}>
             <img src={news} alt="News icon" sx={imgStyles} />
+            News
           </Link>
-          News
         </li>
         <li sx={listStyles}>
           <Link to="/items" sx={linkStyles}>
             <img src={backpack} alt="Backpack icon" sx={imgStyles} />
+            Items
           </Link>
-          Items
         </li>
         <li sx={listStyles}>
           <Link to="/" sx={linkStyles}>
             <Pokeball />
+            Pokédex
           </Link>
-          Pokédex
         </li>
         <li sx={listStyles}>
           <Link to="/type-charts" sx={linkStyles}>
             <img src={chart} alt="Bar chart icon" sx={imgStyles} />
+            Types
           </Link>
-          Type Charts
         </li>
         <li sx={listStyles}>
           <Link to="/abilities" sx={linkStyles}>
             <img src={capsule} alt="Capsule icon" sx={imgStyles} />
+            Abilities
           </Link>
-          Abilities
         </li>
       </ul>
     </nav>
