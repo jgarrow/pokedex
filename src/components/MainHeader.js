@@ -1,50 +1,132 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { Link } from "gatsby"
+import { useState } from "react"
 
 import { RiArrowGoBackFill } from "react-icons/ri"
 
 import pokeball from "../images/header-pokeball.svg"
+import search from "../images/bx-search.svg"
 
 // Link positioned absolutely so that h1's across all pages fall in the same place regardless of whether or not the arrow is showing
 
-const Header = ({ showArrow, heading }) => {
+const useCachedResults = () => {
+  const [results, setResults] = useState({})
+
+  const updateResults = (key, value) => {
+    setResults({ ...results, [key]: value })
+  }
+
+  return { results, updateResults }
+}
+
+const Header = ({
+  showArrow,
+  heading,
+  pokemonList,
+  searchResults,
+  setSearchResults,
+}) => {
+  const [inputValue, setInputValue] = useState("")
+  const { results, updateResults } = useCachedResults()
+
+  console.log("results", results)
+
+  const handleChange = e => {
+    console.log("inputValue", inputValue)
+    let newResults = [...pokemonList]
+    // let list = searchResults
+    const newValue = e.target.value.toLowerCase()
+    const list = results[newValue] ? results[newValue] : [...pokemonList]
+    setInputValue(e.target.value.toLowerCase())
+
+    // if (!newValue.includes(inputValue)) {
+    //   list = pokemonList
+    // }
+
+    console.log("list", list)
+
+    if (e.target.value !== "") {
+      console.log("i'm filtering")
+      // newResults = newResults.filter(mon =>
+      //   mon.name.includes(e.target.value.toLowerCase())
+      // )
+      newResults = list.filter(mon => mon.name.includes(newValue))
+    }
+
+    updateResults(newValue, newResults)
+    setSearchResults(newResults)
+  }
+
   return (
     <header
       sx={{
         width: "100%",
-        height: "120px",
+        height: "130px",
         padding: "1rem 0.5rem 0",
         marginBottom: "1.5rem",
         display: "flex",
-        alignItems: "center",
+        flexDirection: "column",
+        justifyContent: "flex-end",
       }}
     >
-      {showArrow && (
-        <Link to="/" sx={{ color: "text", position: "absolute", top: "16px" }}>
-          <RiArrowGoBackFill sx={{ fontSize: "1.5rem" }} />
-        </Link>
-      )}
-      <h1
+      <div
         sx={{
-          fontSize: "2.5rem",
-          margin: "0",
-
-          "::before": {
-            content: '""',
-            position: "absolute",
-            top: "-6px",
-            right: "0",
-            backgroundImage: `url(${pokeball})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "175px",
-            height: "190px",
-            width: "175px",
-          },
+          display: "flex",
+          alignItems: "center",
         }}
       >
-        {heading}
-      </h1>
+        {showArrow && (
+          <Link
+            to="/"
+            sx={{ color: "text", position: "absolute", top: "16px" }}
+          >
+            <RiArrowGoBackFill sx={{ fontSize: "1.5rem" }} />
+          </Link>
+        )}
+        <h1
+          sx={{
+            fontSize: "2.5rem",
+            margin: "0",
+
+            "::before": {
+              content: '""',
+              position: "absolute",
+              top: "-6px",
+              right: "0",
+              backgroundImage: `url(${pokeball})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "175px",
+              height: "190px",
+              width: "175px",
+            },
+          }}
+        >
+          {heading}
+        </h1>
+      </div>
+
+      <div
+        sx={{
+          width: "50%",
+          maxWidth: "200px",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <img src={search} alt="Search icon" sx={{ marginRight: "0.5rem" }} />
+
+        <label htmlFor="search-bar" sx={{ width: "100%" }}>
+          <input
+            id="search-bar"
+            name="search-bar"
+            type="text"
+            value={inputValue}
+            onChange={handleChange}
+            sx={{ width: "100%" }}
+          />
+        </label>
+      </div>
     </header>
   )
 }
