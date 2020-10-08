@@ -2,7 +2,10 @@
 import { jsx } from "theme-ui"
 import { useState, useEffect } from "react"
 
-import { replaceHyphenWithSpace } from "../utils/stringParsing"
+import {
+  capitalizeFirstLetter,
+  replaceHyphenWithSpace,
+} from "../utils/stringParsing"
 
 import { BsArrowRight } from "react-icons/bs"
 
@@ -18,13 +21,15 @@ const evolutionTriggerPhrases = {
   needs_overworld_rain: "while raining",
   time_of_day: time => `during ${time}time`,
   turn_upside_down: "while upside down",
+  gender: gender => `${gender}`,
+  evolution_item: item => `use ${item}`,
 }
 
 const locationEvolutions = {
   glaceon: "Level up near an Icy Rock",
   leafeon: "Level up near a Mossy Rock",
   vikavolt: "Level up in a Magnetic Field Area",
-  crabrawler: "eLvel up at Mount Lanakila",
+  crabrawler: "Level up at Mount Lanakila",
   magnezone: "Level up in a Magnetic Field Area",
   probopass: "Level up in a Magnetic Field Area",
 }
@@ -70,6 +75,20 @@ const EvolutionCriteria = ({ trigger, criteria, tier }) => {
         }
       } else if (trigger === "use-item") {
         if (criteria.length > 1) {
+          const criteriaArrayStrings = criteria.map(criterium => {
+            const val = criterium.value ? criterium.value : criterium.name
+            console.log("criterium: ", criterium)
+            return evolutionTriggerPhrases[criterium.evolution_criteria_name](
+              val
+            )
+          })
+
+          criteriaArrayStrings[0] = capitalizeFirstLetter(
+            criteriaArrayStrings[0]
+          )
+          console.log("criteriaArrayStrings: ", criteriaArrayStrings)
+
+          criteriaString = criteriaArrayStrings.join(", ")
         } else {
           criteriaString = `Use ${criteria[0].name}`
         }
