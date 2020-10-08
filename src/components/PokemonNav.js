@@ -60,8 +60,9 @@ const Nav = ({ name, textColor, location: { pathname, state } }) => {
           gridTemplateRows: "30px",
           gridGap: "8px",
           justifyContent: "center",
+          alignItems: "center",
           padding: "0",
-          marginTop: "0",
+          marginBottom: "0",
         }}
         variants={navContainer}
         initial="hidden"

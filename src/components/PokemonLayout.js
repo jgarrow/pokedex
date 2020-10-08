@@ -76,7 +76,7 @@ const PokemonLayout = ({ pokemon, children, location }) => {
             }}
           >
             <motion.img
-              src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/img/official-artwork/${pokemon.id}.png`}
+              src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/src/img/${pokemon.id}.png`}
               alt={`${pokemon.name}`}
               layoutId={`${pokemon.name}-image`}
               sx={{
@@ -130,8 +130,10 @@ const PokemonLayout = ({ pokemon, children, location }) => {
             gridGap: "15px",
             gridTemplateColumns: "1fr",
             padding: "1rem",
-            overflowY: "scroll",
+            // overflowY: "scroll",
             bg: "background",
+            height: "auto",
+            minHeight: "calc(100vh - 480px + 1rem)",
           }}
           // initial={{
           //   opacity: 0,

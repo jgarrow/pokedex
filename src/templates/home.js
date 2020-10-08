@@ -10,8 +10,14 @@ const Home = ({ pageContext: { allPokemon } }) => {
   const [searchResults, setSearchResults] = useState([...allPokemon])
 
   return (
-    <Layout setSearchResults={setSearchResults} pokemonList={allPokemon}>
-      <Header showArrow={true} heading="Pokédex" />
+    <Layout>
+      <Header
+        showArrow={true}
+        heading="Pokédex"
+        setSearchResults={setSearchResults}
+        searchResults={searchResults}
+        pokemonList={allPokemon}
+      />
       <PokemonList pokemonList={searchResults} />
     </Layout>
   )

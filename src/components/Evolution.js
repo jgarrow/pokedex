@@ -130,7 +130,7 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
         {newTiers && newTiers.length === 1 ? (
           <div sx={{ width: "100px", height: "100px", justifySelf: "center" }}>
             <img
-              src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/img/official-artwork/${newTiers[0].pokemon[0].id}.png`}
+              src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/src/img/${newTiers[0].pokemon[0].id}.png`}
               alt={`${newTiers[0].pokemon[0].name}`}
               sx={{ width: `100%` }}
             />

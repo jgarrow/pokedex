@@ -53,7 +53,7 @@ const PokemonListCard = ({ pokemon, variant }) => {
             }}
           >
             <motion.img
-              src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/img/official-artwork/${pokemon.id}.png`}
+              src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/src/img/${pokemon.id}.png`}
               alt={`${pokemon.name}`}
               layoutId={`${pokemon.name}-image`}
               sx={{

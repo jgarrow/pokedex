@@ -54,7 +54,7 @@ const Search = ({ pokemonList, setSearchResults }) => {
     >
       <motion.label
         htmlFor="search"
-        initial={{ width: 0, x: "0", zIndex: "-1", opacity: "0" }}
+        initial={{ width: 0, x: "0", zIndex: "-1", opacity: 0 }}
         animate={{ width: size, x: "-70%", zIndex: "1", opacity: opaque }}
         transition={{
           duration: 0.15,

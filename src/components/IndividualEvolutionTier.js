@@ -27,7 +27,7 @@ const EvolutionTier = ({ tier, tierIndex, handleTap }) => {
         {tierArray.map((mon, index) => (
           <motion.img
             key={`tier-${tierIndex}-evolution-${index}`}
-            src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/img/official-artwork/${mon.id}.png`}
+            src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/src/img/${mon.id}.png`}
             alt={`${mon.name}`}
             animate={{
               y: `${tier.selected * -100}%`,

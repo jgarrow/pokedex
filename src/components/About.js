@@ -56,7 +56,7 @@ const About = ({ pokemon }) => {
         ? entry[0].description
         : `No Pokédex entry for ${replaceHyphenWithSpace(game)}`
     setDexEntry(entry)
-  }, [game])
+  }, [game, pokemon.pokedex_entries])
 
   return (
     // <AnimatePresence>
