@@ -84,7 +84,7 @@ const About = ({ pokemon }) => {
             Species
           </label>
           <p id={`${pokemon.name}-species`} sx={gridContent}>
-            {pokemon.genus}
+            {pokemon.genus ? pokemon.genus : "--"}
           </p>
 
           <span sx={rowUnderline} />
@@ -93,11 +93,15 @@ const About = ({ pokemon }) => {
             Abilities
           </label>
           <div id={`${pokemon.name}-abilities`} sx={gridContent}>
-            {pokemon.abilities.map((ability, index) => (
-              <p key={`${pokemon.name}-${ability.name}-${index}`}>
-                {ability.name}
-              </p>
-            ))}
+            {pokemon.abilities && pokemon.abilities.length ? (
+              pokemon.abilities.map((ability, index) => (
+                <p key={`${pokemon.name}-${ability.name}-${index}`}>
+                  {ability.name}
+                </p>
+              ))
+            ) : (
+              <p>--</p>
+            )}
           </div>
 
           <span sx={rowUnderline} />
@@ -105,20 +109,28 @@ const About = ({ pokemon }) => {
           <label htmlFor={`${pokemon.name}-height`} sx={labelStyles}>
             Height
           </label>
-          <p id={`${pokemon.name}-height`} sx={gridContent}>
-            {decimetersToMeters(pokemon.height)}m (
-            {metersToFeet(pokemon.height * 0.1)})
-          </p>
+          {pokemon.height ? (
+            <p id={`${pokemon.name}-height`} sx={gridContent}>
+              {decimetersToMeters(pokemon.height)}m (
+              {metersToFeet(pokemon.height * 0.1)})
+            </p>
+          ) : (
+            <p>--</p>
+          )}
 
           <span sx={rowUnderline} />
 
           <label htmlFor={`${pokemon.name}-weight`} sx={labelStyles}>
             Weight
           </label>
-          <p id={`${pokemon.name}-weight`} sx={gridContent}>
-            {hectogramsToKg(pokemon.weight)}kg (
-            {kgToPounds(pokemon.weight * 0.1)}lbs)
-          </p>
+          {pokemon.weight ? (
+            <p id={`${pokemon.name}-weight`} sx={gridContent}>
+              {hectogramsToKg(pokemon.weight)}kg (
+              {kgToPounds(pokemon.weight * 0.1)}lbs)
+            </p>
+          ) : (
+            <p>--</p>
+          )}
 
           <span sx={rowUnderline} />
         </div>
@@ -131,9 +143,11 @@ const About = ({ pokemon }) => {
             Egg Groups
           </label>
           <div id={`${pokemon.name}-egg-groups`} sx={gridContent}>
-            {pokemon.egg_groups.map((group, index) => (
-              <p key={`${group.name}-${index}`}>{group.name}</p>
-            ))}
+            {pokemon.egg_groups && pokemon.egg_groups.length
+              ? pokemon.egg_groups.map((group, index) => (
+                  <p key={`${group.name}-${index}`}>{group.name}</p>
+                ))
+              : "--"}
           </div>
 
           <span sx={rowUnderline} />
@@ -141,14 +155,14 @@ const About = ({ pokemon }) => {
           <label htmlFor={`${pokemon.name}-gender-rate`} sx={labelStyles}>
             Gender
           </label>
-          <p
-            id={`${pokemon.name}-gender-rate`}
-            sx={{ ...gridContent, display: "flex", alignItems: "center" }}
-          >
-            {100 - pokemon.gender_rate}% <GiMale sx={{ marginLeft: "2px" }} />,{" "}
-            {pokemon.gender_rate}
-            % <GiFemale />
-          </p>
+          {pokemon.gender_rate ? (
+            <p>
+              {100 - pokemon.gender_rate}% <GiMale sx={{ marginLeft: "2px" }} />
+              , {pokemon.gender_rate} <GiFemale />
+            </p>
+          ) : (
+            <p>--</p>
+          )}
 
           <span sx={rowUnderline} />
         </div>
@@ -161,7 +175,7 @@ const About = ({ pokemon }) => {
             Catch Rate
           </label>
           <p id={`${pokemon.name}-catch-rate`} sx={gridContent}>
-            {pokemon.capture_rate}
+            {pokemon.capture_rate ? pokemon.capture_rate : "--"}
           </p>
 
           <span sx={rowUnderline} />
@@ -170,7 +184,7 @@ const About = ({ pokemon }) => {
             Base Exp.
           </label>
           <p id={`${pokemon.name}-base-experience`} sx={gridContent}>
-            {pokemon.base_experience}
+            {pokemon.base_experience ? pokemon.base_experience : "--"}
           </p>
 
           <span sx={rowUnderline} />
@@ -179,7 +193,9 @@ const About = ({ pokemon }) => {
             Growth Rate
           </label>
           <p id={`${pokemon.name}-growth-rate`} sx={gridContent}>
-            {replaceHyphenWithSpace(pokemon.growth_rate)}
+            {pokemon.growth_rate
+              ? replaceHyphenWithSpace(pokemon.growth_rate)
+              : "--"}
           </p>
 
           <span sx={rowUnderline} />
@@ -188,7 +204,7 @@ const About = ({ pokemon }) => {
             Base Happiness
           </label>
           <p id={`${pokemon.name}-base-happiness`} sx={gridContent}>
-            {pokemon.base_happiness}
+            {pokemon.base_happiness ? pokemon.base_happiness : "--"}
           </p>
         </div>
       </section>
