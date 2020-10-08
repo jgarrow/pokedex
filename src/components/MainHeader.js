@@ -2,6 +2,7 @@
 import { jsx } from "theme-ui"
 import { Link } from "gatsby"
 import { useState } from "react"
+import { motion } from "framer-motion"
 
 import { RiArrowGoBackFill } from "react-icons/ri"
 
@@ -20,13 +21,8 @@ const useCachedResults = () => {
   return { results, updateResults }
 }
 
-const Header = ({
-  showArrow,
-  heading,
-  pokemonList,
-  searchResults,
-  setSearchResults,
-}) => {
+const Header = ({ showArrow, heading, pokemonList, setSearchResults }) => {
+  const [searchBar, setSearchBar] = useState({ width: 0, opacity: 0 })
   const [inputValue, setInputValue] = useState("")
   const { results, updateResults } = useCachedResults()
 
@@ -114,18 +110,56 @@ const Header = ({
           alignItems: "center",
         }}
       >
-        <img src={search} alt="Search icon" sx={{ marginRight: "0.5rem" }} />
+        <motion.img
+          src={search}
+          alt="Search icon"
+          sx={{ marginRight: "0.5rem" }}
+          onClick={() => {
+            const newStyles = { ...searchBar }
 
-        <label htmlFor="search-bar" sx={{ width: "100%" }}>
-          <input
+            if (newStyles.width === 0 && newStyles.opacity === 0) {
+              newStyles.width = "100%"
+              newStyles.opacity = 1
+              // newStyles.border = "1px solid gray"
+            } else {
+              newStyles.width = 0
+              // newStyles.border = "none"
+              newStyles.opacity = 0
+            }
+
+            setSearchBar(newStyles)
+          }}
+        />
+
+        <motion.label
+          htmlFor="search-bar"
+          sx={{ width: "100%" }}
+          // initial={{ width: 0 }}
+          // animate={{ width: searchBar.width, border: searchBar.border }}
+          // transition={{
+          //   duration: 0.15,
+          //   type: "tween",
+          // }}
+        >
+          <motion.input
             id="search-bar"
             name="search-bar"
             type="text"
             value={inputValue}
             onChange={handleChange}
-            sx={{ width: "100%" }}
+            sx={{
+              width: "100%",
+              padding: "5px",
+              borderRadius: "4px",
+              border: "1px solid gray",
+            }}
+            animate={{ width: searchBar.width, opacity: searchBar.opacity }}
+            transition={{
+              duration: 0.15,
+              type: "tween",
+            }}
           />
-        </label>
+        </motion.label>
       </div>
     </header>
   )
