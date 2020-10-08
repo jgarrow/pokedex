@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { motion, AnimatePresence } from "framer-motion"
-// import { lightenDarkenColor } from "../utils/colors"
 
 import Layout from "../components/Layout"
 import Header from "../components/Header"
@@ -21,8 +20,6 @@ const TypeIcon = ({ pokemonName, type }) => {
 }
 
 const PokemonLayout = ({ pokemon, children, location }) => {
-  // const newColor = lightenDarkenColor(pokemon.dominant_color, -60)
-
   return (
     <Layout>
       <motion.div

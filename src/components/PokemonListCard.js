@@ -2,13 +2,10 @@
 import { jsx } from "theme-ui"
 import { Link } from "gatsby"
 import { motion } from "framer-motion"
-// import { lightenDarkenColor } from "../utils/colors"
 
 import pokeball from "../images/pokeball-bg-sm.svg"
 
 const PokemonListCard = ({ pokemon, variant }) => {
-  // const newColor = lightenDarkenColor(pokemon.dominant_color, -60)
-
   return (
     <Link to={`/pokemon/${pokemon.name}`} sx={{ textDecoration: "none" }}>
       <motion.li
