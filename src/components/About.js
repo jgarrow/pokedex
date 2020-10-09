@@ -50,7 +50,6 @@ const rowUnderline = {
 const About = ({ pokemon }) => {
   const { game } = useContext(GameContext)
   const [dexEntry, setDexEntry] = useState("")
-  console.log("pokemon.pokedex_entries: ", pokemon.pokedex_entries)
 
   useEffect(() => {
     let entry = pokemon.pokedex_entries.filter(

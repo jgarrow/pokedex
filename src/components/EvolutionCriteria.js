@@ -77,7 +77,6 @@ const EvolutionCriteria = ({ trigger, criteria, tier }) => {
         if (criteria.length > 1) {
           const criteriaArrayStrings = criteria.map(criterium => {
             const val = criterium.value ? criterium.value : criterium.name
-            console.log("criterium: ", criterium)
             return evolutionTriggerPhrases[criterium.evolution_criteria_name](
               val
             )
@@ -86,7 +85,6 @@ const EvolutionCriteria = ({ trigger, criteria, tier }) => {
           criteriaArrayStrings[0] = capitalizeFirstLetter(
             criteriaArrayStrings[0]
           )
-          console.log("criteriaArrayStrings: ", criteriaArrayStrings)
 
           criteriaString = criteriaArrayStrings.join(", ")
         } else {

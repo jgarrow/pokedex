@@ -43,7 +43,6 @@ const GameSelect = () => {
         onClick={() => toggleDropdown()}
         tabIndex={0}
         onKeyPress={event => {
-          console.log("event: ", event)
           if (event.key === "Enter") {
             toggleDropdown()
           }
