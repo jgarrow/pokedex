@@ -19,13 +19,26 @@ const TypeIcon = ({ pokemonName, type }) => {
   )
 }
 
-const PokemonLayout = ({ pokemon, children, location }) => {
+const PokemonLayout = ({
+  pokemon,
+  children,
+  location,
+  idLayout,
+  imgIdLayout,
+}) => {
+  const bgColor =
+    pokemon.dominant_color &&
+    pokemon.dominant_color.light &&
+    pokemon.dominant_color.dark
+      ? `linear-gradient(135deg, ${pokemon.dominant_color.light}, ${pokemon.dominant_color.dark} 70vh)`
+      : `linear-gradient(135deg, #fefefe, #000000)`
+
   return (
     <Layout>
       <motion.div
-        layoutId={`pokemon-${pokemon.name}`}
+        layoutId={idLayout}
         sx={{
-          background: `linear-gradient(135deg, ${pokemon.dominant_color.light}, ${pokemon.dominant_color.dark} 70vh)`,
+          background: bgColor,
           position: "relative",
           width: "100%",
           minHeight: "100vh",
@@ -72,7 +85,7 @@ const PokemonLayout = ({ pokemon, children, location }) => {
             <motion.img
               src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/src/img/${pokemon.id}.png`}
               alt={`${pokemon.name}`}
-              layoutId={`${pokemon.name}-image`}
+              layoutId={imgIdLayout}
               sx={{
                 width: "100%",
                 position: "relative",
@@ -85,12 +98,14 @@ const PokemonLayout = ({ pokemon, children, location }) => {
             />
           </div>
 
-          <h2 sx={{ margin: "0", color: "black" }}>
+          <h2 sx={{ margin: "0", color: "text" }}>
             {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
           </h2>
-          <p sx={{ margin: "0.5rem 0", color: "black" }}>
-            #{pokemon.nat_dex_num}
-          </p>
+          {pokemon.nat_dex_num ? (
+            <p sx={{ margin: "0.5rem 0", color: "text" }}>
+              #{pokemon.nat_dex_num}
+            </p>
+          ) : null}
 
           <ul
             key={`${pokemon.name}-types`}
@@ -104,19 +119,21 @@ const PokemonLayout = ({ pokemon, children, location }) => {
               margin: "0",
             }}
           >
-            {pokemon.types.map((type, index) => (
-              <li
-                key={`type-${pokemon.name}-${index}`}
-                sx={{ listStyle: "none", width: "30px", height: "30px" }}
-              >
-                <TypeIcon pokemonName={pokemon.name} type={type.name} />
-              </li>
-            ))}
+            {pokemon.types && pokemon.types.length
+              ? pokemon.types.map((type, index) => (
+                  <li
+                    key={`type-${pokemon.name}-${index}`}
+                    sx={{ listStyle: "none", width: "30px", height: "30px" }}
+                  >
+                    <TypeIcon pokemonName={pokemon.name} type={type.name} />
+                  </li>
+                ))
+              : null}
           </ul>
         </div>
 
         <Nav name={pokemon.name} textColor={"black"} location={location} />
-        <motion.section
+        <section
           sx={{
             borderTopLeftRadius: "12px",
             borderTopRightRadius: "12px",
@@ -124,23 +141,13 @@ const PokemonLayout = ({ pokemon, children, location }) => {
             gridGap: "15px",
             gridTemplateColumns: "1fr",
             padding: "1rem",
-            // overflowY: "scroll",
             bg: "background",
             height: "auto",
             minHeight: "calc(100vh - 480px + 1rem)",
           }}
-          // initial={{
-          //   opacity: 0,
-          //   y: 40,
-          // }}
-          // animate={{
-          //   opacity: 1,
-          //   y: 0,
-          //   transition: { delay: 0.5 },
-          // }}
         >
-          <AnimatePresence>{children}</AnimatePresence>
-        </motion.section>
+          {children}
+        </section>
       </motion.div>
     </Layout>
   )
