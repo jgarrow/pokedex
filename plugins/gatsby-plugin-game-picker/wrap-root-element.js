@@ -1,11 +1,13 @@
 import React, { useState } from "react"
 import { GameContext } from "../../src/context/GameContext"
 
+import { replaceHyphenWithUnderscore } from "../../src/utils/stringParsing"
+
 const GameProvider = ({ children }) => {
   const [game, setGame] = useState("yellow")
 
   const updateGame = gameName => {
-    setGame(gameName)
+    setGame(replaceHyphenWithUnderscore(gameName))
   }
 
   const gameState = { game, updateGame }

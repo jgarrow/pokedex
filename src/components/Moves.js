@@ -14,6 +14,8 @@ import MoveCardBack from "./MoveCardBack"
 
 const Moves = ({ pokemon }) => {
   const { game } = useContext(GameContext)
+  console.log("game in moves: ", game)
+  console.log("pokemon: ", pokemon)
 
   const [filterValue, setFilterValue] = useState("all")
   const [moves, setMoves] = useState(

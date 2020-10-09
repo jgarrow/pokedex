@@ -6,7 +6,10 @@ import { GameContext } from "../context/GameContext"
 
 import { GiMale, GiFemale } from "react-icons/gi"
 
-import { replaceHyphenWithSpace } from "../utils/stringParsing"
+import {
+  replaceUnderscoreWithSpace,
+  replaceUnderscoreWithHyphen,
+} from "../utils/stringParsing"
 import {
   decimetersToMeters,
   metersToFeet,
@@ -47,14 +50,17 @@ const rowUnderline = {
 const About = ({ pokemon }) => {
   const { game } = useContext(GameContext)
   const [dexEntry, setDexEntry] = useState("")
+  console.log("pokemon.pokedex_entries: ", pokemon.pokedex_entries)
 
   useEffect(() => {
-    let entry = pokemon.pokedex_entries.filter(desc => desc.game.name === game)
+    let entry = pokemon.pokedex_entries.filter(
+      desc => desc.game.name === replaceUnderscoreWithHyphen(game)
+    )
 
     entry =
       entry[0] && entry[0].description
         ? entry[0].description
-        : `No Pokédex entry for ${replaceHyphenWithSpace(game)}`
+        : `No Pokédex entry for ${replaceUnderscoreWithSpace(game)}`
     setDexEntry(entry)
   }, [game, pokemon.pokedex_entries])
 
@@ -194,7 +200,7 @@ const About = ({ pokemon }) => {
           </label>
           <p id={`${pokemon.name}-growth-rate`} sx={gridContent}>
             {pokemon.growth_rate
-              ? replaceHyphenWithSpace(pokemon.growth_rate)
+              ? replaceUnderscoreWithSpace(pokemon.growth_rate)
               : "--"}
           </p>
 

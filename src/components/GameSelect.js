@@ -5,7 +5,7 @@ import { GameContext } from "../context/GameContext"
 import { motion } from "framer-motion"
 
 import { FiChevronDown } from "react-icons/fi"
-import { replaceHyphenWithSpace } from "../utils/stringParsing"
+import { replaceUnderscoreWithSpace } from "../utils/stringParsing"
 
 const pStyles = {
   margin: "0",
@@ -57,7 +57,7 @@ const GameSelect = () => {
             borderBottom: "none",
           }}
         >
-          {replaceHyphenWithSpace(game)}
+          {replaceUnderscoreWithSpace(game)}
         </p>
 
         <motion.div
