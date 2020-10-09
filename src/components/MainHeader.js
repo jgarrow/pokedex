@@ -128,12 +128,12 @@ const Header = ({ showArrow, heading, pokemonList, setSearchResults }) => {
         <motion.label
           htmlFor="search-bar"
           sx={{ width: "100%" }}
-          // initial={{ width: 0 }}
-          // animate={{ width: searchBar.width, border: searchBar.border }}
-          // transition={{
-          //   duration: 0.15,
-          //   type: "tween",
-          // }}
+          initial={{ width: 0, opacity: 0 }}
+          animate={{ width: searchBar.width, opacity: searchBar.opacity }}
+          transition={{
+            duration: 0.15,
+            type: "tween",
+          }}
         >
           <motion.input
             id="search-bar"
