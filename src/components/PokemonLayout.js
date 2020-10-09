@@ -1,12 +1,16 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { motion, AnimatePresence } from "framer-motion"
+import { Fragment } from "react"
 
 import Layout from "../components/Layout"
 import Header from "../components/Header"
 import Nav from "../components/PokemonNav"
 
 import pokeball from "../images/pokeball-bg-sm.svg"
+import { GiFemale, GiMale } from "react-icons/gi"
+
+import { replaceHyphenWithSpace } from "../utils/stringParsing"
 
 const TypeIcon = ({ pokemonName, type }) => {
   const imgSrc = require(`../images/type-icons/${type}_icon_SwSh.png`)
@@ -16,6 +20,36 @@ const TypeIcon = ({ pokemonName, type }) => {
       alt={`${pokemonName}-type-${type}`}
       sx={{ width: "100%" }}
     />
+  )
+}
+
+const NidoranName = ({ name }) => {
+  return (
+    <Fragment>
+      {name === "nidoran-f" ? (
+        <h2
+          sx={{
+            margin: "0",
+            color: "text",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          Nidoran <GiFemale />
+        </h2>
+      ) : (
+        <h2
+          sx={{
+            margin: "0",
+            color: "text",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          Nidoran <GiMale />
+        </h2>
+      )}
+    </Fragment>
   )
 }
 
@@ -59,7 +93,9 @@ const PokemonLayout = ({
               position: "absolute",
               top: "0px",
               content: `"${
-                pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+                pokemon.name.includes("nidoran")
+                  ? "Nidoran"
+                  : replaceHyphenWithSpace(pokemon.name)
               }"`,
               background:
                 "linear-gradient(180deg, rgba(254, 254, 254, 0.4) 0%, rgba(254, 254, 254, 0.0104167) 85%, rgba(254, 254, 254, 0) 100%)",
@@ -98,9 +134,14 @@ const PokemonLayout = ({
             />
           </div>
 
-          <h2 sx={{ margin: "0", color: "text" }}>
-            {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
-          </h2>
+          {pokemon.name.includes("nidoran") ? (
+            <NidoranName name={pokemon.name} />
+          ) : (
+            <h2 sx={{ margin: "0", color: "text" }}>
+              {replaceHyphenWithSpace(pokemon.name)}
+            </h2>
+          )}
+
           {pokemon.nat_dex_num ? (
             <p sx={{ margin: "0.5rem 0", color: "text" }}>
               #{pokemon.nat_dex_num}

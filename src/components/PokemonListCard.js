@@ -2,8 +2,52 @@
 import { jsx } from "theme-ui"
 import { Link, navigate } from "gatsby"
 import { motion } from "framer-motion"
+import { Fragment } from "react"
 
 import pokeball from "../images/pokeball-bg-sm.svg"
+import { GiMale, GiFemale } from "react-icons/gi"
+
+import { replaceHyphenWithSpace } from "../utils/stringParsing"
+
+const nameStyles = {
+  textDecoration: "none",
+  color: "#fefefe",
+  textShadow:
+    "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
+  margin: "0",
+  marginLeft: "4px",
+  letterSpacing: "1px",
+}
+
+const NidoranName = ({ name }) => {
+  return (
+    <Fragment>
+      {name === "nidoran-f" ? (
+        <p sx={{ ...nameStyles, display: "flex", alignItems: "center" }}>
+          Nidoran{" "}
+          <GiFemale
+            sx={{
+              stroke: "#000",
+              strokeWidth: "20px",
+              fontSize: "1.15rem",
+            }}
+          />
+        </p>
+      ) : (
+        <p sx={{ ...nameStyles, display: "flex", alignItems: "center" }}>
+          Nidoran{" "}
+          <GiMale
+            sx={{
+              stroke: "#000",
+              strokeWidth: "20px",
+              fontSize: "1.15rem",
+            }}
+          />
+        </p>
+      )}
+    </Fragment>
+  )
+}
 
 const PokemonListCard = ({ pokemon, variant }) => {
   const bgColor =
@@ -70,19 +114,11 @@ const PokemonListCard = ({ pokemon, variant }) => {
               }}
             />
           </div>
-          <p
-            sx={{
-              textDecoration: "none",
-              color: "#fefefe",
-              textShadow:
-                "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
-              margin: "0",
-              marginLeft: "4px",
-              letterSpacing: "1px",
-            }}
-          >
-            {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
-          </p>
+          {pokemon.name.includes("nidoran") ? (
+            <NidoranName name={pokemon.name} />
+          ) : (
+            <p sx={nameStyles}>{replaceHyphenWithSpace(pokemon.name)}</p>
+          )}
         </div>
         <p
           sx={{
