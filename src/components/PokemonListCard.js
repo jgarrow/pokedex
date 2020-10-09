@@ -1,17 +1,26 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import { motion } from "framer-motion"
 
 import pokeball from "../images/pokeball-bg-sm.svg"
 
 const PokemonListCard = ({ pokemon, variant }) => {
+  const bgColor =
+    pokemon.dominant_color &&
+    pokemon.dominant_color.light &&
+    pokemon.dominant_color.dark
+      ? `linear-gradient(135deg, ${pokemon.dominant_color.light}, ${pokemon.dominant_color.dark} 70vh)`
+      : `linear-gradient(135deg, #fefefe, #000000)`
   return (
-    <Link to={`/pokemon/${pokemon.name}`} sx={{ textDecoration: "none" }}>
+    <Link
+      to={`/pokemon/${pokemon.name}`}
+      sx={{ textDecoration: "none", width: "100%", height: "60px" }}
+    >
       <motion.li
         id={`${pokemon.name}`}
         sx={{
-          background: `linear-gradient(135deg, ${pokemon.dominant_color.light}, ${pokemon.dominant_color.dark})`,
+          background: bgColor,
           width: "100%",
           height: "100%",
           display: "flex",
@@ -27,7 +36,8 @@ const PokemonListCard = ({ pokemon, variant }) => {
         }}
         layoutId={`pokemon-${pokemon.name}`}
         variants={variant}
-        aria-label={`Link to ${pokemon.name}'s page`}
+        // aria-label={`Link to ${pokemon.name}'s page`}
+        // onClick={() => navigate(`/${pokemon.name}`)}
       >
         <div
           sx={{
@@ -39,7 +49,7 @@ const PokemonListCard = ({ pokemon, variant }) => {
             position: "relative",
           }}
         >
-          <motion.div
+          <div
             sx={{
               position: "relative",
               width: "45px",
@@ -59,7 +69,7 @@ const PokemonListCard = ({ pokemon, variant }) => {
                 filter: "drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.5))",
               }}
             />
-          </motion.div>
+          </div>
           <p
             sx={{
               textDecoration: "none",
