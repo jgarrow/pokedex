@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 
 import { FiChevronDown } from "react-icons/fi"
 import { replaceUnderscoreWithSpace } from "../utils/stringParsing"
+import { getContrast } from "../utils/getColorContrast"
 
 const pStyles = {
   margin: "0",
@@ -14,10 +15,14 @@ const pStyles = {
   borderBottom: "1px solid #f0f0f0",
 }
 
-const GameSelect = () => {
+const GameSelect = ({ bgColor }) => {
   const [open, setOpen] = useState("0")
   const [rotation, setRotation] = useState(0)
   const { game, updateGame } = useContext(GameContext)
+
+  const contrastColor = getContrast(bgColor)
+  const arrowBgShadow =
+    contrastColor === "rgb(1,1,1)" ? "rgb(254, 254, 254)" : "rgb(1,1,1)"
 
   const toggleDropdown = () => {
     const newVal = open === "0" ? "150px" : "0"
@@ -54,6 +59,9 @@ const GameSelect = () => {
             marginRight: "4px",
             padding: "0",
             borderBottom: "none",
+            color: "#fefefe",
+            textShadow:
+              "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
           }}
         >
           {replaceUnderscoreWithSpace(game)}
@@ -63,13 +71,23 @@ const GameSelect = () => {
           animate={{ rotate: rotation }}
           sx={{
             transformOrigin: "center",
-            width: "1.5rem",
+            width: "1.25rem",
+            height: "1.25rem",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            borderRadius: "50%",
+            border: "1.5px solid #000",
+            bg: "#fefefe",
           }}
         >
-          <FiChevronDown sx={{ fontSize: "1.5rem" }} />
+          <FiChevronDown
+            sx={{
+              fontSize: "1rem",
+              color: "#000",
+              strokeWidth: "3px",
+            }}
+          />
         </motion.div>
       </div>
       <motion.div
@@ -283,65 +301,3 @@ const GameSelect = () => {
 }
 
 export default GameSelect
-
-{
-  /* <select
-        id="game-select"
-        name="game-select"
-        onBlur={handleGameChange}
-        onChange={handleGameChange}
-        sx={{
-          padding: "5px",
-          paddingRight: "1.5rem", // gives room for the bg image arrow
-          width: "fit-content",
-          border: "none",
-          fontSize: "1rem",
-          boxSizing: "border-box",
-          appearance: "none", // hides the default arrow
-          fontFamily: "inherit",
-          cursor: "pointer",
-          lineHeight: "inherit",
-          bg: "transparent",
-          backgroundImage: `url(${downArrow})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "right",
-          backgroundSize: "1.5rem",
-          textAlignLast: "right", // does not work on iOS :(
-        }}
-      >
-        <option value="yellow">Yellow</option>
-        <option value="red">Red</option>
-        <option value="blue">Blue</option>
-        <option value="gold">Gold</option>
-        <option value="silver">Silver</option>
-        <option value="crystal">Crystal</option>
-        <option value="ruby">Ruby</option>
-        <option value="sapphire">Sapphire</option>
-        <option value="emerald">Emerald</option>
-        <option value="firered">Firered</option>
-        <option value="leafgreen">Leafgreen</option>
-        <option value="diamond">Diamond</option>
-        <option value="pearl">Pearl</option>
-        <option value="platinum">Platinum</option>
-        <option value="heartgold">Heartgold</option>
-        <option value="soulsilver">Soulsilver</option>
-        <option value="black">Black</option>
-        <option value="white">White</option>
-        <option value="colosseum">Colosseum</option>
-        <option value="xd">XD</option>
-        <option value="black2">Black 2</option>
-        <option value="white2">White 2</option>
-        <option value="x">X</option>
-        <option value="y">Y</option>
-        <option value="omegaRuby">Omega Ruby</option>
-        <option value="alphaSapphire">Alpha Sapphire</option>
-        <option value="sun">Sun</option>
-        <option value="moon">Moon</option>
-        <option value="ultraSun">Ultra Sun</option>
-        <option value="ultraMoon">Ultra Moon</option>
-        <option value="letsGoPikachu">Let's Go Pikachu</option>
-        <option value="letsGoEevee">Let's Go Eevee</option>
-        <option value="sword">Sword</option>
-        <option value="shield">Shield</option>
-      </select> */
-}

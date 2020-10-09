@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 import { RiArrowGoBackFill } from "react-icons/ri"
 import GameSelect from "./GameSelect"
 
-const Header = ({ name }) => {
+const Header = ({ name, bgColor }) => {
   return (
     <header
       sx={{
@@ -18,10 +18,31 @@ const Header = ({ name }) => {
         alignItems: "center",
       }}
     >
-      <Link to={`/pokemon#${name}`} sx={{ color: "text" }}>
-        <RiArrowGoBackFill sx={{ fontSize: "1.5rem" }} />
+      <Link
+        to={`/pokemon#${name}`}
+        sx={{
+          borderRadius: "50%",
+          border: "1.5px solid #000",
+          bg: "#fefefe",
+          width: "1.75rem",
+          height: "1.75rem",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <RiArrowGoBackFill
+          sx={{
+            fontSize: "1.25rem",
+            color: "#000",
+
+            "path:last-of-type": {
+              strokeWidth: "0.5px",
+            },
+          }}
+        />
       </Link>
-      <GameSelect />
+      <GameSelect bgColor={bgColor} />
     </header>
   )
 }
