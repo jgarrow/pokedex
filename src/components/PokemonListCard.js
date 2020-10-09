@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { Link, navigate } from "gatsby"
+import { Link } from "gatsby"
 import { motion } from "framer-motion"
 import { Fragment } from "react"
 
@@ -17,6 +17,7 @@ const nameStyles = {
   margin: "0",
   marginLeft: "4px",
   letterSpacing: "1px",
+  fontSize: "1.1rem",
 }
 
 const NidoranName = ({ name }) => {
@@ -54,16 +55,19 @@ const PokemonListCard = ({ pokemon, variant }) => {
     pokemon.dominant_color &&
     pokemon.dominant_color.light &&
     pokemon.dominant_color.dark
-      ? `linear-gradient(135deg, ${pokemon.dominant_color.light}, ${pokemon.dominant_color.dark} 70vh)`
+      ? `linear-gradient(135deg, ${pokemon.dominant_color.light}, ${pokemon.dominant_color.dark})`
       : `linear-gradient(135deg, #fefefe, #000000)`
   return (
-    <Link
-      to={`/pokemon/${pokemon.name}`}
-      sx={{ textDecoration: "none", width: "100%", height: "60px" }}
+    <motion.li
+      id={`${pokemon.name}`}
+      layoutId={`pokemon-${pokemon.name}`}
+      variants={variant}
+      sx={{ width: "100%", height: "60px", listStyle: "none" }}
     >
-      <motion.li
-        id={`${pokemon.name}`}
+      <Link
+        to={`/pokemon/${pokemon.name}`}
         sx={{
+          textDecoration: "none",
           background: bgColor,
           width: "100%",
           height: "100%",
@@ -75,13 +79,8 @@ const PokemonListCard = ({ pokemon, variant }) => {
           padding: `1rem 0`,
           paddingLeft: "4px",
           borderRadius: "8px",
-          listStyle: "none",
           boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
         }}
-        layoutId={`pokemon-${pokemon.name}`}
-        variants={variant}
-        // aria-label={`Link to ${pokemon.name}'s page`}
-        // onClick={() => navigate(`/${pokemon.name}`)}
       >
         <div
           sx={{
@@ -131,8 +130,8 @@ const PokemonListCard = ({ pokemon, variant }) => {
         >
           {pokemon.nat_dex_num}
         </p>
-      </motion.li>
-    </Link>
+      </Link>
+    </motion.li>
   )
 }
 

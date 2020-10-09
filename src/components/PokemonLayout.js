@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { Fragment } from "react"
 
 import Layout from "../components/Layout"
@@ -30,23 +30,33 @@ const NidoranName = ({ name }) => {
         <h2
           sx={{
             margin: "0",
-            color: "text",
+            color: "#fefefe",
+            textShadow:
+              "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
             display: "flex",
             alignItems: "center",
           }}
         >
-          Nidoran <GiFemale />
+          Nidoran{" "}
+          <GiFemale
+            sx={{ stroke: "#000", strokeWidth: "20px", fontSize: "1.15rem" }}
+          />
         </h2>
       ) : (
         <h2
           sx={{
             margin: "0",
-            color: "text",
+            color: "#fefefe",
+            textShadow:
+              "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
             display: "flex",
             alignItems: "center",
           }}
         >
-          Nidoran <GiMale />
+          Nidoran{" "}
+          <GiMale
+            sx={{ stroke: "#000", strokeWidth: "20px", fontSize: "1.15rem" }}
+          />
         </h2>
       )}
     </Fragment>
@@ -80,7 +90,7 @@ const PokemonLayout = ({
           zIndex: 1000,
         }}
       >
-        <Header name={pokemon.name} />
+        <Header name={pokemon.name} bgColor={pokemon.dominant_color.original} />
         <div
           sx={{
             display: "flex",
@@ -108,7 +118,6 @@ const PokemonLayout = ({
           }}
         >
           <div
-            // transition={{ duration: 0.4 }}
             sx={{
               height: "75%",
               width: "75%",
@@ -137,13 +146,27 @@ const PokemonLayout = ({
           {pokemon.name.includes("nidoran") ? (
             <NidoranName name={pokemon.name} />
           ) : (
-            <h2 sx={{ margin: "0", color: "text" }}>
+            <h2
+              sx={{
+                margin: "0",
+                color: "#fefefe",
+                textShadow:
+                  "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
+              }}
+            >
               {replaceHyphenWithSpace(pokemon.name)}
             </h2>
           )}
 
           {pokemon.nat_dex_num ? (
-            <p sx={{ margin: "0.5rem 0", color: "text" }}>
+            <p
+              sx={{
+                margin: "0.5rem 0",
+                color: "#fefefe",
+                textShadow:
+                  "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
+              }}
+            >
               #{pokemon.nat_dex_num}
             </p>
           ) : null}
@@ -173,7 +196,7 @@ const PokemonLayout = ({
           </ul>
         </div>
 
-        <Nav name={pokemon.name} textColor={"black"} location={location} />
+        <Nav name={pokemon.name} textColor={"#fefefe"} location={location} />
         <section
           sx={{
             borderTopLeftRadius: "12px",

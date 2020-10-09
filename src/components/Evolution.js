@@ -115,8 +115,6 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
                         tierIndex={index + 1}
                         handleTap={handleTap}
                       />
-
-                      {/* {newTiers[index + 2] ? <span sx={rowUnderline} /> : null} */}
                     </Fragment>
                   ) : null}
                 </div>

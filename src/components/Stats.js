@@ -67,7 +67,6 @@ const Stats = ({ pokemon }) => {
 
   return (
     <motion.div
-      // layoutId={`${pokemon.name}-info`}
       initial={{
         x: 40,
         opacity: 0,

@@ -15,7 +15,9 @@ const linkStyles = {
   width: "60px",
   height: "60px",
   lineHeight: "3.5",
-  textShadow: "1px 1px 0px rgba(0, 0, 0, 0.25)",
+  color: "#fefefe",
+  textShadow:
+    "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
 }
 
 const Nav = ({ name, textColor, location: { pathname, state } }) => {
@@ -49,7 +51,6 @@ const Nav = ({ name, textColor, location: { pathname, state } }) => {
       sx={{
         width: "100%",
         position: "relative",
-        // top: "30px",
       }}
     >
       <motion.ul

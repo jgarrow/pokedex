@@ -6,11 +6,9 @@ import { GameContext } from "../context/GameContext"
 
 import { replaceUnderscoreWithSpace } from "../utils/stringParsing"
 
-// import GameSelect from "./GameSelect"
 import MoveCard from "./MoveCard"
 import MoveCardFront from "./MoveCardFront"
 import MoveCardBack from "./MoveCardBack"
-// import { BiSliderAlt } from "react-icons/bi"
 
 const Moves = ({ pokemon }) => {
   const { game } = useContext(GameContext)
@@ -90,7 +88,6 @@ const Moves = ({ pokemon }) => {
         }}
       >
         <h3 sx={{ textAlign: "start", margin: "0" }}>Moves</h3>
-        {/* <BiSliderAlt sx={{ fontSize: "1.5rem" }} /> */}
 
         <div>
           <select
@@ -111,8 +108,6 @@ const Moves = ({ pokemon }) => {
             <option value="egg">Egg</option>
             <option value="tutor">Tutor</option>
           </select>
-
-          {/* <GameSelect /> */}
         </div>
       </div>
 

@@ -64,9 +64,7 @@ const About = ({ pokemon }) => {
   }, [game, pokemon.pokedex_entries])
 
   return (
-    // <AnimatePresence>
     <motion.div
-      // layoutId={`${pokemon.name}-info`}
       initial={{
         x: 40,
         opacity: 0,
@@ -76,10 +74,6 @@ const About = ({ pokemon }) => {
         opacity: 1,
         transition: { delay: 0.4 },
       }}
-      // exit={{
-      //   x: -40,
-      //   opacity: 0,
-      // }}
     >
       <p sx={{ marginBottom: `0`, textAlign: `center` }}>{dexEntry}</p>
       <section>
@@ -214,7 +208,6 @@ const About = ({ pokemon }) => {
         </div>
       </section>
     </motion.div>
-    // </AnimatePresence>
   )
 }
 
