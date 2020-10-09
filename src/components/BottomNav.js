@@ -5,8 +5,7 @@ import { Link } from "gatsby"
 import news from "../images/bx-news.svg"
 import backpack from "../images/bxs-backpack.svg"
 import chart from "../images/bxs-bar-chart-alt-2.svg"
-import capsule from "../images/bxs-capsule.svg"
-import Search from "./Search"
+import dumbbell from "../images/bx-dumbbell.svg"
 
 const listStyles = {
   listStyle: "none",
@@ -100,7 +99,7 @@ const BottomNav = () => {
         </li>
         <li sx={listStyles}>
           <Link to="/abilities" sx={linkStyles}>
-            <img src={capsule} alt="Capsule icon" sx={imgStyles} />
+            <img src={dumbbell} alt="dumbbell icon" sx={imgStyles} />
             Abilities
           </Link>
         </li>
