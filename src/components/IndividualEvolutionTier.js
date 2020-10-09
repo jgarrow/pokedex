@@ -1,6 +1,8 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { motion } from "framer-motion"
+import { Fragment } from "react"
+import { Link } from "gatsby"
 import { replaceHyphenWithSpace } from "../utils/stringParsing"
 
 import { FiChevronUp, FiChevronDown } from "react-icons/fi"
@@ -31,20 +33,39 @@ const EvolutionTier = ({ tier, tierIndex, handleTap }) => {
           marginTop: tierArray.length > 1 ? "0" : "1.5rem",
         }}
       >
-        {tierArray.map((mon, index) => (
-          <motion.img
-            key={`tier-${tierIndex}-evolution-${index}`}
-            src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/src/img/${mon.id}.png`}
-            alt={`${mon.name}`}
-            animate={{
-              y: `${tier.selected * -100}%`,
-            }}
-            sx={{
-              height: `100px`,
-              width: `100px`,
-            }}
-          />
-        ))}
+        {tierArray.map((mon, index) => {
+          return (
+            <Fragment key={`tier-${tierIndex}-evolution-img-${index}`}>
+              {mon.name.includes("-mega") ? (
+                <motion.img
+                  src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/src/img/${mon.id}.png`}
+                  alt={`${mon.name}`}
+                  animate={{
+                    y: `${tier.selected * -100}%`,
+                  }}
+                  sx={{
+                    height: `100px`,
+                    width: `100px`,
+                  }}
+                />
+              ) : (
+                <Link to={`/pokemon/${mon.name}`}>
+                  <motion.img
+                    src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/src/img/${mon.id}.png`}
+                    alt={`${mon.name}`}
+                    animate={{
+                      y: `${tier.selected * -100}%`,
+                    }}
+                    sx={{
+                      height: `100px`,
+                      width: `100px`,
+                    }}
+                  />
+                </Link>
+              )}
+            </Fragment>
+          )
+        })}
       </div>
 
       {tierArray.length > 1 && (
@@ -66,20 +87,42 @@ const EvolutionTier = ({ tier, tierIndex, handleTap }) => {
           marginTop: tierArray.length > 1 ? "0" : "1.5rem",
         }}
       >
-        {tierArray.map((mon, index) => (
-          <motion.p
-            sx={{
-              margin: "0",
-              textAlign: "center",
-            }}
-            key={`tier-${tierIndex}-evolution-name-${index}`}
-            animate={{
-              y: `${tier.selected * -100}%`,
-            }}
-          >
-            {replaceHyphenWithSpace(mon.name)}
-          </motion.p>
-        ))}
+        {tierArray.map((mon, index) => {
+          return (
+            <Fragment key={`tier-${tierIndex}-evolution-name-${index}`}>
+              {mon.name.includes("-mega") ? (
+                <motion.p
+                  sx={{
+                    margin: "0",
+                    textAlign: "center",
+                  }}
+                  animate={{
+                    y: `${tier.selected * -100}%`,
+                  }}
+                >
+                  {replaceHyphenWithSpace(mon.name)}
+                </motion.p>
+              ) : (
+                <Link
+                  to={`/pokemon/${mon.name}`}
+                  sx={{ textDecoration: "none", color: "text" }}
+                >
+                  <motion.p
+                    sx={{
+                      margin: "0",
+                      textAlign: "center",
+                    }}
+                    animate={{
+                      y: `${tier.selected * -100}%`,
+                    }}
+                  >
+                    {replaceHyphenWithSpace(mon.name)}
+                  </motion.p>
+                </Link>
+              )}
+            </Fragment>
+          )
+        })}
       </div>
     </div>
   )
