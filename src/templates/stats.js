@@ -4,7 +4,8 @@ import { graphql } from "gatsby"
 import { motion } from "framer-motion"
 
 import PokemonLayout from "../components/PokemonLayout"
-import TypeEffectiveness from "../components/TypeEffectiveness"
+import Stats from "../components/Stats"
+// import TypeEffectiveness from "../components/TypeEffectiveness"
 
 const labelStyles = {
   color: "#737373",
@@ -57,123 +58,22 @@ const PokemonStats = ({
   location,
 }) => {
   const pokemon = { ...data.pokeapi.pokemon, name, id, dominant_color }
-  const total =
-    pokemon.base_stats.hp +
-    pokemon.base_stats.attack +
-    pokemon.base_stats.defense +
-    pokemon.base_stats.special_attack +
-    pokemon.base_stats.special_defense +
-    pokemon.base_stats.speed
+  // const total =
+  //   pokemon.base_stats.hp +
+  //   pokemon.base_stats.attack +
+  //   pokemon.base_stats.defense +
+  //   pokemon.base_stats.special_attack +
+  //   pokemon.base_stats.special_defense +
+  //   pokemon.base_stats.speed
 
   return (
-    <PokemonLayout pokemon={pokemon} location={location}>
-      {/* <AnimatePresence> */}
-      <motion.div
-        // layoutId={`${pokemon.name}-info`}
-        initial={{
-          x: 40,
-          opacity: 0,
-        }}
-        animate={{
-          x: 0,
-          opacity: 1,
-          transition: { delay: 0.4 },
-        }}
-        exit={{
-          x: -40,
-          opacity: 0,
-        }}
-      >
-        <h3 sx={{ textAlign: "start" }}>Base Stats</h3>
-
-        <div
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "100px 1fr",
-            gridColumnGap: "15px",
-            alignItems: "baseline",
-            width: "100%",
-          }}
-        >
-          <label htmlFor={`${pokemon.name}-hp`} sx={labelStyles}>
-            HP
-          </label>
-          <div sx={{ ...gridChildren, ...statContainer }}>
-            <p id={`${pokemon.name}-hp`} sx={gridChildren}>
-              {pokemon.base_stats.hp}
-            </p>
-            <Bar stat={pokemon.base_stats.hp} total={total} />
-          </div>
-
-          <span sx={rowUnderline} />
-          <label htmlFor={`${pokemon.name}-attack`} sx={labelStyles}>
-            Attack
-          </label>
-          <div sx={{ ...gridChildren, ...statContainer }}>
-            <p id={`${pokemon.name}-attack`}>{pokemon.base_stats.attack}</p>
-            <Bar stat={pokemon.base_stats.attack} total={total} />
-          </div>
-
-          <span sx={rowUnderline} />
-          <label htmlFor={`${pokemon.name}-defense`} sx={labelStyles}>
-            Defense
-          </label>
-          <div sx={{ ...gridChildren, ...statContainer }}>
-            <p id={`${pokemon.name}-defense`}>{pokemon.base_stats.defense}</p>
-            <Bar stat={pokemon.base_stats.defense} total={total} />
-          </div>
-
-          <span sx={rowUnderline} />
-          <label htmlFor={`${pokemon.name}-special-attack`} sx={labelStyles}>
-            Sp. Atk
-          </label>
-          <div sx={{ ...gridChildren, ...statContainer }}>
-            <p id={`${pokemon.name}-special-attack`}>
-              {pokemon.base_stats.special_attack}
-            </p>
-            <Bar stat={pokemon.base_stats.special_attack} total={total} />
-          </div>
-
-          <span sx={rowUnderline} />
-          <label htmlFor={`${pokemon.name}-special-defense`} sx={labelStyles}>
-            Sp. Def
-          </label>
-          <div sx={{ ...gridChildren, ...statContainer }}>
-            <p id={`${pokemon.name}-special-defense`}>
-              {pokemon.base_stats.special_defense}
-            </p>
-            <Bar stat={pokemon.base_stats.special_defense} total={total} />
-          </div>
-
-          <span sx={rowUnderline} />
-          <label htmlFor={`${pokemon.name}-speed`} sx={labelStyles}>
-            Speed
-          </label>
-          <div sx={{ ...gridChildren, ...statContainer }}>
-            <p id={`${pokemon.name}-speed`}>{pokemon.base_stats.speed}</p>
-            <Bar stat={pokemon.base_stats.speed} total={total} />
-          </div>
-
-          <span sx={rowUnderline} />
-
-          <label
-            htmlFor={`${pokemon.name}-stat-total`}
-            style={{ fontWeight: `600`, color: `black` }}
-            sx={labelStyles}
-          >
-            Total
-          </label>
-          <div sx={{ ...gridChildren, ...statContainer }}>
-            <p id={`${pokemon.name}-stat-total`} style={{ fontWeight: `600` }}>
-              {total}
-            </p>
-          </div>
-
-          <span sx={rowUnderline} />
-        </div>
-        <TypeEffectiveness name={pokemon.name} types={pokemon.types} />
-      </motion.div>
-      {/* </AnimatePresence> */}
+    <PokemonLayout
+      pokemon={pokemon}
+      location={location}
+      idLayout={`pokemon-${pokemon.name}-stats`}
+      imgIdLayout={`${pokemon.name}-image-moves`}
+    >
+      <Stats pokemon={pokemon} />
     </PokemonLayout>
   )
 }
