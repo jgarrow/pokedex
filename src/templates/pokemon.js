@@ -28,7 +28,12 @@ const Pokemon = ({
   // const nextPokemon = data.pokeapi.nextPokemon
 
   return (
-    <PokemonLayout pokemon={pokemon} location={location}>
+    <PokemonLayout
+      pokemon={pokemon}
+      location={location}
+      idLayout={`pokemon-${pokemon.name}`}
+      imgIdLayout={`${pokemon.name}-image`}
+    >
       <About pokemon={pokemon} />
     </PokemonLayout>
   )

@@ -16,7 +16,12 @@ const Moves = ({
   const pokemon = { ...data.pokeapi.pokemon, id, name, dominant_color }
 
   return (
-    <PokemonLayout pokemon={pokemon} location={location}>
+    <PokemonLayout
+      pokemon={pokemon}
+      location={location}
+      idLayout={`pokemon-${pokemon.name}-moves`}
+      imgIdLayout={`${pokemon.name}-image-moves`}
+    >
       <PokemonMoves pokemon={pokemon} />
     </PokemonLayout>
   )

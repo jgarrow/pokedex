@@ -16,7 +16,12 @@ const PokemonEvolution = ({
   const tiers = getTiers(pokemon)
 
   return (
-    <PokemonLayout pokemon={pokemon} location={location}>
+    <PokemonLayout
+      pokemon={pokemon}
+      location={location}
+      idLayout={`pokemon-${pokemon.name}-evolution`}
+      imgIdLayout={`${pokemon.name}-image-evolution`}
+    >
       <Evolution pokemon={pokemon} evolutionTiers={tiers} />
     </PokemonLayout>
   )
