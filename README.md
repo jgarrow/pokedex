@@ -1,4 +1,7 @@
-This is a Pokédex built with [Gatsby](https://www.gatsbyjs.com/). It uses my own [GraphQL server](https://github.com/jgarrow/graphql-server-pokeapi), which uses the [PokéAPI](https://github.com/PokeAPI/pokeapi) sqlite3 database for the data source. Since the data is from an external source, some data is still incomplete (i.e. Let's Go Pikachu, Let's Go Eevee, Sword, and Shield). I periodically pull from PokèAPI to update the database to keep the app up to date, but at the end of the day, I'm at the mercy of PokéAPI.
+This is a Pokédex built with [Gatsby](https://www.gatsbyjs.com/). It uses my own [GraphQL server](https://github.com/jgarrow/graphql-server-pokeapi), which uses the [PokéAPI](https://github.com/PokeAPI/pokeapi) SQLite3 database for the data source. Since the data is from an external source, some data is still incomplete (i.e. Let's Go Pikachu, Let's Go Eevee, Sword, and Shield). I periodically pull from PokèAPI to update the database to keep the app up to date, but at the end of the day, I'm at the mercy of PokéAPI.
+
+## In Progress
+- Desktop design and implementation
 
 ## Using this repo
 
