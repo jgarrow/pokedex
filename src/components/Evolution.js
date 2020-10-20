@@ -135,7 +135,7 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
               sx={{ width: "100px", height: "100px", justifySelf: "center" }}
             >
               <img
-                src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/src/img/${newTiers[0].pokemon[0].id}.png`}
+                src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/server/src/img/${newTiers[0].pokemon[0].id}.png`}
                 alt={`${newTiers[0].pokemon[0].name}`}
                 sx={{ width: `100%` }}
               />

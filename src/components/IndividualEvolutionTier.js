@@ -38,7 +38,7 @@ const EvolutionTier = ({ tier, tierIndex, handleTap }) => {
             <Fragment key={`tier-${tierIndex}-evolution-img-${index}`}>
               {mon.name.includes("-mega") ? (
                 <motion.img
-                  src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/src/img/${mon.id}.png`}
+                  src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/server/src/img/${mon.id}.png`}
                   alt={`${mon.name}`}
                   animate={{
                     y: `${tier.selected * -100}%`,
@@ -51,7 +51,7 @@ const EvolutionTier = ({ tier, tierIndex, handleTap }) => {
               ) : (
                 <Link to={`/pokemon/${mon.name}`}>
                   <motion.img
-                    src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/src/img/${mon.id}.png`}
+                    src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/server/src/img/${mon.id}.png`}
                     alt={`${mon.name}`}
                     animate={{
                       y: `${tier.selected * -100}%`,

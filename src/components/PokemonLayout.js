@@ -128,7 +128,7 @@ const PokemonLayout = ({
             }}
           >
             <motion.img
-              src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/src/img/${pokemon.id}.png`}
+              src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/server/src/img/${pokemon.id}.png`}
               alt={`${pokemon.name}`}
               layoutId={imgIdLayout}
               sx={{
