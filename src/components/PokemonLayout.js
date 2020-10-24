@@ -63,14 +63,7 @@ const NidoranName = ({ name }) => {
   )
 }
 
-const PokemonLayout = ({
-  pokemon,
-  children,
-  location,
-  // idLayout,
-  // imgIdLayout,
-  // nameIdLayout,
-}) => {
+const PokemonLayout = ({ pokemon, children, location }) => {
   const bgColor =
     pokemon.dominant_color &&
     pokemon.dominant_color.light &&
@@ -81,11 +74,6 @@ const PokemonLayout = ({
   const idLayout = `pokemon-${pokemon.name}`
   const imgIdLayout = `${pokemon.name}-image`
   const nameIdLayout = `${pokemon.name}-name`
-  const locationChange =
-    location.state.prevPokemon === pokemon.name ? "position" : true
-
-  console.log("location: ", location)
-  console.log("locationChange", locationChange)
 
   return (
     <Fragment>
@@ -101,14 +89,8 @@ const PokemonLayout = ({
           zIndex: 1000,
         }}
       >
-        <motion.div
-          // layout={locationChange}
-          layoutId={idLayout}
-        >
-          <Header
-            name={pokemon.name}
-            // bgColor={pokemon.dominant_color.original}
-          />
+        <motion.div layoutId={idLayout}>
+          <Header name={pokemon.name} />
           <div
             sx={{
               display: "flex",
@@ -116,62 +98,33 @@ const PokemonLayout = ({
               alignItems: "center",
               position: "relative",
               overflow: "hidden",
-
-              // "::after": {
-              //   position: "absolute",
-              //   top: "0px",
-              //   content: `"${
-              //     pokemon.name.includes("nidoran")
-              //       ? "Nidoran"
-              //       : replaceHyphenWithSpace(pokemon.name)
-              //   }"`,
-              //   background:
-              //     "linear-gradient(180deg, rgba(254, 254, 254, 0.4) 0%, rgba(254, 254, 254, 0.0104167) 85%, rgba(254, 254, 254, 0) 100%)",
-              //   fontSize: "9rem",
-              //   lineHeight: "1",
-              //   WebkitBackgroundClip: "text",
-              //   WebkitTextFillColor: "transparent",
-              //   zIndex: "-1",
-              // },
             }}
           >
-            {/* <div
+            <motion.img
+              layout={true}
+              // layout={locationChange}
+              src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/server/src/img/${pokemon.id}.png`}
+              alt={`${pokemon.name}`}
+              layoutId={imgIdLayout}
               sx={{
-                height: "250px",
                 width: "250px",
-                // maxWidth: "250px",
-                // maxHeight: "250px",
-                position: "relative",
-                margin: "0 auto",
-              }}
-            > */}
-              <motion.img
-                layout={true}
-                // layout={locationChange}
-                src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/server/src/img/${pokemon.id}.png`}
-                alt={`${pokemon.name}`}
-                layoutId={imgIdLayout}
-                sx={{
-                  width: "250px",
-                  height: "250px",
-                  // width: "100%",
-                  // height: "100%",
+                height: "250px",
+                // width: "100%",
+                // height: "100%",
 
-                  position: "relative",
-                  backgroundImage: `url(${pokeball})`,
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "90%",
-                  backgroundPosition: "center",
-                  filter: "drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.5))",
-                }}
-              />
-            {/* </div> */}
+                position: "relative",
+                backgroundImage: `url(${pokeball})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "90%",
+                backgroundPosition: "center",
+                filter: "drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.5))",
+              }}
+            />
 
             {pokemon.name.includes("nidoran") ? (
               <NidoranName name={pokemon.name} />
             ) : (
               <motion.h2
-                // layout={locationChange}
                 layoutId={nameIdLayout}
                 sx={{
                   margin: "0",
@@ -246,6 +199,8 @@ const PokemonLayout = ({
         </motion.div>
         <motion.section
           initial={
+            location &&
+            location.state &&
             location.state.prevPokemon === pokemon.name
               ? { y: 0, opacity: 1 }
               : { y: 200, opacity: 0 }
@@ -274,6 +229,8 @@ const PokemonLayout = ({
         >
           <motion.div
             initial={
+              location &&
+              location.state &&
               location.state.prevPokemon === pokemon.name
                 ? {
                     x: 40,
@@ -282,6 +239,8 @@ const PokemonLayout = ({
                 : {}
             }
             animate={
+              location &&
+              location.state &&
               location.state.prevPokemon === pokemon.name
                 ? {
                     x: 0,
@@ -294,7 +253,6 @@ const PokemonLayout = ({
             {children}
           </motion.div>
         </motion.section>
-        {/* </motion.div> */}
       </motion.div>
     </Fragment>
   )
