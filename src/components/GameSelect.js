@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 
 import { FiChevronDown } from "react-icons/fi"
 import { replaceUnderscoreWithSpace } from "../utils/stringParsing"
-import { getContrast } from "../utils/getColorContrast"
+// import { getContrast } from "../utils/getColorContrast"
 
 const pStyles = {
   margin: "0",
@@ -15,14 +15,14 @@ const pStyles = {
   borderBottom: "1px solid #f0f0f0",
 }
 
-const GameSelect = ({ bgColor }) => {
+const GameSelect = () => {
   const [open, setOpen] = useState("0")
   const [rotation, setRotation] = useState(0)
   const { game, updateGame } = useContext(GameContext)
 
-  const contrastColor = getContrast(bgColor)
-  const arrowBgShadow =
-    contrastColor === "rgb(1,1,1)" ? "rgb(254, 254, 254)" : "rgb(1,1,1)"
+  // const contrastColor = getContrast(bgColor)
+  // const arrowBgShadow =
+  //   contrastColor === "rgb(1,1,1)" ? "rgb(254, 254, 254)" : "rgb(1,1,1)"
 
   const toggleDropdown = () => {
     const newVal = open === "0" ? "150px" : "0"

@@ -90,7 +90,10 @@ const PokemonLayout = ({
           zIndex: 1000,
         }}
       >
-        <Header name={pokemon.name} bgColor={pokemon.dominant_color.original} />
+        <Header
+          name={pokemon.name}
+          // bgColor={pokemon.dominant_color.original}
+        />
         <div
           sx={{
             display: "flex",
