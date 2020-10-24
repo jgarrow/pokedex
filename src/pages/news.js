@@ -8,12 +8,7 @@ import Header from "../components/MainHeader"
 const News = () => {
   return (
     <Layout>
-      <Header
-        showArrow={true}
-        heading="Poké News"
-        pokemonList={[]}
-        setSearchResults={() => {}} // don't do anything right now
-      />
+      <Header heading="Poké News" />
 
       <div sx={{ position: "relative" }}>
         <Timeline

@@ -10,12 +10,7 @@ const Items = () => {
   // const items = data.pokeapi.allItems
   return (
     <Layout>
-      <Header
-        showArrow={true}
-        heading="Poké Items"
-        pokemonList={[]}
-        setSearchResults={() => {}} // don't do anything right now
-      />
+      <Header heading="Poké Items" />
       <p sx={{ textAlign: "center" }}>Page under construction</p>
       {/* <ItemsList items={items} /> */}
     </Layout>

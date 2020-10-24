@@ -7,12 +7,7 @@ import Header from "../components/MainHeader"
 const TypeCharts = () => {
   return (
     <Layout>
-      <Header
-        showArrow={true}
-        heading="Abilities"
-        pokemonList={[]}
-        setSearchResults={() => {}} // don't do anything right now
-      />
+      <Header heading="Abilities" />
       <p sx={{ textAlign: "center" }}>Page under construction</p>
     </Layout>
   )
