@@ -10,9 +10,6 @@ const Header = ({ children, heading }) => {
         width: "100%",
         padding: "1rem 0.5rem 0",
         marginBottom: "1.5rem",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-end",
       }}
     >
       <div

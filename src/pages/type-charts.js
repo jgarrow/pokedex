@@ -6,8 +6,7 @@ import Header from "../components/MainHeader"
 
 const TypeCharts = () => {
   return (
-    <Layout>
-      <Header heading="Type Charts" />
+    <Layout header={<Header heading="Type Charts" />}>
       <p sx={{ textAlign: "center" }}>Page under construction</p>
     </Layout>
   )

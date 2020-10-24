@@ -7,9 +7,7 @@ import Header from "../components/MainHeader"
 
 const News = () => {
   return (
-    <Layout>
-      <Header heading="Poké News" />
-
+    <Layout header={<Header heading="Poké News" />}>
       <div sx={{ position: "relative" }}>
         <Timeline
           dataSource={{

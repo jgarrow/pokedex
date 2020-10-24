@@ -9,8 +9,7 @@ import Header from "../components/MainHeader"
 const Items = () => {
   // const items = data.pokeapi.allItems
   return (
-    <Layout>
-      <Header heading="Poké Items" />
+    <Layout header={<Header heading="Poké Items" />}>
       <p sx={{ textAlign: "center" }}>Page under construction</p>
       {/* <ItemsList items={items} /> */}
     </Layout>
