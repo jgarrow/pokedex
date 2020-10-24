@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 
 import About from "../components/About"
 import PokemonLayout from "../components/PokemonLayout"
+import Layout from "../components/Layout"
 
 const Pokemon = ({
   data,
@@ -28,14 +29,17 @@ const Pokemon = ({
   // const nextPokemon = data.pokeapi.nextPokemon
 
   return (
-    <PokemonLayout
-      pokemon={pokemon}
-      location={location}
-      idLayout={`pokemon-${pokemon.name}`}
-      imgIdLayout={`${pokemon.name}-image`}
-    >
-      <About pokemon={pokemon} />
-    </PokemonLayout>
+    <Layout>
+      <PokemonLayout
+        pokemon={pokemon}
+        location={location}
+        idLayout={`pokemon-${pokemon.name}`}
+        imgIdLayout={`${pokemon.name}-image`}
+        nameIdLayout={`${pokemon.name}-name`}
+      >
+        <About pokemon={pokemon} />
+      </PokemonLayout>
+    </Layout>
   )
 }
 

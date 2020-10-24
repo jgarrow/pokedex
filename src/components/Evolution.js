@@ -50,16 +50,16 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
   }
 
   return (
-    <motion.section
-      initial={{
-        x: 40,
-        opacity: 0,
-      }}
-      animate={{
-        x: 0,
-        opacity: 1,
-        transition: { delay: 0.4 },
-      }}
+    <Fragment
+      // initial={{
+      //   // x: 40,
+      //   opacity: 0,
+      // }}
+      // animate={{
+      //   // x: 0,
+      //   opacity: 1,
+      //   transition: { delay: 0.4 },
+      // }}
     >
       <h3 sx={title}>Evolution Chain</h3>
 
@@ -146,7 +146,7 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
           </div>
         ) : null}
       </div>
-    </motion.section>
+    </Fragment>
   )
 }
 

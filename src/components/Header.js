@@ -45,9 +45,9 @@ const Header = ({
           }}
         />
       </Link>
-      <GameSelect
+      {/* <GameSelect
       // bgColor={bgColor}
-      />
+      /> */}
     </header>
   )
 }

@@ -20,7 +20,7 @@ module.exports = {
       options: {
         typeName: `Pokeapi`,
         fieldName: `pokeapi`,
-        url: `http://localhost:4000/`,
+        url: `http://192.168.0.13:4000`,
       },
     },
     "gatsby-plugin-theme-ui",

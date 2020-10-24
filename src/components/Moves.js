@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { motion } from "framer-motion"
-import { useState, useEffect, useContext } from "react"
+import { Fragment, useState, useEffect, useContext } from "react"
 import { GameContext } from "../context/GameContext"
 
 import { replaceUnderscoreWithSpace } from "../utils/stringParsing"
@@ -68,16 +68,16 @@ const Moves = ({ pokemon }) => {
   }, [filterValue, game, pokemon])
 
   return (
-    <motion.section
-      initial={{
-        x: 40,
-        opacity: 0,
-      }}
-      animate={{
-        x: 0,
-        opacity: 1,
-        transition: { delay: 0.4 },
-      }}
+    <Fragment
+      // initial={{
+      //   // x: 40,
+      //   opacity: 0,
+      // }}
+      // animate={{
+      //   // x: 0,
+      //   opacity: 1,
+      //   transition: { delay: 0.4 },
+      // }}
     >
       <div
         sx={{
@@ -128,7 +128,7 @@ const Moves = ({ pokemon }) => {
           </p>
         )}
       </ul>
-    </motion.section>
+    </Fragment>
   )
 }
 export default Moves

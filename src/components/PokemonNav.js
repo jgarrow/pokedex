@@ -73,7 +73,7 @@ const Nav = ({ name, textColor, location: { pathname, state } }) => {
           <Link
             to={`/pokemon/${name}`}
             sx={{ ...linkStyles, color: textColor }}
-            state={{ prevPath: pathname }}
+            state={{ prevPath: pathname, prevPokemon: name }}
           >
             About
           </Link>
@@ -82,7 +82,7 @@ const Nav = ({ name, textColor, location: { pathname, state } }) => {
           <Link
             to={`/pokemon/${name}/stats`}
             sx={{ ...linkStyles, color: textColor }}
-            state={{ prevPath: pathname }}
+            state={{ prevPath: pathname, prevPokemon: name  }}
           >
             Stats
           </Link>
@@ -91,7 +91,7 @@ const Nav = ({ name, textColor, location: { pathname, state } }) => {
           <Link
             to={`/pokemon/${name}/evolution`}
             sx={{ ...linkStyles, color: textColor }}
-            state={{ prevPath: pathname }}
+            state={{ prevPath: pathname, prevPokemon: name }}
           >
             Evolution
           </Link>
@@ -100,7 +100,7 @@ const Nav = ({ name, textColor, location: { pathname, state } }) => {
           <Link
             to={`/pokemon/${name}/moves`}
             sx={{ ...linkStyles, color: textColor }}
-            state={{ prevPath: pathname }}
+            state={{ prevPath: pathname, prevPokemon: name }}
           >
             Moves
           </Link>

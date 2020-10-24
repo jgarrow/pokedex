@@ -8,6 +8,13 @@ import pokeball from "../images/pokeball-bg-sm.svg"
 import { GiMale, GiFemale } from "react-icons/gi"
 
 import { replaceHyphenWithSpace } from "../utils/stringParsing"
+import { RiCalculatorFill } from "react-icons/ri"
+
+// const MotionLink = ({ layoutId, styles, ...props }) => (
+//   <motion.div sx={styles} layoutId={layoutId}>
+//     <Link {...props} />
+//   </motion.div>
+// )
 
 const nameStyles = {
   textDecoration: "none",
@@ -57,14 +64,16 @@ const PokemonListCard = ({ pokemon, variant }) => {
     pokemon.dominant_color.dark
       ? `linear-gradient(135deg, ${pokemon.dominant_color.light}, ${pokemon.dominant_color.dark})`
       : `linear-gradient(135deg, #fefefe, #000000)`
+
   return (
     <motion.li
-      id={`${pokemon.name}`}
+      // id={`${pokemon.name}`}
       layoutId={`pokemon-${pokemon.name}`}
       variants={variant}
       sx={{ width: "100%", height: "60px", listStyle: "none" }}
     >
       <Link
+        // layoutId={`pokemon-${pokemon.name}`}
         to={`/pokemon/${pokemon.name}`}
         sx={{
           textDecoration: "none",
@@ -97,6 +106,9 @@ const PokemonListCard = ({ pokemon, variant }) => {
               position: "relative",
               width: "45px",
               height: "45px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center"
             }}
           >
             <motion.img
@@ -104,7 +116,8 @@ const PokemonListCard = ({ pokemon, variant }) => {
               alt={`${pokemon.name}`}
               layoutId={`${pokemon.name}-image`}
               sx={{
-                width: "100%",
+                width: "45px",
+                height: "45px",
                 backgroundImage: `url(${pokeball})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "90%",
@@ -116,20 +129,32 @@ const PokemonListCard = ({ pokemon, variant }) => {
           {pokemon.name.includes("nidoran") ? (
             <NidoranName name={pokemon.name} />
           ) : (
-            <p sx={nameStyles}>{replaceHyphenWithSpace(pokemon.name)}</p>
+            <motion.p layoutId={`${pokemon.name}-name`} sx={nameStyles}>
+              {replaceHyphenWithSpace(pokemon.name)}
+            </motion.p>
           )}
         </div>
-        <p
+        <motion.p
+          layout={true}
+          initial={{
+            opacity: 0
+          }}
+          animate={{
+            opacity: 1,
+            transition: {
+              delay: 0.4
+            }
+          }}
           sx={{
             position: "absolute",
             right: "4px",
             color: "rgb(254 254 254 / 0.3)",
-            fontSize: "4rem",
+            fontSize: "64px",
             margin: "0",
           }}
         >
           {pokemon.nat_dex_num}
-        </p>
+        </motion.p>
       </Link>
     </motion.li>
   )

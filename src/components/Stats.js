@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
+import { Fragment } from 'react'
 import { motion } from "framer-motion"
 
 import TypeEffectiveness from "./TypeEffectiveness"
@@ -66,20 +67,20 @@ const Stats = ({ pokemon }) => {
       : "--"
 
   return (
-    <motion.div
-      initial={{
-        x: 40,
-        opacity: 0,
-      }}
-      animate={{
-        x: 0,
-        opacity: 1,
-        transition: { delay: 0.4 },
-      }}
-      exit={{
-        x: -40,
-        opacity: 0,
-      }}
+    <Fragment
+      // initial={{
+      //   // x: 40,
+      //   opacity: 0,
+      // }}
+      // animate={{
+      //   // x: 0,
+      //   opacity: 1,
+      //   transition: { delay: 0.4 },
+      // }}
+      // exit={{
+      //   x: -40,
+      //   opacity: 0,
+      // }}
     >
       <h3 sx={{ textAlign: "start" }}>Base Stats</h3>
 
@@ -205,7 +206,7 @@ const Stats = ({ pokemon }) => {
         <span sx={rowUnderline} />
       </div>
       <TypeEffectiveness name={pokemon.name} types={pokemon.types} />
-    </motion.div>
+    </Fragment>
   )
 }
 

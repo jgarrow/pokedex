@@ -35,7 +35,7 @@ const PokemonList = ({ pokemonList }) => {
             width: "100%",
             height: "100%",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
             gridTemplateRows: `repeat(${numRows}, 60px)`,
             gridGap: "1rem",
             padding: "0 0.5rem",
