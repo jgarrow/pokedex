@@ -4,58 +4,48 @@ import { Fragment } from "react"
 import { motion } from "framer-motion"
 
 import PokemonListCard from "./PokemonListCard"
+import { List } from "./List"
 
-const container = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      when: "beforeChildren",
-      // staggerChildren: 0.1, // takes too long to do it for every card
-    },
-  },
+// const container = {
+//   hidden: { opacity: 1 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       when: "beforeChildren",
+//       staggerChildren: 0.1, // takes too long to do it for every card
+//     },
+//   },
+// }
+
+// const card = {
+//   hidden: { y: 30, opacity: 0 },
+//   visible: {
+//     y: 0,
+//     opacity: 1,
+//   },
+// }
+
+const ListCard = ({ key, item: pokemon, style }) => {
+  return <PokemonListCard key={key} pokemon={pokemon} style={style} />
 }
 
-const card = {
-  hidden: { y: 30, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-}
-
-const PokemonList = ({ pokemonList }) => {
-  const numRows = pokemonList.length / 2
-
-  return (
-    <Fragment>
-      {pokemonList ? (
-        <motion.ul
-          sx={{
-            width: "100%",
-            height: "100%",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
-            gridTemplateRows: `repeat(${numRows}, 60px)`,
-            gridGap: "1rem",
-            padding: "0 0.5rem",
-            marginTop: "0",
-          }}
-          variants={container}
-          initial="hidden"
-          animate="visible"
-        >
-          {pokemonList.map(pokemon => (
-            <PokemonListCard
-              pokemon={pokemon}
-              key={`${pokemon.name}-card`}
-              variant={card}
-            />
-          ))}
-        </motion.ul>
-      ) : null}
-    </Fragment>
-  )
-}
+const PokemonList = ({ pokemonList }) => (
+  <Fragment>
+    <List
+      columns={2}
+      data={pokemonList}
+      height="100%"
+      itemHeight={76}
+      width="100%"
+      outerElementType={motion.ul}
+      sx={{
+        padding: "0 0.5rem",
+        marginTop: "0",
+      }}
+    >
+      {ListCard}
+    </List>
+  </Fragment>
+)
 
 export default PokemonList
