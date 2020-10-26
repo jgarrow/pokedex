@@ -19,6 +19,7 @@ export const List = ({
   const gridRef = React.useRef(null)
   const onScroll = e =>
     setScrollTop(e.currentTarget.scrollTop < 0 ? 0 : e.currentTarget.scrollTop)
+
   return (
     <AutoSizer style={{ height: "100%", width: "100%" }}>
       {({ height: availableHeight, width: availableWidth }) => {
@@ -34,10 +35,12 @@ export const List = ({
         const totalRows = Math.ceil(numItems / columns)
         const innerHeight = totalRows * itemHeight
 
-        const startIndex = Math.min(
-          numItems - numVisibleRows * columns,
-          Math.floor(scrollTop / itemHeight) * columns
-        )
+        const startIndex =
+          Math.floor(scrollTop / itemHeight) * columns >
+          numItems - numVisibleRows * columns
+            ? numItems - numVisibleRows * columns - 1
+            : Math.floor(scrollTop / itemHeight) * columns
+
         const endIndex = Math.min(
           numItems - 1,
           startIndex + numVisibleRows * columns + columns - 1
@@ -93,7 +96,7 @@ export const List = ({
                   width: "100%",
                   height: `${gridHeight}px`,
                   display: `grid`,
-                  gridTemplateColumns: `repeat(${columns}, 1fr)`,
+                  gridTemplateColumns: `repeat(${columns}, minmax(150px, 1fr))`,
                   gridTemplateRows: `repeat(${
                     numVisibleRows + 1
                   }, ${itemHeight}px)`,
