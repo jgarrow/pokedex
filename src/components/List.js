@@ -93,7 +93,7 @@ export const List = ({
                   width: "100%",
                   height: `${gridHeight}px`,
                   display: `grid`,
-                  gridTemplateColumns: `repeat(${columns}, 1fr)`,
+                  gridTemplateColumns: `repeat(${columns}, minmax(150px, 1fr))`,
                   gridTemplateRows: `repeat(${
                     numVisibleRows + 1
                   }, ${itemHeight}px)`,
