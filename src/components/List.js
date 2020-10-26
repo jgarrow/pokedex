@@ -57,6 +57,8 @@ export const List = ({
           const row = Math.ceil((i - startIndex + 1) / columns)
           const col = ((i - startIndex) % columns) + 1
 
+          console.log(data)
+
           const props = {
             key: item.id,
             item,

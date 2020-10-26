@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import PokemonListCard from "./PokemonListCard"
 import { List } from "./List"
 
+// Keeping these in case we need to bring them back from framer motion
 // const container = {
 //   hidden: { opacity: 1 },
 //   visible: {
@@ -39,8 +40,9 @@ const PokemonList = ({ pokemonList }) => (
       width="100%"
       outerElementType={motion.ul}
       sx={{
-        padding: "0 0.5rem",
+        columnGap: '1rem',
         marginTop: "0",
+        padding: "0 0.5rem",
       }}
     >
       {ListCard}

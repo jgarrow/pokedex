@@ -50,6 +50,7 @@ const NidoranName = ({ name }) => {
   )
 }
 
+// Probably can delete most of this one
 const PokemonListCardOld = ({ pokemon, variant, style, ...rest }) => {
   const bgColor =
     pokemon.dominant_color &&
@@ -258,4 +259,4 @@ const PokemonListCard = ({ pokemon, variant, style, ...rest }) => {
   )
 }
 
-export default PokemonListCardNew
+export default PokemonListCard
