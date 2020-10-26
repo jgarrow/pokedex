@@ -25,12 +25,8 @@ export const List = ({
         let outerHeight = height
         if (typeof height === "string" && outerHeight.includes("%")) {
           const parsedHeight = parseInt(height)
-          console.log(height)
-          console.log(parsedHeight)
           outerHeight = Math.ceil((availableHeight * parsedHeight) / 100)
         }
-
-        console.log(outerHeight)
         const Component = outerElementType
 
         const numItems = data.length
@@ -56,8 +52,6 @@ export const List = ({
           const item = data[i]
           const row = Math.ceil((i - startIndex + 1) / columns)
           const col = ((i - startIndex) % columns) + 1
-
-          console.log(data)
 
           const props = {
             key: item.id,
