@@ -27,10 +27,13 @@
     "react-dom": "^16.12.0",
     "react-icons": "^3.11.0",
     "react-twitter-widgets": "^1.9.5",
+    "react-virtualized-auto-sizer": "^1.0.2",
     "theme-ui": "^0.3.1",
     "typeface-ubuntu": "0.0.65"
   },
   "devDependencies": {
+    "eslint": "^7.12.0",
+    "eslint-plugin-react": "^7.21.5",
     "prettier": "2.1.1"
   },
   "repository": {

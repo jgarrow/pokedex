@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { useContext, useState, useEffect } from "react"
+import { Fragment, useContext, useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { GameContext } from "../context/GameContext"
 
@@ -64,16 +64,16 @@ const About = ({ pokemon }) => {
   }, [game, pokemon.pokedex_entries])
 
   return (
-    <motion.div
-      initial={{
-        x: 40,
-        opacity: 0,
-      }}
-      animate={{
-        x: 0,
-        opacity: 1,
-        transition: { delay: 0.4 },
-      }}
+    <Fragment
+      // initial={{
+      //   // x: 40,
+      //   opacity: 0,
+      // }}
+      // animate={{
+      //   // x: 0,
+      //   opacity: 1,
+      //   transition: { delay: 0.6 },
+      // }}
     >
       <p sx={{ marginBottom: `0`, textAlign: `center` }}>{dexEntry}</p>
       <section>
@@ -207,7 +207,7 @@ const About = ({ pokemon }) => {
           </p>
         </div>
       </section>
-    </motion.div>
+    </Fragment>
   )
 }
 
