@@ -7,7 +7,6 @@ import GameSelect from "./GameSelect"
 
 const Header = ({
   name,
-  // bgColor
 }) => {
   return (
     <header

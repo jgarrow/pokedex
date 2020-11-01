@@ -3,7 +3,6 @@ import { jsx } from "theme-ui"
 import { motion } from "framer-motion"
 import { Fragment } from "react"
 
-import Layout from "../components/Layout"
 import Header from "../components/Header"
 import Nav from "../components/PokemonNav"
 
@@ -85,7 +84,6 @@ const PokemonLayout = ({ pokemon, children, location }) => {
           position: "relative",
           width: "100%",
           minHeight: "calc(100vh - 75px)",
-          // height: "100%",
           zIndex: 1000,
         }}
       >
@@ -102,15 +100,12 @@ const PokemonLayout = ({ pokemon, children, location }) => {
           >
             <motion.img
               layout={true}
-              // layout={locationChange}
               src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/server/src/img/${pokemon.id}.png`}
               alt={`${pokemon.name}`}
               layoutId={imgIdLayout}
               sx={{
                 width: "250px",
                 height: "250px",
-                // width: "100%",
-                // height: "100%",
 
                 position: "relative",
                 backgroundImage: `url(${pokeball})`,
@@ -175,7 +170,6 @@ const PokemonLayout = ({ pokemon, children, location }) => {
             </ul>
 
             <p
-              // layoutId={`${pokemon.name}-faded-text`}
               sx={{
                 position: "absolute",
                 top: "0px",
