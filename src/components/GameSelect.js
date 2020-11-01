@@ -78,7 +78,7 @@ const GameSelect = () => {
             justifyContent: "center",
             borderRadius: "50%",
             border: "1.5px solid #000",
-            bg: "#fefefe",
+            bg: "#fefefe66",
           }}
         >
           <FiChevronDown
