@@ -7,7 +7,6 @@ import GameSelect from "./GameSelect"
 
 const Header = ({
   name,
-  // bgColor
 }) => {
   return (
     <header
@@ -26,7 +25,7 @@ const Header = ({
         sx={{
           borderRadius: "50%",
           border: "1.5px solid #000",
-          bg: "#fefefe",
+          bg: "#fefefe66",
           width: "1.75rem",
           height: "1.75rem",
           display: "flex",
