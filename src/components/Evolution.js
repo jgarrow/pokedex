@@ -51,15 +51,15 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
 
   return (
     <Fragment
-      // initial={{
-      //   // x: 40,
-      //   opacity: 0,
-      // }}
-      // animate={{
-      //   // x: 0,
-      //   opacity: 1,
-      //   transition: { delay: 0.4 },
-      // }}
+    // initial={{
+    //   // x: 40,
+    //   opacity: 0,
+    // }}
+    // animate={{
+    //   // x: 0,
+    //   opacity: 1,
+    //   transition: { delay: 0.4 },
+    // }}
     >
       <h3 sx={title}>Evolution Chain</h3>
 
@@ -135,7 +135,8 @@ const Evolution = ({ pokemon, evolutionTiers }) => {
               sx={{ width: "100px", height: "100px", justifySelf: "center" }}
             >
               <img
-                src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/server/src/img/${newTiers[0].pokemon[0].id}.png`}
+                // src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/server/src/img/${newTiers[0].pokemon[0].id}.png`}
+                src={`https://dex-images.s3-us-west-1.amazonaws.com/img/${newTiers[0].pokemon[0].id}.png`}
                 alt={`${newTiers[0].pokemon[0].name}`}
                 sx={{ width: `100%` }}
               />

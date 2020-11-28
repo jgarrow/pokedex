@@ -15,6 +15,7 @@ export const List = ({
   width,
   ...rest
 }) => {
+  console.log("data: ", data)
   const [scrollTop, setScrollTop] = React.useState(() => 0)
   const gridRef = React.useRef(null)
   const onScroll = e =>
@@ -46,6 +47,9 @@ export const List = ({
           startIndex + numVisibleRows * columns + columns - 1
         )
 
+        console.log({ startIndex })
+        console.log({ endIndex })
+
         const gridHeight =
           Math.ceil((endIndex - startIndex) / columns) * itemHeight
         const gridTop = (startIndex / columns) * itemHeight
@@ -53,6 +57,7 @@ export const List = ({
         const items = []
         for (let i = startIndex; i <= endIndex; i++) {
           const item = data[i]
+          console.log({ item })
           const row = Math.ceil((i - startIndex + 1) / columns)
           const col = ((i - startIndex) % columns) + 1
 

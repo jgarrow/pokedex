@@ -3,11 +3,9 @@ import { jsx } from "theme-ui"
 import { Link } from "gatsby"
 
 import { RiArrowGoBackFill } from "react-icons/ri"
-import GameSelect from "./GameSelect"
+// import GameSelect from "./GameSelect"
 
-const Header = ({
-  name,
-}) => {
+const Header = ({ pokemon }) => {
   return (
     <header
       sx={{
@@ -21,7 +19,7 @@ const Header = ({
       }}
     >
       <Link
-        to={`/pokemon#${name}`}
+        to={`/pokemon#${pokemon.name}`}
         sx={{
           borderRadius: "50%",
           border: "1.5px solid #000",

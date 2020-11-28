@@ -88,7 +88,7 @@ const PokemonLayout = ({ pokemon, children, location }) => {
         }}
       >
         <motion.div layoutId={idLayout}>
-          <Header name={pokemon.name} />
+          <Header pokemon={pokemon} />
           <div
             sx={{
               display: "flex",
@@ -100,7 +100,8 @@ const PokemonLayout = ({ pokemon, children, location }) => {
           >
             <motion.img
               layout={true}
-              src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/server/src/img/${pokemon.id}.png`}
+              // src={`https://raw.githubusercontent.com/jgarrow/graphql-server-pokeapi/master/server/src/img/${pokemon.id}.png`}
+              src={`https://dex-images.s3-us-west-1.amazonaws.com/img/${pokemon.id}.png`}
               alt={`${pokemon.name}`}
               layoutId={imgIdLayout}
               sx={{
